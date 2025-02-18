@@ -38,9 +38,10 @@
 
 .navlogo img{
     height: 6vh;
+    cursor: pointer;
 }
 
-.btn_cad, .btn_log {
+.btn_contato, .btn_log {
     display: inline-block;
     color: white;
     text-align: center;
@@ -52,14 +53,23 @@
     text-align: center;
     font-size: large;
     text-decoration: none;
+    transition: 0.2s;
 }
 
-.btn_cad{
+.btn_contato{
     background: #003F6A;
+}
+
+.btn_contato:hover{
+    background: rgba(0,49,82, 0.4);
 }
 
 .btn_log{
     background: #106B86;
+}
+
+.btn_log:hover{
+    background: rgba(16, 106, 134, 0.4);
 }
 
 .container_login {
@@ -124,6 +134,12 @@ form button{
     height: 50px;
     background: #003F6A;
     border-radius: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+form button:hover{
+    background-color: #012b47;
 }
 
 .img_login {
