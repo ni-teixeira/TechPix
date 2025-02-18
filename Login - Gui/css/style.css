@@ -17,6 +17,8 @@
     background: #272B30;
     padding: 0 4vh;
     color: white;
+    font-family: "Afacad", serif;
+    font-weight: bold;
 }
 
 .botoes_nav {
@@ -47,7 +49,9 @@
     padding: 1vh 1.5vh;
     border-radius: 10px;
     cursor: pointer;
-    
+    text-align: center;
+    font-size: large;
+    text-decoration: none;
 }
 
 .btn_cad{
@@ -123,5 +127,13 @@ form button{
 }
 
 .img_login{
-    
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F5F5;
+}
+
+.img_login img {
+    width: 80%;
 }
