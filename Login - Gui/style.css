@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 7vh;
+    justify-content: space-between;
+    align-items: center;
+    background: #272B30;
+    padding: 0 4vh;
+    color: white;
+}
+
+.botoes_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+}
+
+.navlogo{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.navlogo img{
+    height: 6vh;
+}
+
+.btn_cad, .btn_log {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    border: none;
+    width: 9vh;
+    padding: 1vh 1.5vh;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+
+.btn_cad{
+    background: #003F6A;
+}
+
+.btn_log{
+    background: #106B86;
+}
+
+.container_login {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    position: inherit;
+    font-family: "Afacad", serif;
+    font-weight: bold;
+}
+
+.form_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background: #567EBB;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    flex-direction: column;
+    width: 50%;
+}
+
+h2 {
+    font-size: 8vh;
+    text-align: center;
+    color: #FEFFFF;
+    margin-bottom: 55px;
+}
+
+input{
+    padding: 10px;
+    font-size: 24px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: none;
+    width: 100%;
+    height: 5.5vh;
+}
+
+input::placeholder{
+    color: #C6C6C6;
+}
+
+form button{   
+    font-family: "Afacad", serif;
+    font-weight: bold;
+    border: 0;
+    width: 40%;
+    font-size: 4vh;
+    color: white;
+    height: 50px;
+    background: #003F6A;
+    border-radius: 25px;
+}
+
+.img_login{
+    
+}
