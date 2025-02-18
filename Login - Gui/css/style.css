@@ -126,12 +126,14 @@ form button{
     border-radius: 25px;
 }
 
-.img_login{
+.img_login {
     width: 50%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #F5F5F5;
+    padding-top: 7vh;
 }
 
 .img_login img {
