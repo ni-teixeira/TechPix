@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 
 
 body{
@@ -141,4 +143,84 @@ body::-webkit-scrollbar {
     width: 10vw;
     height: 8vh;
     background-color: #003F6A;
+}
+
+.separacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 20vh;
+    background-color: white;
+}
+
+.separacao span{
+    font-family: 'Lora';
+    text-align: center;
+    font-size: 42px;
+}
+
+.principal_impacto{
+    display: flex;
+    width: 100%;
+    flex-direction: row; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01010D;
+}
+
+.principal_impacto2{
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
+    justify-content: space-between;
+    align-items: center;
+    background-color: #01010D;
+}
+
+.imagem_impacto {
+    width: 50vw; 
+    height: 100vh; 
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    height: 100vh;
+    align-items: center;
+}
+
+.principal_impacto .texto p{
+    margin-top: 100px;
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.principal_impacto .texto button{
+    margin-top: 30px
+}
+
+.botoes_impacto{
+    border: none;
+    border-radius: 15px;
+    color: white;
+    width: 10vw;
+    height: 8vh;
+    background-color: #003F6A;
+}
+
+.principal_impacto2 .texto p{
+    margin-top: 100px;
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.principal_impacto2 .texto button{
+    margin-top: 30px
 }
