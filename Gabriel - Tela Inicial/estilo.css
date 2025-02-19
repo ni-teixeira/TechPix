@@ -72,7 +72,6 @@ body::-webkit-scrollbar {
     margin-top: 10vh;
     /* border: solid 1px red; */
     display: flex;
-    /* justify-content: space-around; */
     flex-direction: column;
     align-items: center;
 }
