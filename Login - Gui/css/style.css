@@ -14,7 +14,7 @@
     height: 7vh;
     justify-content: space-between;
     align-items: center;
-    background: #272B30;
+    background: transparent;
     padding: 0 4vh;
     color: white;
     font-family: "Afacad", serif;
@@ -37,7 +37,7 @@
 }
 
 .navlogo img{
-    height: 6vh;
+    height: 8vh;
     cursor: pointer;
 }
 
@@ -94,7 +94,7 @@
     background: #567EBB;
 }
 
-form {
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,7 +124,7 @@ input::placeholder{
     color: #C6C6C6;
 }
 
-form button{   
+.form button{   
     font-family: "Afacad", serif;
     font-weight: bold;
     border: 0;
@@ -138,8 +138,14 @@ form button{
     transition: 0.2s;
 }
 
-form button:hover{
+.form button:hover{
     background-color: #012b47;
+}
+
+.mensagemErro{
+    font-family: "Afacad", serif;
+    color: white;
+    font-size: 4vh;
 }
 
 .img_login {

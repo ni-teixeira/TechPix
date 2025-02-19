@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./assets/logo.png" sizes="16x16">
+    <script src="./js/scriptLogin.js"></script>
 </head>
 
 <body>
@@ -27,17 +28,17 @@
     <div class="container_login">
         <div class="form_login">
             <h2>Bem-vindo(a)!</h2>
-            <form>
-                <input type="text" placeholder="ID da sua empresa">
-                <input placeholder="E-mail">
-                <input type="password" placeholder="Senha">
+            <div class="form">
+                <input id="iptcodigo" type="text" placeholder="Código da sua empresa">
+                <input id="iptemail" placeholder="E-mail">
+                <input id="iptsenha" type="password" placeholder="Senha">
                 <button onclick="logar()">Entrar</button>
-            </form>
+                <div class="mensagemErro" id="divmsg"></div>
+            </div class="form">
         </div>
         <div class="img_login">
             <img src="./assets/imagem_login.png"> 
         </div>
     </div>
 </body>
-
 </html>
