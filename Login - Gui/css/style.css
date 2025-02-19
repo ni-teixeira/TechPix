@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 7vh;
+    height: 4rem;
     justify-content: space-between;
     align-items: center;
     background: transparent;
@@ -32,12 +32,12 @@
 
 .navlogo{
     display: flex;
-    justify-content: center;
     align-items: center; 
 }
 
 .navlogo img{
-    height: 8vh;
+    height: 6rem;
+    width: auto;
     cursor: pointer;
 }
 
@@ -46,8 +46,8 @@
     color: white;
     text-align: center;
     border: none;
-    width: 13vh;
-    padding: 1vh;
+    width: 10vw;
+    padding: 0.75rem 1.5rem;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -61,7 +61,7 @@
 }
 
 .btn_contato:hover{
-    background: rgba(0,49,82, 0.4);
+    background: rgb(0, 32, 53);
 }
 
 .btn_log{
@@ -69,7 +69,7 @@
 }
 
 .btn_log:hover{
-    background: rgba(16, 106, 134, 0.4);
+    background: rgb(14, 96, 121);
 }
 
 .container_login {
@@ -104,7 +104,7 @@
 }
 
 h2 {
-    font-size: 8vh;
+    font-size: 5rem;
     text-align: center;
     color: #FEFFFF;
     margin-bottom: 55px;
@@ -112,7 +112,7 @@ h2 {
 
 input{
     padding: 10px;
-    font-size: 24px;
+    font-size: 1.5rem;
     margin: 10px 0;
     border-radius: 25px;
     border: none;
@@ -129,7 +129,7 @@ input::placeholder{
     font-weight: bold;
     border: 0;
     width: 40%;
-    font-size: 4vh;
+    font-size: 2rem;
     color: white;
     height: 50px;
     background: #003F6A;
@@ -145,7 +145,7 @@ input::placeholder{
 .mensagemErro{
     font-family: "Afacad", serif;
     color: white;
-    font-size: 4vh;
+    font-size: 2rem;
 }
 
 .img_login {
