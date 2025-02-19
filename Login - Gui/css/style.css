@@ -90,7 +90,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
     width: 50%;
+    gap: 5vh;
     background: #567EBB;
 }
 
@@ -107,7 +109,6 @@ h2 {
     font-size: 5rem;
     text-align: center;
     color: #FEFFFF;
-    margin-bottom: 55px;
 }
 
 input{
