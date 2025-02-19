@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+body{
+    margin: 0;
+    /* background-color: black; */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+}
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; 
+    height: 10vh;
+    background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
+    background-color: black;
+}
+
+.conteudo{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 5vw;
+    height: 9vh;
+}
+
+.botoes{
+    display: flex;
+    width: 20vw;
+    justify-content: space-around;
+}
+
+.botoes_login{
+    border: none;
+    width: 9vw;
+    height: 5vh;
+    background-color: #003F6A;
+    border-radius: 10px;
+}
+
+.botoes_cadastro{
+    border: none;
+    width: 9vw;
+    height: 5vh;
+    background-color: #106B86;
+    border-radius: 10px;
+}
+
+.banner_fundo{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./img/melhor.jpg); 
+    background-size: cover; /* Faz a imagem cobrir todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+
+.tudo{
+    height: 80vh;
+    margin-left: 10vh;
+    margin-top: 10vh;
+    /* border: solid 1px red; */
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: column;
+    align-items: center;
+}
+
+.teste_banner{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo_banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    /* border: 1px solid red; */
+    width: 40vw;
+    height: 50vh;
+}
+
+.pix{
+    width: 7vw;
+    margin-bottom: 2vh;
+}
+
+.techpix{
+    width: 24vw;
+    height: 16vh;
+    margin-bottom: 4vh;
+}
+
+.slogan{
+    display: flex;
+    /* border: 1px solid red; */
+    font-family: 'Karla';
+    width: 40vw;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.slogan span {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #567EBB 35%, #FFFAFF 80%);  /* Aplica o degradê horizontalmente */
+    -webkit-background-clip: text; /* Faz com que o degradê seja aplicado apenas ao texto. */
+    -webkit-text-fill-color: transparent; /* Deixa o preenchimento do texto invisível para exibir o degradê. */
+    font-weight: 800;
+}
+
+
+.botao{
+    display: flex;
+    margin-top: 5vh;
+}
+
+.botoes_login_banner{
+    border: none;
+    width: 10vw;
+    height: 8vh;
+    background-color: #606D80;
+}
+
+.botoes_cadastro_banner{
+    border: none;
+    color: white;
+    width: 10vw;
+    height: 8vh;
+    background-color: #003F6A;
+}
