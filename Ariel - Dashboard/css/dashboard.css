@@ -1,82 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            background-color: #808080;
-            height: 100vh;
-        }
-        .header {
-            width: 100%;
-            background-color: black;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            position: relative;
-        }
-        .header::before {
-            content: "";
-            background: url('../assets/logo.png') no-repeat center;
-            background-size: contain;
-            width: 150px;
-            height: 60px;
-            display: block;
-        }
-        .main {
-            display: flex;
-            flex: 1;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #4a75a9;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
-        .sidebar img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: lightgray;
-            margin-bottom: 15px;
-        }
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-        .sidebar button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            background-color: #6ba3e8;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 20px;
-            font-size: 16px;
-            text-align: left;
-            padding-left: 15px;
-        }
-        .sidebar button:hover {
-            background-color: #568bc5;
-        }
-        .content {
-            flex: 1;
-            padding: 20px;
-            background-color: white;
-        }
-        .dashboard {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 0 4vh;
+    color: white;
+    font-family: "Afacad", serif;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.botoes_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+}
+
+.navlogo{
+    display: flex;
+    align-items: center; 
+}
+
+.navlogo img{
+    height: 6rem;
+    width: auto;
+    cursor: pointer;
+}
+
+.btn_contato, .btn_log {
+    display: inline-block;
+    color: #004080;
+    text-align: center;
+    border: none;
+    width: 10vw;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    text-decoration: none;
+    transition: 0.2s;
+    border: 2px solid #004080;
+}
+
+.btn_contato{
+    background: white;
+}
+
+.btn_contato:hover{
+    background: #004080;
+    color: white;
+}
+
+.btn_log{
+    background: white;
+}
+
+.btn_log:hover{
+    background: #004080;
+    color: white;
+}
+
+.main {
+    display: flex;
+    margin-top: 4rem;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #4a75a9;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #6ba3e8;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+.sidebar button:hover {
+    background-color: #568bc5;
+}
+
+.btn_sair {
+    margin-top: auto; /* Move o botão para o final da sidebar */
+    background-color: red;
+}
+
+.btn_sair:hover {
+    background-color: darkred;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.metrics {
+    display: none;
+    padding: 20px;
+    background: #eef;
+    border-radius: 10px;
+    margin-top: 20px;
+}

@@ -7,24 +7,88 @@
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
-    <div class="header">
-        <link rel="icon" type="image/png" href="./assets/logo.png" sizes="16x16">
+  <!-- NAVBAR-->
+  <nav class="navbar">
+    <div class="navlogo">
+        <a href="index.html"><img src="./assets/logo.png" alt=""></a>
     </div>
-    <div class="main">
-        <div class="sidebar">
-            <img src="" alt="Avatar">
-            <h2>Olá,"Usuário"!</h2>
-            <button>Servidor 01</button>
-            <button>Servidor 02</button>
-            <button>Servidor 03</button>
-            <button>Servidor 04</button>
-        </div>
-        <div class="content">
-            <div class="dashboard">
-                <h2>Painel de Estatísticas</h2>
-           
+    <ul class="botoes_nav">
+        <li><a href="contate-nos.html" class="btn_contato">Contate-nos</a></li>
+        <li><a href="index.html" class="btn_log">Home</a></li>
+    </ul>
+</nav>
+<!-- CONTAINER PRINCIPAL -->
+<div class="main">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <img src="" alt="Avatar">
+        <h2>Olá, "Usuário"!</h2>
+        <button onclick="mostrarMetricas(1)">Servidor 01</button>
+        <button onclick="mostrarMetricas(2)">Servidor 02</button>
+        <button onclick="mostrarMetricas(3)">Servidor 03</button>
+        <button onclick="mostrarMetricas(4)">Servidor 04</button>
+        <button class="btn_sair" onclick="window.location.href='index.html'">Sair</button>
+    </div>
+    <!-- PAINEL DE CONTEÚDO -->
+    <div class="content">
+        <div class="dashboard">
+            <h2>Painel de Estatísticas</h2>
+            <div id="metricas-1" class="metricas">
+                <h3>Métricas do Servidor 01</h3>
+                <div class="kpis">
+                    <span>KPI 1: 80%</span>
+                    <span>KPI 2: 95%</span>
+                </div>
+                <div class="graficos">
+                    <canvas id="grafico1"></canvas>
+                    <canvas id="grafico2"></canvas>
+                </div>
+            </div>
+            <div id="metricas-2" class="metricas">
+                <h3>Métricas do Servidor 02</h3>
+                <div class="kpis">
+                    <span>KPI 1: 75%</span>
+                    <span>KPI 2: 89%</span>
+                </div>
+                <div class="graficos">
+                    <canvas id="grafico3"></canvas>
+                    <canvas id="grafico4"></canvas>
+                </div>
+            </div>
+            <div id="metricas-3" class="metricas">
+                <h3>Métricas do Servidor 03</h3>
+                <div class="kpis">
+                    <span>KPI 1: 92%</span>
+                    <span>KPI 2: 88%</span>
+                </div>
+                <div class="graficos">
+                    <canvas id="grafico5"></canvas>
+                    <canvas id="grafico6"></canvas>
+                </div>
+            </div>
+            <div id="metricas-4" class="metricas">
+                <h3>Métricas do Servidor 04</h3>
+                <div class="kpis">
+                    <span>KPI 1: 67%</span>
+                    <span>KPI 2: 78%</span>
+                </div>
+                <div class="graficos">
+                    <canvas id="grafico7"></canvas>
+                    <canvas id="grafico8"></canvas>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
+<script>
+    function mostrarMetricas(id) {
+        let todasMetricas = document.querySelectorAll('.metricas');
+        let painelTexto = document.querySelector('.dashboard h2');
+
+        todasMetricas.forEach(metrica => metrica.style.display = 'none');
+        document.getElementById('metricas-' + id).style.display = 'block';
+        painelTexto.style.display = 'none'; // Esconde o texto "Painel de Estatísticas"
+    }
+</script>
