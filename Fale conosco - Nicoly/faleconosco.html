@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="faleconosco.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="./assets/logo.png" sizes="16x16" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="faleconosco.css" />
 
-    <title>Fale Conosco</title>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./assets/logo.png" sizes="16x16" />
 
-  <body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-   <header>
-       <nav class="navbar">
-           <div class="navlogo">
-               <a href="index.html"><img src="./assets/paleta_1__1_-removebg-preview.png" alt="" /></a>
-            </div>
-            <ul class="botoes_nav">
-                <li><a href="contate-nos.html" class="btn_contato">Contate-nos</a></li>
-                <li><a href="login.html" class="btn_log">Entrar</a></li>
-            </ul>
-        </nav>
-    </header> 
+  <title>Fale Conosco</title>
+</head>
 
-    <div class="container">
-      <div class="containerEsquerda">
-        <div class="divInfos">
-          <h1>Fale conosco!</h1>
+<body>
 
-          <div class="formulario">
-            <div class="inputs">
-              <input id="inputNome" type="text" placeholder="Seu nome" />
-            </div>
-            <div class="inputs">
-              <input id="inputEmail" type="text" placeholder="Seu e-mail" />
-            </div>
-            <div class="inputs maior">
-              <textarea
-                id="inputDuvidas"
-                placeholder="Como podemos te ajudar?"
-              ></textarea>
-            </div>
+  <header>
+    <nav class="navbar">
+      <div class="navlogo">
+        <a href="index.html"><img src="./assets/paleta_1__1_-removebg-preview.png" alt="" /></a>
+      </div>
+      <ul class="botoes_nav">
+        <li><a href="contate-nos.html" class="btn_contato">Contate-nos</a></li>
+        <li><a href="login.html" class="btn_log">Entrar</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <div class="botao">
-              <button class="botaoEnviar">Enviar</button>
-            </div>
+  <div class="container">
+    <div class="containerEsquerda">
+      <div class="divInfos">
+        <h1>Fale conosco!</h1>
 
-            <div class="mensagemErro" id="divmsg"></div>
+        <div class="formulario">
+          <div class="inputs">
+            <input id="inputName" type="text" placeholder="Seu nome">
+            <i class="fa-solid fa-user"></i>
           </div>
+          
+          <div class="inputs">
+            <input id="inputEmail" type="text" placeholder="Seu e-mail">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          
+          <div class="inputs maior">
+            <textarea id="inputDuvidas" placeholder="Como podemos te ajudar?"></textarea>
+            <i class="fa-solid fa-comments"></i>
+          </div>
+
+          <div class="botao">
+            <button class="botaoEnviar">Enviar</button>
+          </div>
+
+          <div class="mensagemErro" id="divmsg"></div>
         </div>
       </div>
-
-      <div class="containerDireita">
-        <div class="imagem"></div>
-      </div>
     </div>
-  </body>
+
+    <div class="containerDireita">
+      <div class="imagem"></div>
+    </div>
+  </div>
+</body>
+
 </html>

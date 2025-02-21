@@ -118,22 +118,45 @@ h1{
     align-items: center;
 }
 
-input, textarea{
-    height: 3vh;
-    width: 25vw;
-    border-radius: 10px;
-    border: none;
-    margin: 5px;
-    padding: 10px;
+.inputs {
+    position: relative;
+    margin-bottom: 10px;
 }
 
-.maior textarea{
+input, textarea {
+    width: 25vw;
+    height: 6vh;
+    border-radius: 10px;
+    border: none;
+    margin: 2px;
+    padding-left: 30px;
+}
+
+.maior textarea {
     height: 20vh;
     text-align: left;
+    padding-top: 10px;
 }
 
 textarea {
     resize: none;
+}
+
+.inputs i {
+    position: absolute;
+    left: 10px;
+    color: #888;
+}
+
+/* todo icon dentro das inputs mas sem ser da classe maior */
+.inputs:not(.maior) i {
+    top: 50%; /* posiciona o top do icon na metade do container */
+    transform: translateY(-50%); /* move o proprio icon pra cima pela metade da sua altura*/
+}
+
+/* icon text area */
+.inputs.maior i {
+    top: 15px;
 }
 
 .botaoEnviar{
