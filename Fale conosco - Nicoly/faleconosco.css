@@ -108,7 +108,7 @@ h1{
     font-size: 3rem;
     text-align: center;
     color: #FEFFFF;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .formulario{
@@ -142,21 +142,22 @@ textarea {
     resize: none;
 }
 
+/* icones */
 .inputs i {
     position: absolute;
     left: 10px;
     color: #888;
 }
 
-/* todo icon dentro das inputs mas sem ser da classe maior */
+/* todo icon dentro das inputs q nao sao da classe maior */
 .inputs:not(.maior) i {
-    top: 50%; /* posiciona o top do icon na metade do container */
+    top: 50%; /* posiciona o top do icon */
     transform: translateY(-50%); /* move o proprio icon pra cima pela metade da sua altura*/
 }
 
 /* icon text area */
 .inputs.maior i {
-    top: 15px;
+    top: 12px; /* magin top do icon */
 }
 
 .botaoEnviar{
