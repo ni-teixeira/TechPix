@@ -1,21 +1,42 @@
-function carregarServidor(botao) {
-    var painel = document.querySelector(".dashboard");
-    var servidor = botao.innerText;
-    
-    painel.innerHTML = "<h2>" + servidor + "</h2>" +
-                       "<p>Status: Online</p>" +
-                       "<p>Uso de CPU: " + Math.floor(Math.random() * 100) + "%</p>" +
-                       "<p>Uso de Memória: " + Math.floor(Math.random() * 100) + "%</p>";
-}
+document.addEventListener("DOMContentLoaded", function () {
+    function mostrarMetricas(id) {
+        let todasMetricas = document.querySelectorAll('.metricas');
+        let painelTexto = document.getElementById('tituloDashboard');
 
-function iniciar() {
-    var botao1 = document.getElementById("botao1");
-    var botao2 = document.getElementById("botao2");
-    var botao3 = document.getElementById("botao3");
-    var botao4 = document.getElementById("botao4");
-    
-    botao1.onclick = function() { carregarServidor(botao1); };
-    botao2.onclick = function() { carregarServidor(botao2); };
-    botao3.onclick = function() { carregarServidor(botao3); };
-    botao4.onclick = function() { carregarServidor(botao4); };
-}
+        todasMetricas.forEach(metrica => metrica.style.display = 'none');
+        document.getElementById('metricas-' + id).style.display = 'block';
+        painelTexto.style.display = 'none'; // Esconde o texto "Painel de Estatísticas"
+
+        renderizarGraficos(id);
+    }
+
+    function renderizarGraficos(id) {
+        let ctxBarra = document.getElementById(`graficoBarra${id}`).getContext('2d');
+        let ctxRosca = document.getElementById(`graficoRosca${id}`).getContext('2d');
+
+        new Chart(ctxBarra, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Desempenho',
+                    data: [80, 75, 78, 85, 90, 76],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                }]
+            }
+        });
+
+        new Chart(ctxRosca, {
+            type: 'doughnut',
+            data: {
+                labels: ['Eficiente', 'Ineficiente'],
+                datasets: [{
+                    data: [85, 15],
+                    backgroundColor: ['green', 'red']
+                }]
+            }
+        });
+    }
+
+    window.mostrarMetricas = mostrarMetricas;
+});
