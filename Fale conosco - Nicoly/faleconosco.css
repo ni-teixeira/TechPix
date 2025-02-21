@@ -142,7 +142,7 @@ textarea {
     resize: none;
 }
 
-/* icones */
+/* icons */
 .inputs i {
     position: absolute;
     left: 10px;
@@ -157,7 +157,7 @@ textarea {
 
 /* icon text area */
 .inputs.maior i {
-    top: 12px; /* magin top do icon */
+    top: 18px; /* magin top do icon */
 }
 
 .botaoEnviar{
