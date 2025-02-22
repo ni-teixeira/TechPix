@@ -201,3 +201,98 @@ textarea {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* mobile */
+@media (max-width: 480px) {
+
+    .containerDireita{
+        display: none;
+    }
+
+    .botaoEnviar{
+        width: 35vw;
+        font-size: 1.5rem;
+    }
+
+    .containerEsquerda{
+        height: 85vh;
+        width: 85vw;
+    }
+
+    input, textarea {
+        width: 65vw;
+        height: 6vh;
+    }
+
+    .btn_contato, .btn_log{
+        width: 22vw;
+        font-size: 1em;
+    }
+
+    .navlogo img{
+        height: 6vh;
+    }
+
+    input::placeholder{
+        font-size: 1.2em;
+    }
+
+    textarea::placeholder{
+        font-size: 1.2em;
+    }
+
+}
+  
+/* tablet */
+@media (max-width: 1025px) {
+
+    .btn_contato, .btn_log{
+        width: 20vw;
+        font-size: 2em;
+    }
+
+    .navlogo img{
+        height: 6vh;
+    }
+
+    .containerEsquerda{
+        width: 85vw;
+        height: 75vh;
+    }
+
+    .containerDireita{
+       display: none;
+    }
+
+    .botaoEnviar{
+        width: 20vw;
+        font-size: 2rem;
+    }
+
+    input, textarea {
+        width: 75vw;
+        height: 6vh;
+        margin-left: 12px;
+    }
+
+    h1{
+        font-size: 6rem;
+    }
+
+    input::placeholder{
+        font-size: 2em;
+    }
+
+    textarea::placeholder{
+        font-size: 2em;
+    }
+
+    .inputs i{
+        font-size: 1.5em;
+    }
+
+    .inputs.maior i{
+        margin-top: 12px;
+    }
+
+}

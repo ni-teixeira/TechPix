@@ -21,7 +21,6 @@
       mensagem: mensagem
     };
   
-
     emailjs.send('service_7j9wchg', 'template_0aefsto', params) // requisicao p enviar
       .then(function(response) {
         console.log('SUCCESS!', response.status, response.text); // requisicao bem sucedida
