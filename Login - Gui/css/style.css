@@ -102,6 +102,7 @@
     align-items: center;
     flex-direction: column;
     width: 50%;
+    position: relative;
 }
 
 h2 {
@@ -111,7 +112,7 @@ h2 {
 }
 
 input{
-    padding: 10px;
+    padding: 10px 10px 10px 35px;
     font-size: 1.5rem;
     margin: 10px 0;
     border-radius: 25px;
@@ -119,7 +120,16 @@ input{
     width: 100%;
     min-width: 250px;
     height: 5.5vh;
-    
+}
+
+.input_icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    filter: brightness(0.8) contrast(1.5);
 }
 
 input::placeholder{
