@@ -3,89 +3,107 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
+    <title>Tela inicial</title>
     <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+    <div class="nav-bar">
+        <div class="conteudo">
+          <a href="./index.html"><img class="logo" src="./assets/imgs/paleta_1__1_-removebg-preview.png" alt="" /></a>
+            <div><!--   class="botoes"  -->
+                <a href="../app/login.html" style="color: white;" class="botoes_login">LOGIN</a>
+            </div>
         </div>
-      </div>
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+    
+    <div class="banner_fundo">
+        <div class="tudo">
+            <div class="teste_banner">
+
+                <div class="logo_banner">
+                    <img class="pix" src="./assets/imgs/.png"></img>
+                    <img class="techpix" src="./assets/imgs/techpix.png"></img>
+                </div>
+                <div class="slogan">
+                    <span>A SUA SEGURANÇA É A NOSSA PRIORIDADE</span>
+                </div>
+
+            </div>
+            <div class="botao">
+                <a href="../app/faleconosco.html" class="botoes_login_banner">CONTATE-NOS</a>
+                <a href="#sec_solucao">
+                    <button class="botoes_cadastro_banner">CONHEÇA JÁ</button>
+                </a>
+            </div>
+        </div>
     </div>
-    <button onclick="mudarPagina()">ENTRAR CONTA</button>
-  </body>
+
+    <div class="separacao">
+        <div style="display: flex; width: 70%;">
+            <span>Você compreende o impacto que o pix pode ter no Cotidiano de um cidadão?</span>
+        </div>
+    </div>
+
+    <div class="principal_impacto">
+        <div>
+            <img class="imagem_impacto" src="./assets/imgs/dois.jpg">
+        </div> <!-- A TAG ESTÁ FORA DA DIV CADASTRO MAS DENTRO DA PRINCIPAL-->
+        <div class="texto">
+            <p>Monitoramento Inteligente para a Estabilidade do PIX:</p>
+            <p>O PIX é essencial para o sistema financeiro, processando milhões de transações em segundos. A estabilidade dos data centers que suportam esse serviço é crucial para evitar falhas e prejuízos. Nosso monitoramento contínuo garante segurança, alta disponibilidade e desempenho máximo. Com análise proativa, prevenimos instabilidades e asseguramos operações sem interrupções! 🚀</p>
+            <a href="https://www.bcb.gov.br/estabilidadefinanceira/pix%20"><button class="botoes_impacto">SAIBA MAIS</button></a>
+        </div>
+    </div>
+    
+    <div class="principal_impacto2">
+        <div>
+            <img class="imagem_impacto" src="./assets/imgs/parede-de-fundo.jpg">
+        </div> <!-- A TAG ESTÁ FORA DA DIV CADASTRO MAS DENTRO DA PRINCIPAL-->
+        <div class="texto">
+            <p>Versatilidade e Soluções para Todos os Tipos de Pagamento:</p>
+            <p>O PIX é um sistema de pagamento amplo e versátil, que permite transferências instantâneas entre pessoas físicas e jurídicas, 24 horas por dia. Pode ser usado para pagamentos em comércios, com QR Codes, ou para emissão de cobranças automáticas. Além disso, oferece funcionalidades como PIX Saque e PIX Troco, permitindo retirar dinheiro em estabelecimentos. Sua integração com sistemas financeiros facilita a gestão de fluxo de caixa. O PIX se destaca pela agilidade, acessibilidade e praticidade em diversas formas de uso.</p>
+            <a href="https://www.bcb.gov.br/meubc/faqs/p/pix-saque-pix-troco"><button class="botoes_impacto">SAIBA MAIS</button></a>
+        </div>
+    </div>
+
+    <div class="separacao_solucao">
+        <span>Nossa Solução</span>
+    </div>
+
+    <section id="sec_solucao">
+            <div class="nossa_solucao">
+                <div class="imagem_solucao">
+                    <img src="./assets/imgs/diagrama2.png">
+                </div>
+                <div class="solucao_texto">
+                    <span>
+                        <b style="font-size: 24px; font-family: 'Lora';">Visita ao Seu Data Center</b> <br>
+                        Vamos até o seu data center para entender de perto a infraestrutura e identificar os principais pontos de monitoramento. Nossa equipe realiza uma análise técnica no ambiente, garantindo que todas as informações coletadas sejam precisas e relevantes para a segurança e eficiência do sistema.
+                        <br>
+                    </span>
+                    <span>
+                        <b style="font-size: 24px; font-family: 'Lora';">Coleta de Informações Essenciais</b> <br>
+                        Coletamos dados cruciais sobre o desempenho e a integridade dos principais componentes. Nossa abordagem detalhada assegura que nenhum dado crítico passe despercebido, permitindo um acompanhamento completo da sua operação.
+                        <br>
+                    </span>
+                    <span>
+                        <b style="font-size: 24px; font-family: 'Lora';">Visualização em Tempo Real</b> <br>
+                        Garantimos a monitorização contínua por meio de um dashboard intuitivo e acessível, permitindo que você acompanhe, em tempo real, o status dos sistemas e tome decisões rápidas e assertivas.
+                        <br>
+                    </span>
+                    <span>
+                        <b style="font-size: 24px; font-family: 'Lora';">Armazenamento Inteligente de Alertas</b> <br>
+                        Quando identificamos dados acima do esperado, os alertas são armazenados no banco de dados para futura análise. Isso possibilita a identificação de padrões, ajudando a prever e evitar falhas antes que impactem suas operações.
+                    </span>
+                </div>
+            </div>
+    </section>
+
+    <footer class="footer">
+        <span>Juntos podemos mais!</span>
+    </footer>
+</body>
 
 </html>
-
-<script>
-
-  function mudarPagina() {
-    window.location = "./root/contaEmpresaRootServidores.html";
-    sessionStorage.ID_EMPRESA = 1;
-  }
-</script>

@@ -194,12 +194,20 @@ textarea {
 }
 
 .containerDireita .imagem{
-    background-image: url('./assets/mew.png');
+    background-image: url('../assets/imgs/mew.png');
     height: 70vh;
     width: 40vw;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.botoes_login_banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
 }
 
 /* mobile */
