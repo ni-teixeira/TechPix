@@ -1,8 +1,8 @@
-function validarLogin(){
+function validarEmail(){
     var email = document.getElementById('iptemail').value;
     var mensagemErro = "";
     var tamanhoValido = false;
-    
+
     if(!email){
         mensagemErro = ` `
     }
@@ -33,6 +33,65 @@ function validarLogin(){
 
 }
 
+function validarSenha(){
+    var senha =  document.getElementById('iptsenha').value;
+    var mensagemErro = ""
+    var caracteres = ['!', '@', '#', '$', '%', '&', '*', '_', '?', '/']
+    var especiais = false;
+    var numero = false;
+    var minuscula = false;
+    var maiuscula = false;
+    var espaco = false;
+
+    if(!senha){
+        mensagemErro = `Insira uma senha para continuar<br>`
+    }
+    if(senha.length < 6){
+        mensagemErro += `Senha muito curta! A senha deve ter pelo menos 6 caracteres<br>`
+    }else if(senha.length > 30){
+        mensagemErro += `Senha muito longa! A senha deve ter no máximo 30 caracteres<br>`
+    }
+
+    for (i = 0; i < senha.length; i++){
+        for (j = 0; j < caracteres.length; j++){
+
+            if(senha[i] == caracteres[j]){
+                especiais = true;
+            }if(!isNaN(senha[i])){
+                numero = true;
+            }if (senha[i].toUpperCase() != senha[i]){
+                minuscula = true;
+            }if (senha[i].toLowerCase() != senha[i]){
+                maiuscula = true;
+            }if(senha[i].includes(' ')){
+                espaco = true;
+            }
+        }
+    }
+
+    if(!especiais){
+        mensagemErro += `A senha deve incluir ao menos um caracter especial<br>`
+    }
+    if(!numero){
+        mensagemErro += `A senha deve incluir ao menos um número<br>`
+    }
+    if(!minuscula){
+        mensagemErro += `A senha deve incluir ao menos uma letra minúscula<br>`
+    }
+    if(!maiuscula){
+        mensagemErro += `A senha deve incluir ao menos uma letra maiúscula<br>`
+    }
+    if(espaco){
+        mensagemErro += `A senha não pode incluir espaços em branco<br>`
+    }
+    if(especiais && numero && minuscula && maiuscula && !espaco){
+        validacaosenha = true;
+    }
+
+    divmsg.innerHTML = mensagemErro
+
+}
+
 function logar(){
     var codigo = document.getElementById('iptcodigo').value;
     var email = document.getElementById('iptemail').value;
@@ -43,7 +102,7 @@ function logar(){
         mensagemErro = "Informe todos os campos!"
     }
     
-    if(validarLogin(email)){
+    if(validarLogin()){
         fetch("/usuarios/autenticar", {
             method: "POST",
         headers: {
