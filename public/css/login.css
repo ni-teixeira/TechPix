@@ -119,7 +119,7 @@ input{
     border: none;
     width: 100%;
     min-width: 250px;
-    height: 5.5vh;
+    height: 6vh;
 }
 
 .input_icon {
@@ -156,6 +156,9 @@ input::placeholder{
 }
 
 .mensagemErro{
+    display: flex;
+    justify-self: center;
+    align-self: center;
     font-family: "Afacad", serif;
     color: white;
     font-size: 2rem;

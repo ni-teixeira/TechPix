@@ -35,11 +35,11 @@
             </div>
             <div class="form">
                 <img src="../assets/icon/icon_email.png" alt="ícone de e-mail" class="input_icon">
-                <input id="iptemail" placeholder="E-mail">
+                <input id="iptemail" oninput="validarLogin()" placeholder="E-mail">
             </div>
             <div class="form">
                 <img src="../assets/icon/icon_senha.png" alt="ícone de senha" class="input_icon">
-                <input id="iptsenha" type="password" placeholder="Senha">
+                <input id="iptsenha" oninput="validarLogin()" type="password" placeholder="Senha">
             </div>
             <div class="form">
                 <button onclick="logar()">Entrar</button>
