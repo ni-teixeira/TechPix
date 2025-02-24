@@ -1,11 +1,10 @@
 var usuarioModel = require("../models/usuarioModel");
 
 function autenticar(req, res) {
-    var codigo_empresa = req.body.codigoServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     
-        usuarioModel.autenticar(codigo_empresa, email, senha)
+        usuarioModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -16,7 +15,7 @@ function autenticar(req, res) {
                         email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome,
                         senha: resultadoAutenticar[0].senha,
-                        codigo_empresa: resultadoAutenticar[0].codigo_empresa
+                        aquarios: resultadoAquarios
                     });
                 }
             ).catch(

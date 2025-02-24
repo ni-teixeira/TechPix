@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas</title>
+    <link rel="stylesheet" href="../css/empresaRoot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <main class="screen-dash-user">
+        <nav class="side-bar-user">
+            <div class="nav-logo-user">
+                <img src="../assets/imgs/safra.png" alt="" class="imagem-perfil">
+            </div>
+            <div>
+                <span class="legenda_ola">Olá, Banco Safra</span>
+            </div>
+            <div class="nav-list">
+                <div class="nav-list-options">
+                    <a href="#" class="opcao selecionado">
+                        <img src="../assets/icon/pendente.svg" alt="">
+                        <span class="nav-item">Servidores</span>
+                    </a>
+                    <a href="./contaEmpresaRootFuncionarios.html" class="opcao">
+                        <img src="../assets/icon/materiais.svg" alt="">
+                        <span class="nav-item">Funcionários</span>
+                    </a>
+                    <a href="./simulador.html" class="opcao">
+                        <img src="../assets/icon/simulador.svg" alt="">
+                        <span class="nav-item">Suporte</span>
+                    </a>
+                    </a>
+                </div>
+                <div class="logout">
+                    <a href="../index.html" class="selecionado" onclick="sair()">
+                        <img src="../assets/icon/logout.svg" alt="">
+                        <span class="nav-item">Sair</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main class="main-content-user">
+            <dialog id="modal" style="display: none; border: none"></dialog>
+        </main>
+    </main>
+</body>
+</html>

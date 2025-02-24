@@ -1,47 +1,101 @@
 var empresaModel = require("../models/rootEmpresaModel");
 
-function buscarPorCnpj(req, res) {
-  var cnpj = req.query.cnpj;
+function search(req, res) {
+  const id = req.params.id;
+  const mensagem = req.params.mensagem;
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    res.status(200).json(resultado);
+  empresaModel.search(id, mensagem)
+  .then((resultado) => {
+    res.json({
+      lista: resultado
+    })
   });
 }
 
-function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
-    res.status(200).json(resultado);
+function filtrar(req, res) {
+  const id = req.params.id;
+  const selecionado = req.params.selecionado;
+
+  empresaModel.filtrar(id, selecionado)
+  .then((resultado) => {
+    res.json({
+      lista: resultado
+    })
   });
 }
 
-function buscarPorId(req, res) {
-  var id = req.params.id;
+function pesquisarFiltro(req, res) {
+  const id = req.params.id;
+  const tipo = req.params.tipo;
+  const filtro = req.params.filtro;
 
-  empresaModel.buscarPorId(id).then((resultado) => {
-    res.status(200).json(resultado);
+  empresaModel.procurarFiltro(id, tipo, filtro)
+  .then((resultado) => {
+    res.json({
+      lista: resultado
+    })
   });
 }
 
-function cadastrar(req, res) {
-  var cnpj = req.body.cnpj;
-  var razaoSocial = req.body.razaoSocial;
+function procurarCards(req, res) {
+  const id = req.params.id;
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    if (resultado.length > 0) {
-      res
-        .status(401)
-        .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-    } else {
-      empresaModel.cadastrar(razaoSocial, cnpj).then((resultado) => {
-        res.status(201).json(resultado);
-      });
-    }
+  empresaModel.procurarCards(id)
+  .then((resultado) => {
+    res.json({
+      lista: resultado
+    })
   });
+}
+
+function atualizarFuncionario(req, res) {
+  const id = req.body.idFuncionarioServer;
+  const nome = req.body.nomeServer;
+  const email = req.body.emailServer;
+  const cargo = req.body.cargoServer;
+  const nivel = req.body.nivelServer;
+
+  empresaModel.atualizarFuncionario(id, nome, email, cargo, nivel)
+  .then(function (resposta) {
+    res.json({
+      lista: resposta
+    });
+  })
+}
+
+function cadastrarFuncionario(req, res) {
+  const nome = req.body.nomeServer;
+  const email = req.body.emailServer;
+  const cargo = req.body.cargoServer;
+  const nivel = req.body.nivelServer;
+  const fkEmpresa = req.body.fkEmpresaServer;
+
+  empresaModel.cadastrarFuncionario(nome, email, cargo, nivel, fkEmpresa)
+  .then(function (resposta) {
+    res.json({
+      lista: resposta
+    })
+  })
+} 
+
+function removerFuncionario(req, res) {
+  const idFuncionario = req.body.idFuncionarioServer;
+  console.log(idFuncionario + " Controller");
+
+  empresaModel.removerFuncionario(idFuncionario)
+  .then(function (resultado) {
+    res.send({
+      lista: resultado
+    })
+  })
 }
 
 module.exports = {
-  buscarPorCnpj,
-  buscarPorId,
-  cadastrar,
-  listar,
+  search,
+  filtrar,
+  pesquisarFiltro,
+  procurarCards,
+  atualizarFuncionario,
+  cadastrarFuncionario,
+  removerFuncionario
 };

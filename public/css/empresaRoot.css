@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+.kdam-thmor-pro-regular {
+    font-family: "Kdam Thmor Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.close_confirmacao {
+    width: 100%;
+    height: fit-content;
+    font-size: 40px;
+    font-weight: 400;
+    color: #74C365;
+    text-align: right;
+}
+
+.close_confirmacao:hover {
+    cursor: pointer;
+}
+
+.close {
+    width: 100%;
+    height: fit-content;
+    font-size: 40px;
+    font-weight: 400;
+    color: black;
+    text-align: right;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.imagem_check {
+    width: 50%;
+    height: 80%;
+    background-image: url(../assets/icon/sucesso.svg);
+    background-size: cover;
+}
+
+.texto_confirmacao {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #74C365;
+}
+
+.close_erro {
+    width: 100%;
+    height: fit-content;
+    font-size: 40px;
+    font-weight: 400;
+    text-align: right;
+    color: #FF0800;
+}
+
+.close_erro:hover {
+    cursor: pointer;
+}
+
+.texto_erro {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #FF0800;
+}
+
+.imagem_erro {
+    width: 50%;
+    height: 80%;
+    background-image: url(../assets/icon/erro.svg);
+    background-size: cover;
+}
+
+.imagem_erro_acessado {
+    width: 100px;
+    height: 100px;
+    background-image: url(../assets/icon/erro.svg);
+    background-size: cover;
+}
+
+.screen-dash-user {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.side-bar-user {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    color: #fff;
+    background-color: #003F69;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+
+.nav-logo-user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 18%;
+    padding-top: 4%;
+}
+
+.nav-logo-user img{
+    width: 60%;
+}
+
+.main-content-user{
+    width: 100%;
+    height: 100%;
+    margin-left: 23%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 40px;
+    color: white;
+    font-weight: 400;
+}
+
+.selecionado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #157ABC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    gap: 5px;
+}
+
+.imagem-perfil {
+    border-radius: 80%;
+}
+
+.legenda_ola{
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.selecionado img {
+    width: 50px;
+}
+
+.opcao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 5px;
+    padding-left: 20px;
+}
+
+.opcao img {
+    width: 50px;
+}
+
+.nav-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dataHora {
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.horario {
+    font-size: 30px;
+    color: black;
+    font-weight: 600;
+    text-align: right;
+}
+
+.superior_pagina {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cabecalho {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titulo_pagina {
+    color: black;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+.titulo_pagina {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.circulo_imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+.circulo_imagem:hover {
+    cursor: pointer;
+}
+
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+}
+
+.input-search {
+    width: 25%;
+    height: (fit-content + 1%);
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 0.5%;
+    color: #c8c8c8;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1%;
+}
+
+.filtro:hover {
+    cursor: pointer;
+}
+
+.select-filtro {
+    height: 100%;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 0.5%;
+    color: #c8c8c8;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.cardMaior {
+    width: 25%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+    border: none;
+    border-radius: 10%;
+    background-color: #70A6B7;
+    padding: 1%;
+}
+
+.cardMenor {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    border: none;
+    border-radius: 10%;
+    background-color: #FFF;
+    padding-left: 3%;
+}
+
+.cabecalho-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.textoCard {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+.esquerda-cabecalho-card {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+
+.circulo_icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 2px solid black;
+    border-radius: 100%;
+    background-color: #FFF;
+}
+
+.icone-edit {
+    width: 100%;
+    height: 100%;
+}
+
+.icone-edit:hover {
+    cursor: pointer;
+}
+
+.imagem-perfil {
+    border-radius: 100%;
+}
+
+.imagem-perfil-card {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.titulo-card {
+    width: 60%;
+    color: white;
+    font-weight: 24px;
+    font-weight: 600;
+    text-align: left;
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2%;
+    border: none;
+}
+
+.superior-modal {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.esquerda-superior-modal {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+}
+
+.circulo_imagem-modal {
+    width: 15%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 100%;
+}
+
+.circulo_imagem-modal-v {
+    width: 11%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FF0800;
+    border-radius: 100%;
+}
+
+.circulo_imagem-modal-excluir {
+    width: 18%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FF0800;
+    border-radius: 100%;
+}
+
+.direita-superior-modal {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5%;
+}
+
+.close {
+    width: 70%;
+    height:70%;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.inferior-modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.esquerda-inferior-modal {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.descricao-modal {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.obrigatorio {
+    color: #FF0800;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.input-modal {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 0.5%;
+    color: #c8c8c8;
+}
+
+.direita-inferior-modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+}
+
+.borda-imagem {
+    width: 50%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 5%;
+    gap: 5%;
+}
+
+.fundo-imagem {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c8c8c8;
+}
+
+.upload-imagem {
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+}
+
+.upload-imagem:hover{
+    cursor: pointer;
+}
+
+.regiao-foto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.regiao-botao {
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.botao-modal {
+    width: 100%;
+    height: 100%;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #2B4C7E;
+}
+
+.botao-modal:hover{
+    cursor: pointer;
+}
+
+.titulo_modal_excluir {
+    color: #FF0800;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: left;
+}
+
+.inferior-modal-excluir {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mensagem-excluir {
+    color: #FF0800;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.botao-modal-excluir {
+    width: 100%;
+    height: 100%;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #FF0800;
+    border: none;
+}
+
+.botao-modal-excluir:hover {
+    cursor: pointer;
+}
+
+.area-botao-excluir {
+    width: 30%;
+    height: 22%;
+}

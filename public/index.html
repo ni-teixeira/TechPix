@@ -24,7 +24,7 @@
             <a href="#">Inicial</a>
           </li>
           <li>
-            <a href="../Login - Gui/login.html">Simulador</a>
+            <a href="simulador.html">Simulador</a>
           </li>
           <li>|</li>
           <li>
@@ -77,6 +77,15 @@
         <span class="version">v1.0.0</span>
       </div>
     </div>
+    <button onclick="mudarPagina()">ENTRAR CONTA</button>
   </body>
 
 </html>
+
+<script>
+
+  function mudarPagina() {
+    window.location = "./root/contaEmpresaRootServidores.html";
+    sessionStorage.ID_EMPRESA = 1;
+  }
+</script>
