@@ -6,91 +6,127 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard.js"></script>
 </head>
 <body>
    <!-- NAVBAR -->
-    <nav class="navbar">
+    <nav class="nav-bar">
         <div class="navlogo">
             <a href="index.html"><img src="./assets/logo.png" alt="Logo"></a>
         </div>
-        <ul class="botoes_nav">
-            <li><a href="contate-nos.html" class="btn_contato">Contate-nos</a></li>
-            <li><a href="index.html" class="btn_log">Home</a></li>
+        <ul class="acoes-navbar">
+            <li><a href="ajuda.html" class="btn-navbar">Ajuda</a></li>
+            <li><a href="configuracoes.html" class="btn-navbar">Configurações</a></li>
         </ul>
     </nav>
 
     <!-- CONTAINER PRINCIPAL -->
-    <div class="main">
+    <div class="container">
         <!-- SIDEBAR -->
         <div class="sidebar">
-            <img src="assets/safra-avatar.png" alt="Avatar">
+            <img src="./assets/avatar.png" alt="Avatar">
             <h2>Olá, "Usuário"!</h2>
             <button onclick="mostrarMetricas(1)">Servidor 01</button>
             <button onclick="mostrarMetricas(2)">Servidor 02</button>
             <button onclick="mostrarMetricas(3)">Servidor 03</button>
             <button onclick="mostrarMetricas(4)">Servidor 04</button>
-            <button class="btn_sair" onclick="window.location.href='index.html'">Sair</button>
+            <button class="btn-sair" onclick="window.location.href='index.html'">Sair</button>
         </div>
 
         <!-- PAINEL DE CONTEÚDO -->
-        <div class="content">
-            <div class="dashboard">
-                <h2 id="tituloDashboard">Painel de Estatísticas</h2>
+        <div class="painel">
+            <h2 id="tituloDashboard">Painel de Estatísticas</h2>
 
-                <!-- Container para métricas e gráficos -->
-                <div class="metricas-container">
-                    <div id="metricas-1" class="metricas">
-                        <h3>Métricas do Servidor 01</h3>
-                        <div class="kpi-box">
-                            <span class="kpi positivo">Eficácia: 85%</span>
-                            <span class="kpi negativo">Falhas: 15%</span>
-                        </div>
-                        <div class="graficos">
-                            <canvas id="graficoBarra1"></canvas>
-                            <canvas id="graficoRosca1"></canvas>
-                        </div>
-                    </div>
-                    
-                    <div id="metricas-2" class="metricas">
-                        <h3>Métricas do Servidor 02</h3>
-                        <div class="kpi-box">
-                            <span class="kpi positivo">Eficácia: 78%</span>
-                            <span class="kpi negativo">Falhas: 22%</span>
-                        </div>
-                        <div class="graficos">
-                            <canvas id="graficoBarra2"></canvas>
-                            <canvas id="graficoRosca2"></canvas>
-                        </div>
-                    </div>
+            <!-- MÉTRICAS INICIAIS -->
+            <div id="metricas-iniciais" class="metricas-container">
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 01</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 85%</div>
+                    <div class="kpi kpi-negativo">Falhas: 15%</div>
+                </div>
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 02</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 78%</div>
+                    <div class="kpi kpi-negativo">Falhas: 22%</div>
+                </div>
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 03</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 92%</div>
+                    <div class="kpi kpi-negativo">Falhas: 8%</div>
+                </div>
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 04</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 67%</div>
+                    <div class="kpi kpi-negativo">Falhas: 33%</div>
+                </div>
+            </div>
 
-                    <div id="metricas-3" class="metricas">
-                        <h3>Métricas do Servidor 03</h3>
-                        <div class="kpi-box">
-                            <span class="kpi positivo">Eficácia: 92%</span>
-                            <span class="kpi negativo">Falhas: 8%</span>
-                        </div>
-                        <div class="graficos">
-                            <canvas id="graficoBarra3"></canvas>
-                            <canvas id="graficoRosca3"></canvas>
-                        </div>
+            <!-- MÉTRICAS INDIVIDUAIS COM GRÁFICOS -->
+            <div id="metricas-1" class="metricas-container-individual" style="display: none;">
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 01</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 85%</div>
+                    <div class="kpi kpi-negativo">Falhas: 15%</div>
+                </div>
+                <div id="graficos-wrapper-1" class="graficos-wrapper">
+                    <div class="grafico-box">
+                        <canvas id="graficoBarra1"></canvas>
                     </div>
-
-                    <div id="metricas-4" class="metricas">
-                        <h3>Métricas do Servidor 04</h3>
-                        <div class="kpi-box">
-                            <span class="kpi positivo">Eficácia: 67%</span>
-                            <span class="kpi negativo">Falhas: 33%</span>
-                        </div>
-                        <div class="graficos">
-                            <canvas id="graficoBarra4"></canvas>
-                            <canvas id="graficoRosca4"></canvas>
-                        </div>
+                    <div class="grafico-box">
+                        <canvas id="graficoRosca1"></canvas>
                     </div>
                 </div>
             </div>
+
+            <div id="metricas-2" class="metricas-container-individual" style="display: none;">
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 02</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 78%</div>
+                    <div class="kpi kpi-negativo">Falhas: 22%</div>
+                </div>
+                <div id="graficos-wrapper-2" class="graficos-wrapper">
+                    <div class="grafico-box">
+                        <canvas id="graficoBarra2"></canvas>
+                    </div>
+                    <div class="grafico-box">
+                        <canvas id="graficoRosca2"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="metricas-3" class="metricas-container-individual" style="display: none;">
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 03</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 92%</div>
+                    <div class="kpi kpi-negativo">Falhas: 8%</div>
+                </div>
+                <div id="graficos-wrapper-3" class="graficos-wrapper">
+                    <div class="grafico-box">
+                        <canvas id="graficoBarra3"></canvas>
+                    </div>
+                    <div class="grafico-box">
+                        <canvas id="graficoRosca3"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="metricas-4" class="metricas-container-individual" style="display: none;">
+                <div class="metricas-box">
+                    <h3>Métricas do Servidor 04</h3>
+                    <div class="kpi kpi-positivo">Eficácia: 67%</div>
+                    <div class="kpi kpi-negativo">Falhas: 33%</div>
+                </div>
+                <div id="graficos-wrapper-4" class="graficos-wrapper">
+                    <div class="grafico-box">
+                        <canvas id="graficoBarra4"></canvas>
+                    </div>
+                    <div class="grafico-box">
+                        <canvas id="graficoRosca4"></canvas>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <script src="./js/dashboard.js"></script>
 </body>
 </html>

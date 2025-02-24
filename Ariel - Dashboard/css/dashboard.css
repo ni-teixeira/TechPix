@@ -3,10 +3,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 /* Navbar */
-.navbar {
+.nav-bar {
     display: flex;
     position: fixed;
     top: 0;
@@ -17,25 +18,9 @@
     align-items: center;
     background: white;
     padding: 0 4vh;
-    color: white;
-    font-family: "Afacad", serif;
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-}
-
-.botoes_nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 1vh;
-}
-
-.navlogo {
-    display: flex;
-    align-items: center; 
 }
 
 .navlogo img {
@@ -44,44 +29,21 @@
     cursor: pointer;
 }
 
-.btn_contato, .btn_log {
-    display: inline-block;
-    color: #004080;
-    text-align: center;
-    border: none;
-    width: 10vw;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    font-size: large;
-    text-decoration: none;
-    transition: 0.2s;
-    border: 2px solid #004080;
-}
-
-.btn_contato {
-    background: white;
-}
-
-.btn_contato:hover {
-    background: #004080;
-    color: white;
-}
-
-.btn_log {
-    background: white;
-}
-
-.btn_log:hover {
-    background: #004080;
-    color: white;
-}
-
-/* Estrutura principal */
-.main {
+.acoes-navbar {
+    list-style-type: none;
     display: flex;
-    margin-top: 4rem;
+    flex-direction: row;
+    gap: 1vh;
+}
+
+.btn-navbar {
+    color: #004080;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn-navbar:hover {
+    text-decoration: underline;
 }
 
 /* Sidebar */
@@ -97,6 +59,19 @@
     position: fixed;
     top: 4rem;
     left: 0;
+}
+
+.sidebar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 .sidebar button {
@@ -117,7 +92,7 @@
 }
 
 /* Botão de sair */
-.btn_sair {
+.btn-sair {
     margin-top: auto;
     background-color: red !important;
     color: white;
@@ -130,88 +105,98 @@
     text-align: center;
 }
 
-.btn_sair:hover {
+.btn-sair:hover {
     background-color: darkred !important;
 }
 
 /* Área de conteúdo */
-.content {
+.painel {
     flex: 1;
     padding: 20px;
     background-color: white;
     margin-left: 250px;
     width: calc(100% - 250px);
+    text-align: center;
 }
 
-/* Painel Dashboard */
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
+/* Painel de estatísticas */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Métricas */
+/* Contêiner de métricas iniciais */
 .metricas-container {
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 20px;
 }
 
-.metricas {
-    display: none;
-    background: #eef;
+/* Caixa de métricas */
+.metricas-box {
+    background: #f4f4ff;
+    padding: 15px;
     border-radius: 10px;
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
+    width: 220px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* KPIs */
-.kpi-box {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
-}
-
 .kpi {
-    padding: 12px;
+    margin: 10px 0;
+    padding: 10px;
     border-radius: 5px;
     font-weight: bold;
     color: white;
-    font-size: 1.1rem;
-    width: 120px;
-    text-align: center;
 }
 
-.kpi.positivo {
+.kpi-positivo {
     background-color: #28a745;
 }
 
-.kpi.negativo {
+.kpi-negativo {
     background-color: #dc3545;
 }
 
-/* Gráficos */
-.graficos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
+/* Contêiner de métricas individuais */
+.metricas-container-individual {
+    display: none;
+    background: #f4f4ff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 80px auto 20px;
+    position: relative;
 }
 
-.graficos canvas {
-    width: 320px;
-    height: 250px;
+/* CONTAINER DOS GRÁFICOS */
+.graficos-wrapper {
+    display: none;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* GRÁFICOS */
+.grafico-box {
     background: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    width: 400px;
+    height: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajuste extra para evitar elementos sobrepostos */
+.metricas-container-individual + .graficos-wrapper {
+    margin-top: 20px;
 }
