@@ -37,6 +37,8 @@
 
 .navlogo img{
     height: 10vh;
+    width: auto;
+    cursor: pointer;
 }
 
 .btn_contato, .btn_log {
@@ -44,15 +46,16 @@
     color: white;
     text-align: center;
     border: none;
-    width: 10vw;
-    padding: 1vh;
-    border-radius: 8px;
+    width: auto;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
     font-size: large;
     text-decoration: none;
     transition: 0.2s;
 }
+
 
 .btn_contato{
     background: #003F6A;

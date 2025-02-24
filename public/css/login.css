@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4rem;
+    height: 10vh;
     justify-content: space-between;
     align-items: center;
     background: transparent;
@@ -32,11 +32,12 @@
 
 .navlogo{
     display: flex;
+    justify-content: center;
     align-items: center; 
 }
 
-.navlogo img{
-    height: 6rem;
+.navlogo img{   
+    height: 10rem;
     width: auto;
     cursor: pointer;
 }
