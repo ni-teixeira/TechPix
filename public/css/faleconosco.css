@@ -214,7 +214,7 @@ textarea {
 }
 
 /* mobile */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 
     .containerDireita{
         display: none;
@@ -222,7 +222,8 @@ textarea {
 
     .botaoEnviar{
         width: 35vw;
-        font-size: 1.5rem;
+        height: 6vh;
+        font-size: 1em;
     }
 
     .containerEsquerda{
@@ -236,12 +237,12 @@ textarea {
     }
 
     .btn_contato, .btn_log{
-        width: 22vw;
-        font-size: 1em;
+        width: 20vw;
+        font-size: 0.9em;
     }
 
     .navlogo img{
-        height: 6vh;
+        height: 8vh;
     }
 
     input::placeholder{
@@ -252,58 +253,73 @@ textarea {
         font-size: 1.2em;
     }
 
+    h1{
+        font-size: 3em;
+    }
+
 }
-  
+
 /* tablet */
-@media (max-width: 1025px) {
 
-    .btn_contato, .btn_log{
+@media (min-width: 501px) and (max-width: 765px){
+
+}
+
+
+@media (min-width: 766px) and (max-width: 1025px) {
+    .btn_contato, .btn_log {
         width: 20vw;
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
-    .navlogo img{
-        height: 6vh;
+    .navlogo img {
+        height: 12vh;
     }
 
-    .containerEsquerda{
+    .containerEsquerda {
         width: 85vw;
         height: 75vh;
     }
 
-    .containerDireita{
-       display: none;
+    .containerDireita {
+        display: none;
     }
 
-    .botaoEnviar{
+    .botaoEnviar {
         width: 20vw;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     input, textarea {
         width: 75vw;
         height: 6vh;
         margin-left: 12px;
+        padding-left: 40px;
     }
 
-    h1{
+    h1 {
         font-size: 6rem;
     }
 
-    input::placeholder{
+    input::placeholder {
         font-size: 2em;
     }
 
-    textarea::placeholder{
+    textarea::placeholder {
         font-size: 2em;
     }
 
-    .inputs i{
+    .inputs i {
         font-size: 1.5em;
     }
 
-    .inputs.maior i{
-        margin-top: 12px;
+    .inputs:not(.maior) i {
+        top: 30px; 
+        left: 20px;
     }
 
+    .inputs.maior i {
+        top: 25px; 
+        left: 20px;
+    }
 }
