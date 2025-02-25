@@ -262,7 +262,61 @@ textarea {
 /* tablet */
 
 @media (min-width: 501px) and (max-width: 765px){
+    .containerDireita {
+        display: none;
+    }
 
+    .containerEsquerda {
+        width: 85vw;
+        height: 75vh;
+    }
+
+    .btn_contato, .btn_log {
+        width: 20vw;
+        font-size: 1.5em;
+    }
+
+    .navlogo img {
+        height: 12vh;
+    }
+
+    .botaoEnviar {
+        width: 25vw;
+        font-size: 1.5rem;
+    }
+
+    input, textarea {
+        width: 70vw;
+        height: 6vh;
+        margin-left: 12px;
+        padding-left: 40px;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    input::placeholder {
+        font-size: 2em;
+    }
+
+    textarea::placeholder {
+        font-size: 2em;
+    }
+
+    .inputs i {
+        font-size: 1.5em;
+    }
+
+    .inputs:not(.maior) i {
+        top: 30px; 
+        left: 20px;
+    }
+
+    .inputs.maior i {
+        top: 25px; 
+        left: 20px;
+    }
 }
 
 
