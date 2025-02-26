@@ -40,7 +40,16 @@ INSERT INTO usuarios VALUES
 create database if not exists TechPix;
 use TechPix;
 
-create table if not exists Enderecos(
+create table if not exists Empresa(
+	idEmpresa int primary key auto_increment,
+    razaoSocial varchar(45) not null,
+    codigoEmpresa varchar(20) not null,
+    email varchar(100) not null,
+    senha varchar(100) not null,
+    cnpj char(14) not null
+);
+
+create table if not exists Endereco(
 	idEndereco int primary key auto_increment,
     cep char(8) not null,
     numero varchar(10) not null,
@@ -49,17 +58,8 @@ create table if not exists Enderecos(
     bairro varchar(45) not null,
     cidade varchar(45) not null,
     estado char(2) not null
-);
-
-create table if not exists Empresa(
-	idEmpresa int primary key auto_increment,
-    razaoSocial varchar(45) not null,
-    codigoEmpresa varchar(20) not null,
-    email varchar(100) not null,
-    senha varchar(100) not null,
-    cnpj char(14) not null,
-    fkEndereco int unique,
-    constraint fkEmpEnd foreign key (fkEndereco) references Enderecos(idEndereco)
+    fkEmpresa int unique,
+    constraint fkEmpEnd foreign key (fkEmpresa) references Empresa(idEmpresa)
 );
 
 create table if not exists Funcionario(
