@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela inicial</title>
     <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/imgs/logo.png">
+    <link rel="icon" type="image/png" href="./assets/icon/logo.png" sizes="16x16">
 </head>
 
 <body>
@@ -14,15 +14,14 @@
         <div class="conteudo">
           <a href="./index.html"><img class="logo" src="./assets/imgs/logo.png" alt="" /></a>
             <div><!--   class="botoes"  -->
-                <a href="./app/login.html"><button class="botoes_login">LOGIN</button></a>
+                <a href="./app/login.html"><button class="botao_login">LOGIN</button></a>
             </div>
         </div>
     </div>
     
     <div class="banner_fundo">
-        <div class="tudo">
-            <div class="teste_banner">
-
+        <div class="conteudo_banner">
+            <div class="coluna_banner">
                 <div class="logo_banner">
                     <img class="pix" src="./assets/imgs/teste_pix.png"></img>
                     <img class="techpix" src="./assets/imgs/techpix.png"></img>
@@ -30,21 +29,20 @@
                 <div class="slogan">
                     <span>A SUA SEGURANÇA É A NOSSA PRIORIDADE</span>
                 </div>
-
             </div>
             <div class="botao">
-                <a href="./app/faleconosco.html" class="botoes_login_banner">CONTATE-NOS</a>
+                <a href="./app/faleconosco.html">
+                    <button class="botoes_banner">CONTATE-NOS</button>
+                </a>
                 <a href="#sec_solucao">
-                    <button class="botoes_cadastro_banner">CONHEÇA JÁ</button>
+                    <button class="botoes_banner" style="background-color: #003F6A;">CONHEÇA JÁ</button>
                 </a>
             </div>
         </div>
     </div>
 
     <div class="separacao">
-        <div style="display: flex; width: 70%;">
-            <span>Você compreende o impacto que o pix pode ter no Cotidiano de um cidadão?</span>
-        </div>
+        <span>Você compreende o impacto que o pix pode ter no Cotidiano de um cidadão?</span>
     </div>
 
     <div class="principal_impacto">
@@ -58,18 +56,18 @@
         </div>
     </div>
     
-    <div class="principal_impacto2">
+    <div class="principal_impacto" style="flex-direction: row-reverse;">
         <div>
             <img class="imagem_impacto" src="./assets/imgs/parede-de-fundo.jpg">
         </div> <!-- A TAG ESTÁ FORA DA DIV CADASTRO MAS DENTRO DA PRINCIPAL-->
         <div class="texto">
             <p style="font-family: 'Karla';">Versatilidade e Soluções para Todos os Tipos de Pagamento:</p>
-            <p>O PIX é um sistema de pagamento amplo e versátil, que permite transferências instantâneas entre pessoas físicas e jurídicas, 24 horas por dia. Pode ser usado para pagamentos em comércios, com QR Codes, ou para emissão de cobranças automáticas. Além disso, oferece funcionalidades como PIX Saque e PIX Troco, permitindo retirar dinheiro em estabelecimentos. Sua integração com sistemas financeiros facilita a gestão de fluxo de caixa. O PIX se destaca pela agilidade, acessibilidade e praticidade em diversas formas de uso.</p>
+            <p>O PIX é um sistema de pagamento amplo e versátil, que permite transferências instantâneas entre pessoas físicas e jurídicas, 24 horas por dia. Pode ser usado para pagamentos em comércios, com QR Codes, ou para emissão de cobranças automáticas. Além disso, oferece funcionalidades como PIX Saque e PIX Troco, permitindo retirar dinheiro em estabelecimentos.</p>
             <a href="https://www.bcb.gov.br/meubc/faqs/p/pix-saque-pix-troco"><button class="botoes_impacto">SAIBA MAIS</button></a>
         </div>
     </div>
 
-    <div class="separacao_solucao">
+    <div class="separacao">
         <span>Nossa Solução</span>
     </div>
 

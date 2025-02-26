@@ -46,7 +46,7 @@ body::-webkit-scrollbar {
     justify-content: space-around;
 }
 
-.botoes_login{
+.botao_login{
     border: none;
     cursor: pointer;
     width: 9vw;
@@ -56,14 +56,6 @@ body::-webkit-scrollbar {
     border-radius: 10px;
 }
 
-.botoes_cadastro{
-    cursor: pointer;
-    border: none;
-    width: 9vw;
-    height: 5vh;
-    background-color: #106B86;
-    border-radius: 10px;
-}
 
 .banner_fundo{
     display: flex;
@@ -75,7 +67,7 @@ body::-webkit-scrollbar {
     background-repeat: no-repeat; /* Evita repetição da imagem */
 }
 
-.tudo{
+.conteudo_banner{
     height: 80vh;
     margin-left: 10vh;
     margin-top: 10vh;
@@ -85,7 +77,7 @@ body::-webkit-scrollbar {
     align-items: center;
 }
 
-.teste_banner{
+.coluna_banner{
     display: flex;
     flex-direction: column;
 }
@@ -137,26 +129,12 @@ body::-webkit-scrollbar {
     margin-top: 5vh;
 }
 
-.botoes_login_banner{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
+.botoes_banner{
     border: none;
+    color: white;
     width: 10vw;
     height: 8vh;
     background-color: #606D80;
-    cursor: pointer;
-    font-family: 'Karla';
-}
-
-.botoes_cadastro_banner{
-    border: none;
-    color: white;
-    width: 10vw;
-    height: 8vh;
-    background-color: #003F6A;
     cursor: pointer;
     font-family: 'Karla';
 }
@@ -180,14 +158,6 @@ body::-webkit-scrollbar {
     display: flex;
     width: 100vw;
     flex-direction: row; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
-    align-items: center;
-    background-color: #01010D;
-}
-
-.principal_impacto2{
-    display: flex;
-    width: 100vw;
-    flex-direction: row-reverse; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
     align-items: center;
     background-color: #01010D;
 }
@@ -229,35 +199,6 @@ body::-webkit-scrollbar {
     height: 8vh;
     background-color: #003F6A;
 }
-
-.principal_impacto2 .texto p{
-    margin-top: 100px;
-    color: white;
-    font-size: 25px;
-    padding: 20px;
-}
-
-.principal_impacto2 .texto button{
-    margin-top: 30px
-}
-
-
-.separacao_solucao{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 15vh;
-    background-color: white;
-}
-
-.separacao_solucao span{
-    font-family: 'Lora';
-    text-align: center;
-    font-size: 42px;
-}
-
-
 
 .nossa_solucao{
     display: flex;
@@ -318,8 +259,125 @@ body::-webkit-scrollbar {
     color: white;
 }
 
-/* Responsividade para telas menores que 700px */
+
+
 @media (max-width: 1200px) {
+    .nav-bar, .principal_impacto, .principal_impacto_reverso, .separacao, .nossa_solucao {
+        flex-direction: column;
+    }
+    
+    .solucao_texto span{
+        margin-bottom: 20px;
+    }
+
+    .nossa_solucao{
+        height: 130vh;
+    }
+
+    .nav-bar{
+        height: 10vh;
+    }
+
+    .separacao {
+        height: 10vh;
+    }
+    
+    .separacao span{
+        font-family: 'Lora';
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .banner_fundo{
+        display: flex;
+        width: 100vw;
+        height: 70vh;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 5vw;
+    }
+
+    .coluna_banner{
+        align-items: center;
+    }
+
+    .logo_banner{
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 40vw;
+        height: auto;
+    }
+
+    .pix{
+        width: 10%;
+        margin-bottom: 2vh;
+    }
+    
+    .techpix{
+        width: 60%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 4vh;
+    }
+    
+    .slogan{
+        display: flex;
+        font-family: 'Karla';
+        width: 80%;
+        max-width: 350px;
+        font-size: 16px;
+        color: white;
+        text-align: left;
+    }
+    
+    .slogan span {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg, #567EBB 35%, #FFFAFF 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .texto, .solucao_texto {
+        width: 90%;
+        text-align: center;
+    }
+
+    .texto p {
+        font-size: 18px;
+    }
+
+    .botoes_impacto, .botoes_login{
+        width: 40vw;
+        text-align: center;
+    }
+
+    .imagem_impacto, .imagem_solucao {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Responsividade para telas menores que 700px */
+@media (max-width: 700px) {
     .nav-bar, .principal_impacto, .principal_impacto2, .nossa_solucao {
         flex-direction: column;
         height: auto;
