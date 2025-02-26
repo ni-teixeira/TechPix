@@ -90,7 +90,6 @@
     justify-content: center;
     align-items: center;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1;
     margin: -0.2em;
 }
 
@@ -194,12 +193,13 @@ textarea {
     align-items: center;
     justify-content: center;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1;
 }
 
 .containerDireita .imagem{
     background-image: url('../assets/imgs/mew.png');
-    height: 70vh;
-    width: 40vw;
+    height: 80%; 
+    width: 100%;   /* em vez de 40vw */
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -297,11 +297,11 @@ textarea {
     }
 
     input::placeholder {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     textarea::placeholder {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     .inputs i {
@@ -321,6 +321,7 @@ textarea {
 
 
 @media (min-width: 766px) and (max-width: 1025px) {
+
     .btn_contato, .btn_log {
         width: 20vw;
         font-size: 1.5em;
@@ -380,8 +381,63 @@ textarea {
 
 /* desktop */
 
-@media (min-width: 1026px) and (max-width: 2000px){
+/* @media (min-width: 1026px) and (max-width: 1281px){
  
+    .btn_contato, .btn_log {
+        width: 10vw;
+        font-size: 1.5em;
+    }
+
+    .botaoEnviar {
+        width: 10vw;
+        font-size: 1.5em;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    input::placeholder {
+        font-size: 1.5em;
+    }
+
+    textarea::placeholder {
+        font-size: 1.5em;
+    }
+
+    .inputs i {
+        font-size: 1.5em;
+    }
+
+    .inputs:not(.maior) i {
+        top: 25px; 
+        left: 10px;
+    }
+
+    .inputs.maior i {
+        top: 25px; 
+        left: 10px;
+    }
+
+    .containerDireita{
+        height: 85vh;
+        width: 45vw;
+    }
     
+    .containerDireita .imagem{
+        background-image: url('../assets/imgs/mew.png');
+        width: 35vw;
+    }
+
+    .containerEsquerda{
+        height: 85vh;
+        width: 45vw;
+    }
     
-}
+    input, textarea {
+        width: 35vw;
+        margin-left: 5px;
+        padding-left: 40px;
+    }
+
+} */
