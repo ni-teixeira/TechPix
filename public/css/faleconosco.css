@@ -377,3 +377,11 @@ textarea {
         left: 20px;
     }
 }
+
+/* desktop */
+
+@media (min-width: 1026px) and (max-width: 2000px){
+ 
+    
+    
+}

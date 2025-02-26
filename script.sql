@@ -35,3 +35,76 @@ INSERT INTO usuarios VALUES
 (DEFAULT, "Rafael Sampaio", "sampaio@hotmail.com", "#TesteSenh4", "nivel2", "Analista de Infraestrutura", 1),
 (DEFAULT, "Maria Antônia", "maria@yahoo.com", "faz$enhaL0g0", "nivel2", "Analista de Dados", 2);
 
+-- novo script c:
+
+create database if not exists TechPix;
+use TechPix;
+
+create table if not exists Enderecos(
+	idEndereco int primary key auto_increment,
+    cep char(8) not null,
+    numero varchar(10) not null,
+    logradouro varchar(45) not null,
+	complemento varchar(20),
+    bairro varchar(45) not null,
+    cidade varchar(45) not null,
+    estado char(2) not null
+);
+
+create table if not exists Empresa(
+	idEmpresa int primary key auto_increment,
+    razaoSocial varchar(45) not null,
+    codigoEmpresa varchar(20) not null,
+    email varchar(100) not null,
+    senha varchar(100) not null,
+    cnpj char(14) not null,
+    fkEndereco int unique,
+    constraint fkEmpEnd foreign key (fkEndereco) references Enderecos(idEndereco)
+);
+
+create table if not exists Funcionario(
+	idFuncionario int primary key auto_increment,
+    nome varchar(45) not null,
+    email varchar(100) not null,
+    senha varchar(100) not null,
+    cargo varchar(45) not null,
+    equipe varchar(45) not null,
+    fkEmpresa int,
+	constraint fkEmpFunc foreign key (fkEmpresa) references Empresa(idEmpresa)
+);
+
+create table if not exists Servidores(
+	idServidores int primary key auto_increment,
+    nomeServidor varchar(45) not null,
+    ip varchar(45) not null,
+    localizacao varchar(30) not null,
+    status varchar(10) not null,
+	fkEmpresa int,
+	constraint fkEmpServ foreign key (fkEmpresa) references Empresa(idEmpresa)
+);
+
+create table if not exists Componentes(
+	idComponentes int primary key auto_increment,
+    tipo varchar(45) not null,
+    descricao varchar(90) not null,
+    limite int not null,
+    fkServidor int,
+	constraint fkCompServ foreign key (fkServidor) references Servidores(idServidores)
+);
+
+create table if not exists Monitoramento (
+    idMonitoramento int primary key auto_increment,
+    medida decimal not null,
+    fkComponente int,
+    constraint fkCompMon foreign key (fkComponente) references Componentes(idComponentes)
+);
+
+create table if not exists Alertas(
+	idAlerta int primary key auto_increment,
+	tipoComponente varchar(45),
+	descricao varchar(150),
+	nivelCritico varchar(10),
+	dataHora datetime,
+	fkComponente int,
+    constraint fkCompAlerta foreign key (fkComponente) references Componentes(idComponentes)
+);
