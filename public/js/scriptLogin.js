@@ -103,7 +103,7 @@ function logar(){
     const btnProsseguir = document.querySelector('.continuar');
     const btnTentar = document.querySelector('.tentar-novamente');
 
-    if(validarEmail() && validarSenha){
+    if(validarEmail() && validarSenha()){
         fetch("/usuarios/autenticar", {
             method: "POST",
         headers: {
