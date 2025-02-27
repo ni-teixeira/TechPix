@@ -149,15 +149,24 @@ body::-webkit-scrollbar {
 }
 
 .separacao span{
+    width: 80vw;
     font-family: 'Lora';
     text-align: center;
-    font-size: 42px;
+    font-size: 34px;
 }
 
 .principal_impacto{
     display: flex;
     width: 100vw;
     flex-direction: row; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
+    align-items: center;
+    background-color: #01010D;
+}
+
+.principal_impacto_2{
+    display: flex;
+    width: 100vw;
+    flex-direction: row-reverse; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
     align-items: center;
     background-color: #01010D;
 }
@@ -187,6 +196,17 @@ body::-webkit-scrollbar {
 }
 
 .principal_impacto .texto button{
+    margin-top: 30px
+}
+
+.principal_impacto_2 .texto p{
+    margin-top: 100px;
+    color: white;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.principal_impacto_2 .texto button{
     margin-top: 30px
 }
 
@@ -279,13 +299,13 @@ body::-webkit-scrollbar {
     }
 
     .separacao {
-        height: 10vh;
+        height: 15vh;
     }
     
     .separacao span{
         font-family: 'Lora';
         text-align: center;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .banner_fundo{
@@ -347,6 +367,29 @@ body::-webkit-scrollbar {
         display: none;
     }
 
+    .botoes_banner{
+        width: 20vh;
+        font-size: 12px;
+    }
+
+    .principal_impacto_2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 140vh;
+        flex-direction: row;
+    }
+
+    .principal_impacto_2 .texto p{
+        color: white;
+        font-size: 25px;
+        margin: 0px;
+    }
+    
+    .principal_impacto_2 .texto button{
+        margin-top: 30px
+    }
+
     .texto, .solucao_texto {
         width: 90%;
         text-align: center;
@@ -367,32 +410,13 @@ body::-webkit-scrollbar {
 }
 
 
-
-
-
-
-
-
-
-
-
-/* Responsividade para telas menores que 700px */
 @media (max-width: 700px) {
-    .nav-bar, .principal_impacto, .principal_impacto2, .nossa_solucao {
+    .nav-bar, .principal_impacto, .principal_impacto_reverso, .separacao, .nossa_solucao {
         flex-direction: column;
-        height: auto;
     }
     
     .solucao_texto span{
         margin-bottom: 20px;
-    }
-    
-    .principal_impacto{
-        height: 100vh;
-    }
-
-    .principal_impacto2{
-        height: 130vh;
     }
 
     .nossa_solucao{
@@ -403,41 +427,158 @@ body::-webkit-scrollbar {
         height: 10vh;
     }
 
-    .separacao{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 20vh;
-        background-color: white;
+    .separacao {
+        height: 10vh;
     }
     
     .separacao span{
+        width: 80vw;
         font-family: 'Lora';
         text-align: center;
         font-size: 16px;
+    }
+
+    .banner_fundo{
+        display: flex;
+        width: 100vw;
+        height: 90vh;
+        background-color: #001228;
+        background-image: url();
+        padding: 0px;
+    }
+
+    .conteudo_banner{
+        display: flex;
+        align-items: center;
+        margin: 0px;
+        width: 100vw;
+        height: 50vh;
+    }
+    
+
+    .coluna_banner{
+        align-items: center;
+    }
+
+    .logo_banner{
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 40vw;
+        height: auto;
+    }
+
+    .pix{
+        width: 10vw;
+        margin-bottom: 2vh;
+    }
+    
+    .techpix{
+        width: 50vw;
+        height: auto;
+        margin-bottom: 4vh;
+    }
+    
+    .slogan{
+        display: flex;
+        font-family: 'Karla';
+        width: 80%;
+        max-width: 350px;
+        font-size: 16px;
+        color: white;
+        text-align: left;
+    }
+    
+    .slogan span {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg, #567EBB 35%, #FFFAFF 80%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
     }
 
     .logo{
         display: none;
     }
 
-    .banner_fundo{
-        display: none;
+    .botoes_banner{
+        width: 20vh;
+        font-size: 12px;
     }
 
-    .conteudo, .texto, .solucao_texto {
-        width: 90%;
+    .principal_impacto{
+        height: 140vh;
+    }
+
+    .principal_impacto_2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 140vh;
+        flex-direction: row;
+    }
+
+    .principal_impacto_2 .texto p{
+        color: white;
+        font-size: 25px;
+        margin: 0px;
+    }
+    
+    .principal_impacto_2 .texto button{
+        margin-top: 30px
+    }
+
+    .nossa_solucao{
+        display: flex;
+        background-color: #ffffff;
+        height: 210vh;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .solucao_texto {
+        display: flex;
+        width: 90vw;
+        height: 140vh;
         text-align: center;
     }
 
     .texto p {
-        font-size: 20px;
+        font-size: 14px;
+        margin: 0px;
     }
 
-    .botoes_impacto, .botoes_login{
+    .botao_login{
         width: 20vw;
+        text-align: center;
     }
+
+    .botoes_impacto {
+        width: 30vw;
+    }
+
+    .footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 10vh;
+    background-color: #FFFAFF;
+    background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
+    background-color: black;
+}
+
+.footer span{
+    font-family: 'Lora';
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
 
     .imagem_impacto, .imagem_solucao {
         display: none;
