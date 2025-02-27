@@ -128,6 +128,7 @@ function logar(){
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");
+                modalLogin
                 divmsg.innerHTML = mensagemErro;
             }
 

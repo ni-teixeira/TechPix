@@ -197,7 +197,7 @@ input::placeholder{
     transform: translate(-50%, -50%);
     z-index: 10;
     max-width: 90%;
-    height: 50%;
+    height: 40%;
     padding: 1.2rem;
     border-radius: 0.5rem;
     background-color: white;
@@ -209,6 +209,7 @@ input::placeholder{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: auto;
     border-bottom: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
@@ -225,19 +226,13 @@ input::placeholder{
 
 .modal-header img{
     height: 10rem;
-    position: relative;
-    margin-bottom: 1rem;
-    /* top: 30px;
-    left: 50%;
-    transform: translateX(-50%); */
 }
 
-.botao-modal{
-    display: flex;
-    justify-self: flex-end;
+.botao-modal, .botao-modal-erro {
+    margin-top: 2rem;
 }
 
-.botao-modal button{
+.botao-modal button, .botao-modal-erro button{
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -251,6 +246,10 @@ input::placeholder{
     border-radius: 25px;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.botao-modal-erro button{
+    font-size: 1.3rem;
 }
 
 @media (max-width: 769px){

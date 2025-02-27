@@ -53,7 +53,7 @@
         </div>
     </div>
     <!-- Modal de sucesso -->
-    <div class="modalLogin" style="display: block;">
+    <div class="modalLogin" style="display: none;">
         <div class="fade"></div>
         <div class="modal">
             <div class="modal-header">
@@ -64,6 +64,21 @@
                 </div>
                 <div class="botao-modal">
                     <button class="continuar">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modalErroLogin" style="display: block;">
+        <div class="fade"></div>
+        <div class="modal">
+            <div class="modal-header">
+                <img src="../assets/icon/stop.gif">
+                <div class="texto-modal">
+                    <h2>Houve um erro ao tentar realizar o Login!</h2>
+                    <h3>Clique no botão abaixo para tentar novamente</h3>
+                </div>
+                <div class="botao-modal-erro">
+                    <button class="tentar-novamente">Tentar Novamente</button>
                 </div>
             </div>
         </div>
