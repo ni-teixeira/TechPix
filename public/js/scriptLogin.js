@@ -84,20 +84,24 @@ function validarSenha(){
     if(espaco){
         mensagemErro += `A senha não pode incluir espaços em branco<br>`
     }
+    
+    divmsg.innerHTML = mensagemErro
+
     if(especiais && numero && minuscula && maiuscula && !espaco){
         return true;
     }
 
-    divmsg.innerHTML = mensagemErro
 
 }
 
 function logar(){
-    var codigo = document.getElementById('iptcodigo').value;
-    var email = document.getElementById('iptemail').value;
-    var senha = document.getElementById('iptsenha').value;
-    var mensagemErro = "";
-    var modalLogin = document.querySelector('.modalLogin');
+    const codigo = document.getElementById('iptcodigo').value;
+    const email = document.getElementById('iptemail').value;
+    const senha = document.getElementById('iptsenha').value;
+    const modalLogin = document.querySelector('.modalLogin');
+    const modalErroLogin = document.querySelector('.modalErroLogin');
+    const btnProsseguir = document.querySelector('.continuar');
+    const btnTentar = document.querySelector('.tentar-novamente');
 
     if(validarEmail() && validarSenha){
         fetch("/usuarios/autenticar", {
@@ -121,15 +125,17 @@ function logar(){
                     sessionStorage.ID_USUARIO = json.id;
                     
                     modalLogin.style.display = 'block';
-                    setTimeout(function () {
-                        window.location = "./root/contaEmpresaRootFuncionarios.html";
-                        modalLogin.style.display = 'none';
-                    }, 1000);
+                    btnProsseguir.addEventListener("click", () => {
+                        setTimeout(function () {
+                            window.location = "./root/contaEmpresaRootFuncionarios.html";
+                            modalLogin.style.display = 'none';
+                        }, 1000);
+                    })
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");
-                modalLogin
-                divmsg.innerHTML = mensagemErro;
+                modalErroLogin.style.display = 'block';
+                btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
             }
 
         }).catch(function (erro) {
