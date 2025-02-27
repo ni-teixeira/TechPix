@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="../assets/icon/logo.png" sizes="16x16">
     <script src="../js/scriptLogin.js"></script>
@@ -47,8 +49,25 @@
             <div class="mensagemErro" id="divmsg"></div>
         </div>
         <div class="img_login">
-            <img src="../assets/imgs/imagem_login.png"> 
+            <img src="../assets/imgs/imagem_login.png">
+        </div>
+    </div>
+    <!-- Modal de sucesso -->
+    <div class="modalLogin" style="display: block;">
+        <div class="fade"></div>
+        <div class="modal">
+            <div class="modal-header">
+                <img src="../assets/icon/verified.gif">
+                <div class="texto-modal">
+                    <h2>Login Realizado com Sucesso!</h2>
+                    <h3>Clique no botão abaixo para ser redirecionado</h3>
+                </div>
+                <div class="botao-modal">
+                    <button class="continuar">Continuar</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

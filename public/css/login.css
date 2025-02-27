@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Afacad", serif;
 }
   
 
@@ -17,7 +18,6 @@
     background: transparent;
     padding: 0 4vh;
     color: white;
-    font-family: "Afacad", serif;
     font-weight: bold;
 }
 
@@ -82,7 +82,6 @@
     left: 0;
     bottom: 0;
     position: inherit;
-    font-family: "Afacad", serif;
     font-weight: bold;
 }
 
@@ -106,7 +105,7 @@
     position: relative;
 }
 
-h2 {
+.form_login h2 {
     font-size: 5rem;
     text-align: center;
     color: #FEFFFF;
@@ -138,7 +137,6 @@ input::placeholder{
 }
 
 .form button{   
-    font-family: "Afacad", serif;
     font-weight: bold;
     border: 0;
     width: 40%;
@@ -160,7 +158,6 @@ input::placeholder{
     display: flex;
     justify-content: center;
     align-self: center;
-    font-family: "Afacad", serif;
     color: white;
     font-size: 1.5rem;
     max-height: 2rem;
@@ -178,6 +175,82 @@ input::placeholder{
 
 .img_login img {
     width: 80%;
+}
+
+.fade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    max-width: 90%;
+    height: 50%;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    font-size: large;
+}
+
+.texto-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+
+.modal-header img{
+    height: 10rem;
+    position: relative;
+    margin-bottom: 1rem;
+    /* top: 30px;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+
+.botao-modal{
+    display: flex;
+    justify-self: flex-end;
+}
+
+.botao-modal button{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    min-width: 150px;
+    font-size: 1.6rem;
+    color: #003F6A;
+    background: transparent;
+    border: solid 2px #003F6A;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 @media (max-width: 769px){

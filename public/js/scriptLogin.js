@@ -85,7 +85,7 @@ function validarSenha(){
         mensagemErro += `A senha não pode incluir espaços em branco<br>`
     }
     if(especiais && numero && minuscula && maiuscula && !espaco){
-        validacaosenha = true;
+        return true;
     }
 
     divmsg.innerHTML = mensagemErro
@@ -97,12 +97,9 @@ function logar(){
     var email = document.getElementById('iptemail').value;
     var senha = document.getElementById('iptsenha').value;
     var mensagemErro = "";
+    var modalLogin = document.querySelector('.modalLogin');
 
-    if(!email || !senha || !codigo){
-        mensagemErro = "Informe todos os campos!"
-    }
-    
-    if(validarLogin()){
+    if(validarEmail() && validarSenha){
         fetch("/usuarios/autenticar", {
             method: "POST",
         headers: {
@@ -122,7 +119,12 @@ function logar(){
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    alert("Login realizado com sucesso!")
+                    
+                    modalLogin.style.display = 'block';
+                    setTimeout(function () {
+                        window.location = "./root/contaEmpresaRootFuncionarios.html";
+                        modalLogin.style.display = 'none';
+                    }, 1000);
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");
