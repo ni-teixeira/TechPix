@@ -205,14 +205,6 @@ textarea {
     background-repeat: no-repeat;
 }
 
-.botoes_login_banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-}
-
 /* mobile */
 @media (max-width: 500px) {
 
