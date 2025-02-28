@@ -1,41 +1,5 @@
 -- Active: 1724686043904@@127.0.0.1@3306@ajuda
 -- Script de BD do projeto do TechPix
-CREATE DATABASE Techpix;
-USE Techpix;
-
-CREATE TABLE empresas(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    razao_social VARCHAR(45),
-    codigo_empresa VARCHAR(20),
-    email VARCHAR(100),
-    senha VARCHAR(100),
-    cnpj CHAR(14)
-);
-
-CREATE TABLE usuarios(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45),
-    email VARCHAR(100),
-    senha VARCHAR(100),
-    nivel VARCHAR(45),
-    cargo VARCHAR(45),
-    fkEmpresa INT,
-    FOREIGN KEY (fkEmpresa) REFERENCES empresas(id)
-);
-
-INSERT INTO Empresa VALUES
-(DEFAULT, "Banco Safra", "UFG145R32", "contato_safra@outlook.com", "Teste123%", "12.345.678-33"),
-(DEFAULT, "Banco Itaú", "RTE251G44", "equipe_itau@gmail.com", "Teste@123", "23.456.789-12"),
-(DEFAULT, "Banco C6", "HJI987C11", "c6_ctt@hotmail.com", "Urubu100%", "11.222.333-44"),
-(DEFAULT, "Banco Bradesco", "CAS112Q57", "bradescontato@yahoo.com", "VaiBrasil2025#", "10.192.287-10");
-
-SELECT * FROM Empresa;
-
-INSERT INTO Funcionario VALUES
-(DEFAULT, "Pedro Alcântara", "pedro@gmail.com", "senhA123$", "nivel1", "Gestor", 1),
-(DEFAULT, "Gabriella Pedrosa", "gabriella@outlook.com", "Urubu100$", "nivel1", "Gestor", 2),
-(DEFAULT, "Rafael Sampaio", "sampaio@hotmail.com", "#TesteSenh4", "nivel2", "Analista de Infraestrutura", 1),
-(DEFAULT, "Maria Antônia", "maria@yahoo.com", "faz$enhaL0g0", "nivel2", "Analista de Dados", 2);
 
 -- novo script c:
 
@@ -96,7 +60,9 @@ create table if not exists Componentes(
 
 create table if not exists Monitoramento (
     idMonitoramento int primary key auto_increment,
-    medida decimal not null,
+	tipo VARCHAR(90),
+    medida float not null,
+	dtHora DATETIME,
     fkComponente int,
     constraint fkCompMon foreign key (fkComponente) references Componentes(idComponentes)
 );
@@ -110,3 +76,42 @@ create table if not exists Alertas(
 	fkComponente int,
     constraint fkCompAlerta foreign key (fkComponente) references Componentes(idComponentes)
 );
+
+INSERT INTO Empresa VALUES
+(DEFAULT, "TechPix", "ABCD12345", "techpix@gmail.com", "TechPix@100", "42.543.643-34"),
+(DEFAULT, "Banco Safra", "UFG145R32", "contato_safra@outlook.com", "Teste123%", "12.345.678-33"),
+(DEFAULT, "Banco Itaú", "RTE251G44", "equipe_itau@gmail.com", "Teste@123", "23.456.789-12"),
+(DEFAULT, "Banco C6", "HJI987C11", "c6_ctt@hotmail.com", "Urubu100%", "11.222.333-44"),
+(DEFAULT, "Banco Bradesco", "CAS112Q57", "bradescontato@yahoo.com", "VaiBrasil2025#", "10.192.287-10");
+
+INSERT INTO Funcionario VALUES
+(DEFAULT, "Ariel Rocha", "ariel.rocha@gmail.com", "SenhaAriel123#", "nivel3", "CEO", 1),
+(DEFAULT, "Caio Visconti", "caio.visconti@outlook.com", "SenhaCaio123@", "nivel3", "CEO", 1),
+(DEFAULT, "Gabriel Santos", "gabriel.santos@hotmail.com", "SenhaGabriel123@", "nivel3", "CEO", 1),
+(DEFAULT, "Guilherme Fonseca", "guilherme.fonseca@yahoo.com", "SenhaGuilherme123@", "nivel3", "CEO", 1),
+(DEFAULT, "Nicoly Teixeira", "nicoly.teixeira@gmail.com", "SenhaNicoly123@", "nivel3", "CEO", 1),
+
+(DEFAULT, "Pedro Alcântara", "pedro@gmail.com", "senhA123$", "nivel1", "Gestor", 2),
+(DEFAULT, "Gabriella Pedrosa", "gabriella@outlook.com", "Urubu100$", "nivel1", "Gestor", 3),
+(DEFAULT, "Rafael Sampaio", "sampaio@hotmail.com", "#TesteSenh4", "nivel2", "Analista de Infraestrutura", 2),
+(DEFAULT, "Maria Antônia", "maria@yahoo.com", "faz$enhaL0g0", "nivel2", "Analista de Dados", 2);
+
+
+-- SELECT PARA SABER CARGO
+SELECT cargo 
+FROM Funcionario 
+JOIN Empresa ON Funcionario.fkEmpresa = Empresa.idEmpresa 
+WHERE Empresa.codigoEmpresa = "ABCD12345" 
+AND Funcionario.email = "gabriel.santos@hotmail.com" 
+AND Funcionario.senha = "SenhaGabriel123@";
+
+-- SELECT PARA SABER RAZÃO SOCIAL (EMPRESA)
+SELECT razaoSocial 
+FROM Funcionario 
+JOIN Empresa ON Funcionario.fkEmpresa = Empresa.idEmpresa 
+WHERE Empresa.codigoEmpresa = "ABCD12345" 
+AND Funcionario.email = "gabriel.santos@hotmail.com" 
+AND Funcionario.senha = "SenhaGabriel123@";
+
+
+
