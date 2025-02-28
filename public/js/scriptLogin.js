@@ -88,7 +88,12 @@ function validarSenha(){
     divmsg.innerHTML = mensagemErro
 
     if(especiais && numero && minuscula && maiuscula && !espaco){
+<<<<<<< Updated upstream
         return true;
+=======
+        validacaosenha = true;
+        return validacaosenha;
+>>>>>>> Stashed changes
     }
 
 
@@ -103,6 +108,13 @@ function logar(){
     const btnProsseguir = document.querySelector('.continuar');
     const btnTentar = document.querySelector('.tentar-novamente');
 
+<<<<<<< Updated upstream
+=======
+    if(!email || !senha || !codigo){
+        mensagemErro = "Informe todos os campos!"
+    }
+    
+>>>>>>> Stashed changes
     if(validarEmail() && validarSenha()){
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -112,7 +124,7 @@ function logar(){
             body: JSON.stringify({
                 emailServer: email,
                 senhaServer: senha,
-                codigoServer: codigo
+                codigoServer: codigo,
             }),
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!", resposta)
@@ -123,6 +135,7 @@ function logar(){
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
+<<<<<<< Updated upstream
                     
                     modalLogin.style.display = 'block';
                     btnProsseguir.addEventListener("click", () => {
@@ -131,6 +144,11 @@ function logar(){
                             modalLogin.style.display = 'none';
                         }, 1000);
                     })
+=======
+                    alert("Login realizado com sucesso!")
+
+                    window.location = "../root/contaEmpresaRootServidores.html"
+>>>>>>> Stashed changes
                 });
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");

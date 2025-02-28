@@ -1,3 +1,19 @@
+CREATE DATABASE aulaPythonMysql;
+USE aulaPythonMysql;
+
+CREATE TABLE monitoramento (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tipo VARCHAR(45),
+    medida FLOAT,
+    dtHora DATETIME
+);
+
+SELECT * FROM monitoramento;
+
+TRUNCATE monitoramento;
+
+-- novo
+
 -- Active: 1724686043904@@127.0.0.1@3306@ajuda
 -- Script de BD do projeto do TechPix
 CREATE DATABASE Techpix;
@@ -40,16 +56,7 @@ INSERT INTO usuarios VALUES
 create database if not exists TechPix;
 use TechPix;
 
-create table if not exists Empresa(
-	idEmpresa int primary key auto_increment,
-    razaoSocial varchar(45) not null,
-    codigoEmpresa varchar(20) not null,
-    email varchar(100) not null,
-    senha varchar(100) not null,
-    cnpj char(14) not null
-);
-
-create table if not exists Endereco(
+create table if not exists Enderecos(
 	idEndereco int primary key auto_increment,
     cep char(8) not null,
     numero varchar(10) not null,
@@ -57,9 +64,18 @@ create table if not exists Endereco(
 	complemento varchar(20),
     bairro varchar(45) not null,
     cidade varchar(45) not null,
-    estado char(2) not null
-    fkEmpresa int unique,
-    constraint fkEmpEnd foreign key (fkEmpresa) references Empresa(idEmpresa)
+    estado char(2) not null,
+    fkEmpresa INT,
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
+);
+
+create table if not exists Empresa(
+	idEmpresa int primary key auto_increment,
+    razaoSocial varchar(45) not null,
+    codigoEmpresa varchar(20) not null,
+    email varchar(100) not null,
+    senha varchar(100) not null,
+    cnpj char(14) not null
 );
 
 create table if not exists Funcionario(
@@ -94,10 +110,13 @@ create table if not exists Componentes(
 
 create table if not exists Monitoramento (
     idMonitoramento int primary key auto_increment,
+    tipo VARCHAR(90),
     medida decimal not null,
+    dtHora DATETIME,
     fkComponente int,
     constraint fkCompMon foreign key (fkComponente) references Componentes(idComponentes)
 );
+
 
 create table if not exists Alertas(
 	idAlerta int primary key auto_increment,
@@ -109,4 +128,36 @@ create table if not exists Alertas(
     constraint fkCompAlerta foreign key (fkComponente) references Componentes(idComponentes)
 );
 
-SELECT * FROM Empresa;
+INSERT INTO Empresa VALUES
+(DEFAULT, 'Banco Safra', 'SF8A90', 'safra@gmail.com', 'Urubu#100', '12345678901234');
+
+INSERT INTO Servidores VALUES
+(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 1);
+
+INSERT INTO Servidores VALUES
+(DEFAULT, 'BCD', '123.0.1.1', 'ALI DO LADO', 'Ativo', 1),
+(DEFAULT, 'CDE', '123.0.1.1', 'ALI EMBAIXO', 'Ativo', 1),
+(DEFAULT, 'DEF', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 1),
+(DEFAULT, 'EFG', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 1);
+
+INSERT INTO Componentes VALUES
+(DEFAULT, 'CPU', 'Intel i9', 1, 1),
+(DEFAULT, 'RAM', 'RAM 16GB', 1, 1),
+(DEFAULT, 'Disco', 'SSD 512GB', 1, 1),
+(DEFAULT, 'Placa de Rede', 'rede1', 1, 1);
+
+SELECT * FROM Monitoramento;
+
+SELECT * FROM Componentes;
+
+TRUNCATE Monitoramento;
+
+USE Techpix;
+
+SELECT * FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON s.idServidores = c.fkServidor WHERE idServidores = 3;
+
+SELECT idServidores,  FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';
+
+SELECT DISTINCT  m.tipo FROM Monitoramento AS m JOIN Componentes AS c ON m.fkComponente = c.idComponentes WHERE c.fkServidor = 1;
+
+SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
