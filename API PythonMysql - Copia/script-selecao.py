@@ -33,8 +33,41 @@ def executar(dados):
         
         conexaoSelect.commit()
 
-def metricas():
-    print(a)
+def metricas(listaMetricas):
+
+    porcentagem = False
+    bytes = False
+    pacotes = False
+
+    if('Porcentagem da CPU', 'Porcentagem de RAM disponível', 'Porcentagem de Armazenamento utilizado') in listaMetricas:
+        porcentagem = True
+        
+    if('Número de pacotes enviados', 'Número de pacotes recebidos') in listaMetricas:
+        pacotes = True
+        
+    if ('Total de RAM', 'Total de RAM disponível', 'Total de Memória Swap utilizada', 'Total de Armazenamento') in listaMetricas:
+        bytes = True
+
+    while True:
+
+        mensagem = '(Métricas disponíveis: '
+        i = 0
+
+        while listaMetricas.len > i:
+            if listaMetricas.len != i:
+                mensagem += listaMetricas[i] + ", "
+            else:
+                mensagem += listaMetricas[i] + ".)"
+            i += 1
+         
+        metricas = input("Quais métricas deseja analisar? ")
+
+        
+        
+
+
+             
+            
 
 def interagir(listaServidores):
 
@@ -45,10 +78,7 @@ def interagir(listaServidores):
 
     while True:
 
-        escolha = input("Insira qual máquina gostaria de vizualizar os dados:")
-
         mensagem = "(Máquinas disponíveis: "
-
 
         i = 0
         while listaServidores.len > i:
@@ -57,6 +87,8 @@ def interagir(listaServidores):
             else:
                 mensagem += listaServidores[i] + ".)"
             i += 1
+
+        escolha = input("Insira qual máquina gostaria de vizualizar os dados: " + mensagem + "  ")
             
         i = 0
 
@@ -65,9 +97,7 @@ def interagir(listaServidores):
             values = (escolha)
             cursor.execute(sql, values)
 
-            mensagem += ""
-
-            componente = input("Qual componente deseja observar dentre os que estão sendo monitorados? (Componentes disponíveis: ")
+            mensagem = ("Componentes disponíveis: ")
 
             while listaComponentes.len > i:
                 if listaComponentes.len != i:
@@ -75,12 +105,16 @@ def interagir(listaServidores):
                 else:
                      mensagem += listaComponentes[i] + ".)"
 
+            componente = input("Qual componente deseja observar dentre os que estão sendo monitorados? " + mensagem + "  ")
+
+            print(mensagem)
+
             for (Tipo, Componente) in cursor:
                 listaMetricas.append(Tipo)
                 listaComponentes.append(Componente)
             
             if componente in listaComponentes:
-                metricas()
+                metricas(listaMetricas)
                 return
             else:
                 print("Por favor insira um dos componentes citados acima")
