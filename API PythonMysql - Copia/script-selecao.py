@@ -1,18 +1,15 @@
 import mysql.connector
-import psutil
 from mysql.connector import errorcode
 
 cursor = ""
 
 def executar(metricas, componente):
-    global cursor  # Usa o cursor global
+    global cursor
     sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
 
-    # Assegure-se de passar o parâmetro como uma tupla
     values = (componente, f"%{metricas}%")
     cursor.execute(sql, values)
 
-    # Usando fetchall() para pegar todos os resultados da consulta
     resultados = cursor.fetchall()
 
     if resultados:
@@ -25,7 +22,6 @@ def metricas(componente):
     mensagem = '(Métricas disponíveis: Porcentagem, Pacotes ou Bytes)'
     metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
 
-    # Verifica se a métrica inserida é válida
     if metricas in ["Porcentagem", "Pacotes", "Bytes"]:
         executar(metricas, componente)
     else:
@@ -53,7 +49,7 @@ def interagir(listaServidores):
 
         if escolha.isdigit() and int(escolha) in listaServidores:
             sql = "SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = %s;"
-            values = (int(escolha),)  # Passando como tupla
+            values = (int(escolha),)
             cursor.execute(sql, values)
 
             listaComponentes.clear()
@@ -86,7 +82,7 @@ def login():
         sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
         cursor.execute(sql, (email, senha))
 
-        listaServidores = [idServidores for (idServidores,) in cursor]  # Desempacotando corretamente
+        listaServidores = [idServidores for (idServidores,) in cursor]
         
         if not listaServidores:
             print("Nenhuma máquina encontrada para este usuário.")
