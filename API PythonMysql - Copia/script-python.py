@@ -121,7 +121,17 @@ def executar(dados):
         conexaoInsert.commit()
 
 def interagir():
-    print("Seja bem-vindo à API de inserção de dados WinsertPy")
+    print("Seja bem-vindo à API de inserção de dados Techpix")
+    
+    print("""
+             _______        _     _____ _      
+            |__   __|      | |   |  __ (_)     
+                | | ___  ___| |__ | |__) |__  __
+                | |/ _ \/ __| '_ \|  ___/ \ \/ /
+                | |  __/ (__| | | | |   | |>  < 
+                |_|\___|\___|_| |_|_|   |_/_/\_\                      
+    """)
+    
     print("Nessa API iremos fazer a captura dos dados que você escolher do seu dispositivo! Vamos começar!!")
 
     verificacao = True
