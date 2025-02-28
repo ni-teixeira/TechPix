@@ -108,10 +108,12 @@ TRUNCATE Monitoramento;
 
 USE Techpix;
 
-SELECT * FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON s.idServidores = c.fkServidor WHERE idServidores = 3;
+SELECT * FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON s.idServidores = c.fkServidor WHERE idServidores = 1;
 
 SELECT idServidores,  FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';
 
 SELECT DISTINCT  m.tipo FROM Monitoramento AS m JOIN Componentes AS c ON m.fkComponente = c.idComponentes WHERE c.fkServidor = 1;
 
 SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
+
+SELECT AVG(medida) FROM Monitoramento WHERE fkComponente = 5 AND tipo LIKE 'Porcentagem%' LIMIT 10;

@@ -3,17 +3,22 @@ from mysql.connector import errorcode
 
 cursor = ""
 
-def executar(metricas, componente):
+def executar(metricas, componente, formato):
     global cursor
-    sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
 
-    values = (componente, f"%{metricas}%")
+    if formato == '1': 
+        sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
+        values = (componente, f"%{metricas}%")
+    else:
+        sql = "SELECT tipo, AVG(medida) FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s GROUP BY tipo LIMIT 10;"
+        values = (componente, f"%{metricas}%")
+
     cursor.execute(sql, values)
 
     resultados = cursor.fetchall()
 
     if resultados:
-        for tipo, medida in resultados:
+        for (tipo, medida) in resultados:
             print(f"{tipo}: {medida}")
     else:
         print("Nenhum dado encontrado para esta consulta.")
@@ -23,7 +28,16 @@ def metricas(componente):
     metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
 
     if metricas in ["Porcentagem", "Pacotes", "Bytes"]:
-        executar(metricas, componente)
+        
+        while True:
+
+            formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário) (2- Média a cada 10 registros)") 
+
+            if formato == '1' or formato == '2':
+                executar(metricas, componente, formato)
+                return
+            
+            print("Por favor insira apenas valores como '1' ou '2'.")
     else:
         print("Por favor insira apenas 'Porcentagem', 'Pacotes' ou 'Bytes'")
 
@@ -96,7 +110,7 @@ def login():
         
 
 try:
-    conexaoSelect = mysql.connector.connect(host='localhost', user='root', password='Bernardo1303!', database='techpix')
+    conexaoSelect = mysql.connector.connect(host='localhost', user='techpixSelect', password='Urubu100', database='techpix')
     print("Banco de dados conectado!")
     cursor = conexaoSelect.cursor()
     login()
