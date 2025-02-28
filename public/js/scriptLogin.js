@@ -1,31 +1,31 @@
-function validarEmail(){
+function validarEmail() {
     var email = document.getElementById('iptemail').value;
     var mensagemErro = "";
     var tamanhoValido = false;
 
-    if(!email){
+    if (!email) {
         mensagemErro = ` `
     }
-    if(!email.includes('@')){
+    if (!email.includes('@')) {
         mensagemErro += `O email deve incluir '@'<br>`
     }
-    if(!email.includes('.')){
+    if (!email.includes('.')) {
         mensagemErro += `O email deve incluir ponto '.'<br>`
     }
-    if(email.includes(' ')){
+    if (email.includes(' ')) {
         mensagemErro += `O email não pode conter espaços<br>`
     }
-    if (email.length < 5){
+    if (email.length < 5) {
         mensagemErro += `O email deve ter no mínimo 5 caracteres<br>`
-    }else if(email.length > 100){
+    } else if (email.length > 100) {
         mensagemErro += `O email deve ter no máximo 100 caracteres<br>`
-    }else{
+    } else {
         tamanhoValido = true;
     }
 
     divmsg.innerHTML = mensagemErro
 
-    if(email.includes('@') && email.includes('.') && !email.includes(' ') && tamanhoValido){
+    if (email.includes('@') && email.includes('.') && !email.includes(' ') && tamanhoValido) {
         return true;
     } else {
         return false;
@@ -33,8 +33,8 @@ function validarEmail(){
 
 }
 
-function validarSenha(){
-    var senha =  document.getElementById('iptsenha').value;
+function validarSenha() {
+    var senha = document.getElementById('iptsenha').value;
     var mensagemErro = ""
     var caracteres = ['!', '@', '#', '$', '%', '&', '*', '_', '?', '/']
     var especiais = false;
@@ -43,58 +43,58 @@ function validarSenha(){
     var maiuscula = false;
     var espaco = false;
 
-    if(!senha){
+    if (!senha) {
         mensagemErro = `Insira uma senha para continuar<br>`
     }
-    if(senha.length < 6){
+    if (senha.length < 6) {
         mensagemErro += `Senha muito curta! A senha deve ter pelo menos 6 caracteres<br>`
-    }else if(senha.length > 30){
+    } else if (senha.length > 30) {
         mensagemErro += `Senha muito longa! A senha deve ter no máximo 30 caracteres<br>`
     }
 
-    for (i = 0; i < senha.length; i++){
-        for (j = 0; j < caracteres.length; j++){
+    for (i = 0; i < senha.length; i++) {
+        for (j = 0; j < caracteres.length; j++) {
 
-            if(senha[i] == caracteres[j]){
+            if (senha[i] == caracteres[j]) {
                 especiais = true;
-            }if(!isNaN(senha[i])){
+            } if (!isNaN(senha[i])) {
                 numero = true;
-            }if (senha[i].toUpperCase() != senha[i]){
+            } if (senha[i].toUpperCase() != senha[i]) {
                 minuscula = true;
-            }if (senha[i].toLowerCase() != senha[i]){
+            } if (senha[i].toLowerCase() != senha[i]) {
                 maiuscula = true;
-            }if(senha[i].includes(' ')){
+            } if (senha[i].includes(' ')) {
                 espaco = true;
             }
         }
     }
 
-    if(!especiais){
+    if (!especiais) {
         mensagemErro += `A senha deve incluir ao menos um caracter especial<br>`
     }
-    if(!numero){
+    if (!numero) {
         mensagemErro += `A senha deve incluir ao menos um número<br>`
     }
-    if(!minuscula){
+    if (!minuscula) {
         mensagemErro += `A senha deve incluir ao menos uma letra minúscula<br>`
     }
-    if(!maiuscula){
+    if (!maiuscula) {
         mensagemErro += `A senha deve incluir ao menos uma letra maiúscula<br>`
     }
-    if(espaco){
+    if (espaco) {
         mensagemErro += `A senha não pode incluir espaços em branco<br>`
     }
-    
+
     divmsg.innerHTML = mensagemErro
 
-    if(especiais && numero && minuscula && maiuscula && !espaco){
+    if (especiais && numero && minuscula && maiuscula && !espaco) {
         return true;
     }
 
 
 }
 
-function logar(){
+function logar() {
     const codigo = document.getElementById('iptcodigo').value;
     const email = document.getElementById('iptemail').value;
     const senha = document.getElementById('iptsenha').value;
@@ -103,12 +103,12 @@ function logar(){
     const btnProsseguir = document.querySelector('.continuar');
     const btnTentar = document.querySelector('.tentar-novamente');
 
-    if(validarEmail() && validarSenha()){
-        fetch("/usuarios/autenticar", {
+    if (validarEmail() && validarSenha()) {
+        const respostaUsuarios = fetch("/usuarios/autenticar", {
             method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
                 emailServer: email,
                 senhaServer: senha,
@@ -116,32 +116,65 @@ function logar(){
             }),
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!", resposta)
-            
+
             if (resposta.ok) {
                 resposta.json().then(json => {
                     console.log(json);
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    
+
                     modalLogin.style.display = 'block';
                     btnProsseguir.addEventListener("click", () => {
                         setTimeout(function () {
-                            window.location = "../root/contaEmpresaRootFuncionarios.html";
+                            window.location = "../root/contaEmpresaRootServidores.html";
                             modalLogin.style.display = 'none';
                         }, 1000);
                     })
                 });
-            } else {
-                console.log("Houve um erro ao tentar realizar o login!");
-                modalErroLogin.style.display = 'block';
-                btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
+            } else if (respostaUsuarios) {
+                fetch("/empresas/autenticar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        emailServer: email,
+                        senhaServer: senha,
+                        codigoServer: codigo,
+                    }),
+                }).then(function (resposta) {
+                    console.log("ESTOU NO THEN DO entrar()!", resposta)
+
+                    if (resposta.ok) {
+                        resposta.json().then(json => {
+                            console.log(json);
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.ID_USUARIO = json.id;
+
+                            modalLogin.style.display = 'block';
+                            btnProsseguir.addEventListener("click", () => {
+                                setTimeout(function () {
+                                    window.location = "../root/contaEmpresaRootFuncionarios.html";
+                                    modalLogin.style.display = 'none';
+                                }, 1000);
+                            })
+                        });
+                    } else {
+                        console.log("Houve um erro ao tentar realizar o login!");
+                        modalErroLogin.style.display = 'block';
+                        btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
+
+                    }
+
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+
+                return false;
             }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+        }
+        )
     }
 }
