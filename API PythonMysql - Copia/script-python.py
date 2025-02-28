@@ -25,7 +25,7 @@ def executar(dados):
 
         if "CPUPercent" in dados:
             print("Porcentagem da CPU: ", porcentagem_atual, "%")
-            sql += "('Porcentagem da CPU', %s, %s, 5);"
+            sql += "('Porcentagem da CPU', %s, %s, 1);"
             values = (porcentagem_atual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -33,7 +33,7 @@ def executar(dados):
         if "CPUInterrupt" in dados:
             interrupcoes = bibliotecaCaptura.cpu_stats().interrupts
             print("Número de interrupções do sistema desde a sua inicialização: ", interrupcoes)
-            sql += "('Número de interrupções do sistema desde a sua inicialização', %s, %s, 5);"
+            sql += "('Número de interrupções do sistema desde a sua inicialização', %s, %s, 1);"
             values = (interrupcoes, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -41,7 +41,7 @@ def executar(dados):
         if "CPUInterruptSoft" in dados:
             interrupcoesSoft = bibliotecaCaptura.cpu_stats().soft_interrupts
             print("Número de interrupções de softwares desde a sua inicialização: ", interrupcoesSoft)
-            sql += "('Número de interrupções de softwares desde a sua inicialização', %s, %s, 5);"
+            sql += "('Número de interrupções de softwares desde a sua inicialização', %s, %s, 1);"
             values = (interrupcoesSoft, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -49,7 +49,7 @@ def executar(dados):
         if "CPUFreq" in dados:
             frequencia_atual = (bibliotecaCaptura.cpu_freq()).current
             print("Frequência da CPU: ", frequencia_atual, 'Hz')
-            sql += "('Frequência da CPU', %s, %s, 5);"
+            sql += "('Frequência da CPU', %s, %s, 1);"
             values = (frequencia_atual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -57,7 +57,7 @@ def executar(dados):
         if "RAMTotal" in dados:
             ramTotal = bibliotecaCaptura.virtual_memory().total
             print("Total de RAM: ", ramTotal)
-            sql += "('Total de RAM', %s, %s, 6);"
+            sql += "('Total de RAM', %s, %s, 2);"
             values = (ramTotal, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -65,7 +65,7 @@ def executar(dados):
         if "RAMUsed" in dados:
             ramUtilizada = bibliotecaCaptura.virtual_memory().used
             print("Total de RAM disponível: ", ramUtilizada)
-            sql += "('Total de RAM disponível', %s, %s, 6);"
+            sql += "('Total de RAM disponível', %s, %s, 2);"
             values = (ramUtilizada, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -73,7 +73,7 @@ def executar(dados):
         if "RAMPercent" in dados:
             ramPercentual = bibliotecaCaptura.virtual_memory().percent
             print("Porcentagem de RAM disponível: ", ramPercentual, "%")
-            sql += "('Porcentagem de RAM disponível', %s, %s, 6);"
+            sql += "('Porcentagem de RAM disponível', %s, %s, 2);"
             values = (ramPercentual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -81,7 +81,7 @@ def executar(dados):
         if "DISKSwap" in dados:
             memoriaSwap = bibliotecaCaptura.swap_memory().used
             print("Total de Memória Swap utilizada: " + memoriaSwap)
-            sql += "('Total de Memória Swap utilizada', %s, %s, 7);"
+            sql += "('Total de Memória Swap utilizada', %s, %s, 2);"
             values = (memoriaSwap, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -89,7 +89,7 @@ def executar(dados):
         if "DISKPercent" in dados:
             discoPercentual = bibliotecaCaptura.disk_usage('C:\\').percent
             print("Porcentagem de Armazenamento utilizado: ", discoPercentual, "%")
-            sql += "('Porcentagem de Armazenamento utilizado', %s, %s, 7);"
+            sql += "('Porcentagem de Armazenamento utilizado', %s, %s, 3);"
             values = (discoPercentual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -97,7 +97,7 @@ def executar(dados):
         if "DISKTotal" in dados:
             discoTotal = bibliotecaCaptura.disk_usage('C:\\').total
             print("Total de Armazenamento: ", discoTotal)
-            sql += "('Total de Armazenamento', %s, %s, 7);"
+            sql += "('Total de Armazenamento', %s, %s, 3);"
             values = (discoTotal, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -105,7 +105,7 @@ def executar(dados):
         if "REDESent" in dados:
             redeEnviado = bibliotecaCaptura.net_io_counters().packets_sent
             print("Número de pacotes enviados: ", redeEnviado)
-            sql += "('Número de pacotes enviados', %s, %s, 8);"
+            sql += "('Número de pacotes enviados', %s, %s, 4);"
             values = (redeEnviado, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -113,7 +113,7 @@ def executar(dados):
         if "REDERecv" in dados:
             redeRecebido = bibliotecaCaptura.net_io_counters().packets_recv
             print("Número de pacotes recebidos: ", redeRecebido)
-            sql += "('Número de pacotes recebidos', %s, %s, 8);"
+            sql += "('Número de pacotes recebidos', %s, %s, 4);"
             values = (redeRecebido, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
@@ -297,7 +297,7 @@ def login():
         
 
 try:
-    conexaoInsert = mysql.connector.connect(host='localhost', user='techpixInsert', password='Urubu100', database='techpix')
+    conexaoInsert = mysql.connector.connect(host='localhost', user='root', password='Bernardo1303!', database='techpix')
     print("Banco de dados conectado!")
     login()
 except mysql.connector.Error as error:

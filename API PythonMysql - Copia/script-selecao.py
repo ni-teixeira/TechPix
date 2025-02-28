@@ -1,149 +1,109 @@
 import mysql.connector
-
 import psutil
-
 from mysql.connector import errorcode
-
-from datetime import datetime
 
 cursor = ""
 
-def executar(dados):
-
-    print(dados)
-	
-    cursor = conexaoSelect.cursor()
-	
-    sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
-    
-    bibliotecaCaptura = psutil
-	
-    while True:
+def executar(metricas, componente):
+    global cursor  # Usa o cursor global
+    sql = "SELECT * FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
         
-        dataHoraAtual = datetime.now()
+    values = (componente, f"%{metricas}%")
+    cursor.execute(sql, values)
         
-        porcentagem_atual = bibliotecaCaptura.cpu_percent(interval=1)
+    for (tipo, medida) in cursor:
+        print(tipo, medida)
 
-        if "CPUPercent" in dados:
-            print("Porcentagem da CPU: ", porcentagem_atual, "%")
-            sql += "(%s, %s, 5);"
-            values = (porcentagem_atual, dataHoraAtual)
-            cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
-        
-        conexaoSelect.commit()
-
-def metricas(listaMetricas):
+def metricas(componente):
 
     porcentagem = False
     bytes = False
     pacotes = False
 
-    if('Porcentagem da CPU', 'Porcentagem de RAM disponível', 'Porcentagem de Armazenamento utilizado') in listaMetricas:
-        porcentagem = True
+    mensagem = '(Métricas disponíveis: Porcentagem, Pacotes ou Bytes'
+
+    metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
         
-    if('Número de pacotes enviados', 'Número de pacotes recebidos') in listaMetricas:
-        pacotes = True
-        
-    if ('Total de RAM', 'Total de RAM disponível', 'Total de Memória Swap utilizada', 'Total de Armazenamento') in listaMetricas:
-        bytes = True
-
-    while True:
-
-        mensagem = '(Métricas disponíveis: '
-        i = 0
-
-        while listaMetricas.len > i:
-            if listaMetricas.len != i:
-                mensagem += listaMetricas[i] + ", "
-            else:
-                mensagem += listaMetricas[i] + ".)"
-            i += 1
-         
-        metricas = input("Quais métricas deseja analisar? ")
-
-        
-        
-
-
-             
-            
+    if (metricas == "Porcentagem") or (metricas == "Pacotes") or (metricas =="Bytes"):
+            executar(metricas, componente)
+            print("to no if metricas")
+            return 
+    else:
+            print("Por favor insira apenas 'Porcentagem', 'Pacotes' ou 'Bytes'")
 
 def interagir(listaServidores):
-
     listaComponentes = []
-    listaMetricas = [] # SELECT DISTINCT  m.tipo AS Tipo FROM Monitoramento AS m JOIN Componentes AS c ON m.fkComponente = c.idComponentes WHERE c.fkServidor = %s;
+    listaMetricas = []
 
-    print('Seja bem-vindo à API de seleção de dados WinselectPy!!')
+    print("Seja bem-vindo à API de visualização de dados TechPix")
+    print("""
+         ___        _     ___ _      
+        |_   _|      | |   |  _ ()     
+            | | _  _| |_ | |) |_  __
+            | |/ _ \/ _| ' \|  _/ \ \/ /
+            | |  _/ (_| | | | |   | |>  < 
+            ||\_|\_|| |||   |//\_\
+                                
+    """)
 
     while True:
+        mensagem = f"(Máquinas disponíveis: {', '.join(map(str, listaServidores))}.)"
+        escolha = input("Insira qual máquina gostaria de visualizar os dados: " + mensagem + "  ")
 
-        mensagem = "(Máquinas disponíveis: "
-
-        i = 0
-        while listaServidores.len > i:
-            if listaServidores.len != i:
-                mensagem += listaServidores[i] + ", "
-            else:
-                mensagem += listaServidores[i] + ".)"
-            i += 1
-
-        escolha = input("Insira qual máquina gostaria de vizualizar os dados: " + mensagem + "  ")
-            
-        i = 0
-
-        if escolha in listaServidores:
-            sql = "SELECT tipo AS Tipo, idComponentes AS Componente FROM Componentes WHERE fkServidor = %s;"
-            values = (escolha)
+        if escolha.isdigit() and int(escolha) in listaServidores:
+            sql = "SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = %s;"
+            values = (int(escolha),)  # Passando como tupla
             cursor.execute(sql, values)
 
-            mensagem = ("Componentes disponíveis: ")
+            listaComponentes.clear()
+            listaMetricas.clear()
 
-            while listaComponentes.len > i:
-                if listaComponentes.len != i:
-                    mensagem += listaComponentes[i] + ", "
-                else:
-                     mensagem += listaComponentes[i] + ".)"
+            for (tipo, idComponentes) in cursor:
+                listaMetricas.append(tipo)
+                listaComponentes.append(idComponentes)
 
-            componente = input("Qual componente deseja observar dentre os que estão sendo monitorados? " + mensagem + "  ")
+            if not listaComponentes:
+                print("Nenhum componente encontrado para esta máquina.")
+                continue
 
-            print(mensagem)
+            mensagem = f"(Componentes disponíveis: {', '.join(map(str, listaComponentes))}.)"
+            componente = input("Qual componente deseja observar? " + mensagem + "  ")
 
-            for (Tipo, Componente) in cursor:
-                listaMetricas.append(Tipo)
-                listaComponentes.append(Componente)
-            
-            if componente in listaComponentes:
-                metricas(listaMetricas)
+            if componente.isdigit() and int(componente) in listaComponentes:
+                metricas(int(componente))
                 return
             else:
-                print("Por favor insira um dos componentes citados acima")
+                print("Por favor, insira um dos componentes listados acima.")
         else:
-            print('Por favor insira um dos números descritos acima')
+            print("Por favor, insira um dos números descritos acima.")
 
 def login():
-
     email = input("\n\nInsira o seu email de acesso:  ")
-    senha = input("Insira o sua senha de acesso:  ")
+    senha = input("Insira a sua senha de acesso:  ")
 
     if email == "safra@gmail.com" and senha == "Urubu#100":
-        sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';"
-        cursor.execute(sql)
-        listaServidores = []
-        for (idServidores)  in cursor:
-            listaServidores.append(idServidores)
+        sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
+        cursor.execute(sql, (email, senha))
+
+        listaServidores = [idServidores for (idServidores,) in cursor]  # Desempacotando corretamente
+        
+        if not listaServidores:
+            print("Nenhuma máquina encontrada para este usuário.")
+            return
+
         print(listaServidores)
         interagir(listaServidores)
     else:
-        print("\nPor favor insira email ou senha inválidos")
+        print("\nEmail ou senha inválidos. Tente novamente.")
         login()
         
 
 try:
-    conexaoSelect = mysql.connector.connect(host='localhost', user='techpixSelect', password='Urubu100', database='techpix')
+    conexaoSelect = mysql.connector.connect(host='localhost', user='root', password='Bernardo1303!', database='techpix')
     print("Banco de dados conectado!")
     cursor = conexaoSelect.cursor()
     login()
+    
 except mysql.connector.Error as error:
 	if error.errno == errorcode.ER_BAD_DB_ERROR:
 		print("Banco de dados não existe!")
