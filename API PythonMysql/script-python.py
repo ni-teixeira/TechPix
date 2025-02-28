@@ -118,6 +118,43 @@ def executar(dados):
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
         
+        if "ProcessosTotal" in dados:
+            total = 0
+
+            for processo in psutil.process_iter():
+                total += 1
+
+            sql += "('Quantidade total de processos', %s, %s, 5)"
+            values = (total, dataHoraAtual)
+            cursor.execute(sql, values)
+            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+
+        if "ProcessosAtivo" in dados:
+            ativos = 0
+
+            for processo in psutil.process_iter():
+                
+                if processo.status() == "running":
+                    ativos += 1
+
+            sql += "('Quantidade de processos ativos', %s, %s, 5)"
+            values = (total, dataHoraAtual)
+            cursor.execute(sql, values)
+            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+
+        if "ProcessosDesativados" in dados:
+            desativados = 0
+
+            for processo in psutil.process_iter():
+                
+                if processo.status() == "stopped":
+                    ativos += 1
+
+            sql += "('Quantidade de processos desativados', %s, %s, 5)"
+            values = (total, dataHoraAtual)
+            cursor.execute(sql, values)
+            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+
         conexaoInsert.commit()
 
 def interagir():
