@@ -6,30 +6,31 @@ cursor = ""
 
 def executar(metricas, componente):
     global cursor  # Usa o cursor global
-    sql = "SELECT * FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
-        
+    sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
+
+    # Assegure-se de passar o parâmetro como uma tupla
     values = (componente, f"%{metricas}%")
     cursor.execute(sql, values)
-        
-    for (tipo, medida) in cursor:
-        print(tipo, medida)
 
-def metricas(componente):
+    # Usando fetchall() para pegar todos os resultados da consulta
+    resultados = cursor.fetchall()
 
-    porcentagem = False
-    bytes = False
-    pacotes = False
-
-    mensagem = '(Métricas disponíveis: Porcentagem, Pacotes ou Bytes'
-
-    metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
-        
-    if (metricas == "Porcentagem") or (metricas == "Pacotes") or (metricas =="Bytes"):
-            executar(metricas, componente)
-            print("to no if metricas")
-            return 
+    if resultados:
+        for tipo, medida in resultados:
+            print(f"{tipo}: {medida}")
     else:
-            print("Por favor insira apenas 'Porcentagem', 'Pacotes' ou 'Bytes'")
+        print("Nenhum dado encontrado para esta consulta.")
+        
+def metricas(componente):
+    mensagem = '(Métricas disponíveis: Porcentagem, Pacotes ou Bytes)'
+    metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
+
+    # Verifica se a métrica inserida é válida
+    if metricas in ["Porcentagem", "Pacotes", "Bytes"]:
+        executar(metricas, componente)
+    else:
+        print("Por favor insira apenas 'Porcentagem', 'Pacotes' ou 'Bytes'")
+
 
 def interagir(listaServidores):
     listaComponentes = []

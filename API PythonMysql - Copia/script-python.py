@@ -80,7 +80,7 @@ def executar(dados):
 
         if "DISKSwap" in dados:
             memoriaSwap = bibliotecaCaptura.swap_memory().used
-            print("Total de Memória Swap utilizada: " + memoriaSwap)
+            (f"Total de Memória Swap utilizada: {memoriaSwap}")
             sql += "('Total de Memória Swap utilizada', %s, %s, 2);"
             values = (memoriaSwap, dataHoraAtual)
             cursor.execute(sql, values)
@@ -155,8 +155,7 @@ def interagir():
             if opcao == '1':
                 while True:
                     
-                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1 - Porcentagem utilizada) (2 - Número de interrupções desde o início do sistema) \n(3- Número de interrupções em softwares desde o início do sistema) (4- Frequência)  ")
-
+                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1 - Porcentagem utilizada)\n (2 - Número de interrupções desde o início do sistema) \n(3- Número de interrupções em softwares desde o início do sistema) \n(4- Frequência)  ")
 
                     if resposta == "" or (("1" in resposta) or ("2" in resposta) or ("3" in resposta) or ("4" in resposta)) == False:
                         print('\nPor favor insira números como "1", "2" e "3".')
@@ -189,7 +188,7 @@ def interagir():
             if opcao == '2':
 
                 while True:
-                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1- Memória RAM total) (2- Memória RAM utilizada) (3- Porcentagem da memória RAM utilizada)  ")
+                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1- Memória RAM total) \n(2- Memória RAM utilizada)\n (3- Porcentagem da memória RAM utilizada)  ")
 
                     if resposta == "" or (("1" in resposta) or ("2" in resposta) or ("3" in resposta)) == False:
                        print('Por favor insira números como "1", "2" e "3".')
@@ -221,7 +220,7 @@ def interagir():
             if opcao == '3':
 
                 while True:
-                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1 - Memória Swap Utilizada) (2 - Utilização Percentual) (3- Utilização Total)  ")
+                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1 - Memória Swap Utilizada) \n(2 - Utilização Percentual) \n(3- Utilização Total)  ")
 
                     if resposta == "" or (("1" in resposta) or ("2" in resposta) or ("3" in resposta) or ("4" in resposta)) == False:
                         print('\nPor favor insira números como "1", "2" e "3".')
@@ -252,7 +251,7 @@ def interagir():
             if opcao == '4':
 
                 while True:
-                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1- Pacotes Enviados) (2- Pacotes recebidos)  ")
+                    resposta = input("\nQuais dados gostaria que fossem capturados? (Digite os números em sequência se gostaria de mais que uma opção) \n(1- Pacotes Enviados) \n(2- Pacotes recebidos)  ")
 
                     if resposta == "" or (("1" in resposta) or ("2" in resposta)) == False:
                         print('\nPor favor insira números como "1" e "2".')

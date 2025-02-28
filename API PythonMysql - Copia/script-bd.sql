@@ -1,4 +1,11 @@
+
+-- Active: 1724686043904@@127.0.0.1@3306@ajuda
+-- Script de BD do projeto do TechPix
+
 -- novo script c:
+
+create database TechPix;
+use TechPix;
 
 create database if not exists TechPix;
 use TechPix;
@@ -58,7 +65,7 @@ create table if not exists Componentes(
 create table if not exists Monitoramento (
     idMonitoramento int primary key auto_increment,
     tipo VARCHAR(90),
-    medida decimal not null,
+    medida float not null,
     dtHora DATETIME,
     fkComponente int,
     constraint fkCompMon foreign key (fkComponente) references Componentes(idComponentes)
