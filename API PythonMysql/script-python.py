@@ -379,7 +379,7 @@ def login():
         
 
 try:
-    conexaoInsert = mysql.connector.connect(host='localhost', user='techpixInsert', password='Urubu100', database='techpix')
+    conexaoInsert = mysql.connector.connect(host='10.18.32.8', user='techpixInsert', password='Urubu100', database='techpix')
     print("Banco de dados conectado!")
     login()
 except mysql.connector.Error as error:

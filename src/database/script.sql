@@ -23,13 +23,15 @@ CREATE TABLE usuarios(
     FOREIGN KEY (fkEmpresa) REFERENCES empresas(id)
 );
 
-INSERT INTO empresas VALUES
+INSERT INTO Empresa VALUES
 (DEFAULT, "Banco Safra", "UFG145R32", "contato_safra@outlook.com", "Teste123%", "12.345.678-33"),
 (DEFAULT, "Banco Itaú", "RTE251G44", "equipe_itau@gmail.com", "Teste@123", "23.456.789-12"),
 (DEFAULT, "Banco C6", "HJI987C11", "c6_ctt@hotmail.com", "Urubu100%", "11.222.333-44"),
 (DEFAULT, "Banco Bradesco", "CAS112Q57", "bradescontato@yahoo.com", "VaiBrasil2025#", "10.192.287-10");
 
-INSERT INTO usuarios VALUES
+SELECT * FROM Empresa;
+
+INSERT INTO Funcionario VALUES
 (DEFAULT, "Pedro Alcântara", "pedro@gmail.com", "senhA123$", "nivel1", "Gestor", 1),
 (DEFAULT, "Gabriella Pedrosa", "gabriella@outlook.com", "Urubu100$", "nivel1", "Gestor", 2),
 (DEFAULT, "Rafael Sampaio", "sampaio@hotmail.com", "#TesteSenh4", "nivel2", "Analista de Infraestrutura", 1),
@@ -57,7 +59,7 @@ create table if not exists Endereco(
 	complemento varchar(20),
     bairro varchar(45) not null,
     cidade varchar(45) not null,
-    estado char(2) not null
+    estado char(2) not null,
     fkEmpresa int unique,
     constraint fkEmpEnd foreign key (fkEmpresa) references Empresa(idEmpresa)
 );
@@ -108,5 +110,3 @@ create table if not exists Alertas(
 	fkComponente int,
     constraint fkCompAlerta foreign key (fkComponente) references Componentes(idComponentes)
 );
-
-SELECT * FROM Empresa;
