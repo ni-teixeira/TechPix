@@ -16,14 +16,58 @@ def executar(dados):
     sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
     
     bibliotecaCaptura = psutil
+    dataHoraAtual = datetime.now()
+
+    if "ProcessosTotal" in dados:
+        total = 0
+
+        for processo in psutil.process_iter():
+            total += 1
+
+        sql += "('Quantidade total de processos', %s, %s, 5)"
+        values = (total, dataHoraAtual)
+        cursor.execute(sql, values)
+        print(total)
+        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+
+    if "ProcessosAtivo" in dados:
+        ativos = 0
+
+        for processo in psutil.process_iter():
+            
+            if processo.status() == "running":
+                ativos += 1
+
+        sql += "('Quantidade de processos ativos', %s, %s, 5)"
+        values = (ativos, dataHoraAtual)
+        cursor.execute(sql, values)
+        print(ativos)
+        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+
+    if "ProcessosDesativados" in dados:
+        desativados = 0
+
+        for processo in psutil.process_iter():
+                
+            if processo.status() == "stopped":
+                desativados += 1
+
+        sql += "('Quantidade de processos desativados', %s, %s, 5)"
+        values = (desativados, dataHoraAtual)
+        cursor.execute(sql, values)
+        print(desativados)
+        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+    
+    if "ProcessosTotal" in dados or "ProcessosAtivo" in dados or "ProcessosDesativados" in dados:
+        conexaoInsert.commit()
+        return
 	
     while True:
         
         dataHoraAtual = datetime.now()
-        
-        porcentagem_atual = bibliotecaCaptura.cpu_percent(interval=1)
 
         if "CPUPercent" in dados:
+            porcentagem_atual = bibliotecaCaptura.cpu_percent(interval=1)
             print("Porcentagem da CPU: ", porcentagem_atual, "%")
             sql += "('Porcentagem da CPU', %s, %s, 1);"
             values = (porcentagem_atual, dataHoraAtual)
@@ -117,45 +161,6 @@ def executar(dados):
             values = (redeRecebido, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
-        
-        if "ProcessosTotal" in dados:
-            total = 0
-
-            for processo in psutil.process_iter():
-                total += 1
-
-            sql += "('Quantidade total de processos', %s, %s, 5)"
-            values = (total, dataHoraAtual)
-            cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
-
-        if "ProcessosAtivo" in dados:
-            ativos = 0
-
-            for processo in psutil.process_iter():
-                
-                if processo.status() == "running":
-                    ativos += 1
-
-            sql += "('Quantidade de processos ativos', %s, %s, 5)"
-            values = (total, dataHoraAtual)
-            cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
-
-        if "ProcessosDesativados" in dados:
-            desativados = 0
-
-            for processo in psutil.process_iter():
-                
-                if processo.status() == "stopped":
-                    ativos += 1
-
-            sql += "('Quantidade de processos desativados', %s, %s, 5)"
-            values = (total, dataHoraAtual)
-            cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
-
-        conexaoInsert.commit()
 
 def interagir():
     print("Seja bem-vindo à API de inserção de dados Techpix")
@@ -324,8 +329,6 @@ def interagir():
 
                         if continuacao:
                             break
-            if finalizar:
-                break
 
             if opcao == '5':
                 while True:
@@ -336,11 +339,11 @@ def interagir():
                         print('\nPor favor insira números como "1", "2" e "3".')
                     else:
                         if "1" in resposta:
-                            dados += "ProcessosTotal"
+                            dados += "ProcessosTotal "
                         if "2" in resposta:
-                            dados += "ProcessosAtivo"
+                            dados += "ProcessosAtivo "
                         if "3" in resposta:
-                            dados += "ProcessoDesativado"
+                            dados += "ProcessosDesativados"
 
                         while True:
                             if dados != "":
@@ -355,9 +358,10 @@ def interagir():
                                 else:
                                     print('\nPor favor insira apenas "Sim" ou "Não".')
 
-                        if continuacao:
-                            break
-
+                    if continuacao:
+                        break
+            if finalizar:
+                break
         return executar(dados)
     else:
         return

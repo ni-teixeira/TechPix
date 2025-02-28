@@ -98,7 +98,9 @@ INSERT INTO Componentes VALUES
 (DEFAULT, 'CPU', 'Intel i9', 1, 1),
 (DEFAULT, 'RAM', 'RAM 16GB', 1, 1),
 (DEFAULT, 'Disco', 'SSD 512GB', 1, 1),
-(DEFAULT, 'Placa de Rede', 'rede1', 1, 1);
+(DEFAULT, 'Placa de Rede', 'rede1', 1, 1),
+(DEFAULT, 'Processos', 'teste', 1, 1);
+
 
 SELECT * FROM Monitoramento;
 
