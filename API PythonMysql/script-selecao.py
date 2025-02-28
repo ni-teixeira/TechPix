@@ -6,12 +6,12 @@ cursor = ""
 def executar(metricas, componente, formato):
     global cursor
 
-    if formato == '1': 
-        sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
-        values = (1, f"%{metricas}%")
+    if formato != '2': 
+        sql = "SELECT tipo, AVG(medida) FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s GROUP BY tipo LIMIT componente0;"
+        values = (componente, f"%{metricas}%")
     else:
-        sql = "SELECT tipo, AVG(medida) FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s GROUP BY tipo LIMIT 10;"
-        values = (1, f"%{metricas}%")
+        sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
+        values = (componente, f"%{metricas}%")
 
     cursor.execute(sql, values)
 
@@ -24,14 +24,17 @@ def executar(metricas, componente, formato):
         print("Nenhum dado encontrado para esta consulta.")
         
 def metricas(componente):
-    mensagem = '(Métricas disponíveis: Porcentagem, Pacotes ou Bytes)'
+    mensagem = '(Métricas disponíveis: Porcentagem, Pacotes, Bytes ou Processos)'
     metricas = input("Quais métricas deseja analisar? " + mensagem + " ")
 
-    if metricas in ["Porcentagem", "Pacotes", "Bytes"]:
+    if metricas in ["Porcentagem", "Pacotes", "Bytes", "Processos"]:
         
         while True:
 
-            formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário) (2- Média a cada 10 registros)") 
+            if metricas in ["Porcentagem", "Pacotes", "Bytes"]:
+                formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário) (2- Média a cada 10 registros)")
+            else:
+                executar(metricas, componente, formato)
 
             if formato == '1' or formato == '2':
                 executar(metricas, componente, formato)
