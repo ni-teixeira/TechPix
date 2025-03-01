@@ -8,9 +8,6 @@ function autenticar(req, res) {
         empresaModel.autenticar(codigo_empresa, email, senha)
             .then(
                 function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
-
                     res.json({
                         id: resultadoAutenticar[0].id,
                         email: resultadoAutenticar[0].email,
@@ -21,7 +18,6 @@ function autenticar(req, res) {
                 }
             ).catch(
                 function (erro) {
-                    console.log(erro);
                     console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }

@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 10vh;
+    height: 10%;
     justify-content: space-between;
     align-items: center;
     background: transparent;
@@ -34,10 +34,12 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    width: 9dvw;
+    height: 9dvh;
 }
 
 .navlogo img{   
-    height: 10rem;
+    height: 8rem;
     width: auto;
     cursor: pointer;
 }
@@ -75,8 +77,8 @@
 
 .container_login {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
     padding: 0;
     margin: 0;
     left: 0;
@@ -92,7 +94,7 @@
     align-items: center;
     height: 100%;
     width: 50%;
-    gap: 2vh;
+    gap: 2dvh;
     background: #567EBB;
 }
 
@@ -197,11 +199,11 @@ input::placeholder{
     transform: translate(-50%, -50%);
     z-index: 10;
     max-width: 90%;
-    height: 40%;
+    height: auto;
     padding: 1.2rem;
     border-radius: 0.5rem;
     background-color: white;
-    
+    overflow: hidden;
 }
 
 .modal-header{
@@ -221,7 +223,8 @@ input::placeholder{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 5rem;
+    height: auto;
+    text-align: center;
 }
 
 .modal-header img{
@@ -252,7 +255,45 @@ input::placeholder{
     font-size: 1.3rem;
 }
 
-@media (max-width: 769px){
+
+
+@media (max-width: 920px){
+    .form_login h2 {
+        font-size: 4rem;
+        text-align: center;
+        color: #FEFFFF;
+    }
+    .form_login{
+        height: 100%;
+        width: 60%;
+    }
+    
+}
+
+
+@media (max-width: 768px){
+    .modal {
+        max-width: 95%;
+        padding: 1rem;
+        height: auto;
+    }
+
+    .modal-header img {
+        height: 8rem;
+    }
+
+    .modal-header {
+        font-size: 1.2rem;
+    }
+
+    .texto-modal {
+        font-size: 1rem;
+    }
+
+    .botao-modal button, .botao-modal-erro button {
+        width: 60%;
+        font-size: 1.4rem; 
+    }
     .navbar{
         flex-direction: row;
         align-items: center; 
@@ -272,10 +313,9 @@ input::placeholder{
         font-size: 1.2rem;
     }
     
-    h2 {
+    .form_login h2 {
         font-size: 3rem;
         text-align: center;
-        color: #FEFFFF;
     }
 
     input{
@@ -288,5 +328,24 @@ input::placeholder{
     .img_login{
         display: none;
     }
+
+    @media (max-width: 480px) {
+        .modal {
+            max-width: 100%;
+            padding: 0.8rem;
+        }
     
+        .modal-header img {
+            height: 6rem;
+        }
+
+        .texto-modal {
+            font-size: 0.8rem;
+        }
+    
+        .botao-modal button, .botao-modal-erro button {
+            width: 70%;
+            font-size: 1.2rem;
+        }
+}
 }
