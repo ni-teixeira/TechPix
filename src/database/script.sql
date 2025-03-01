@@ -4,6 +4,7 @@
 -- novo script c:
 
 create database if not exists TechPix;
+
 use TechPix;
 
 create table if not exists Empresa(

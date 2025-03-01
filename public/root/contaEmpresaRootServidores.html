@@ -4,41 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conta - Funcionários</title>
+    <title>Entregas</title>
     <link rel="stylesheet" href="../css/empresaRoot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 
-<body onload="mostrarCards()">
+<body>
     <main class="screen-dash-user">
         <nav class="side-bar-user">
             <div class="nav-logo-user">
                 <img src="../assets/imgs/safra.png" alt="" class="imagem-perfil">
             </div>
-            <div style="display: flex; align-items: center; justify-content: center;">
+            <div>
                 <span class="legenda_ola">Olá, Banco Safra</span>
             </div>
             <div class="nav-list">
                 <div class="nav-list-options">
-                    <a href="./contaEmpresaRootServidores.html" class="opcao">
-                        <img src="../assets/icon/server.svg" alt="">
+                    <a href="#" class="opcao selecionado">
+                        <img src="../assets/icon/pendente.svg" alt="">
                         <span class="nav-item">Servidores</span>
                     </a>
-                    <a href="" class="opcao selecionado">
-                        <img src="../assets/icon/grupo.svg" alt="">
+                    <a href="./contaEmpresaRootFuncionarios.html" class="opcao">
+                        <img src="../assets/icon/materiais.svg" alt="">
                         <span class="nav-item">Funcionários</span>
                     </a>
                     <a href="./simulador.html" class="opcao">
-                        <img src="../assets/icon/suporte.svg" alt="">
+                        <img src="../assets/icon/simulador.svg" alt="">
                         <span class="nav-item">Suporte</span>
                     </a>
                     </a>
                 </div>
                 <div class="logout">
                     <a href="../index.html" class="selecionado" onclick="sair()">
-                        <img src="../assets/icon/sair.svg" alt="">
+                        <img src="../assets/icon/logout.svg" alt="">
                         <span class="nav-item">Sair</span>
                     </a>
                 </div>
@@ -46,30 +45,7 @@
         </nav>
         <main class="main-content-user">
             <dialog id="modal" style="display: none; border: none"></dialog>
-            <div class="cabecalho">
-                <div style="width: 98%;display: flex; flex-direction: row; justify-content: space-between;">
-                    <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5%;">
-                        <span class="titulo_pagina">Funcionários</span>
-                        <div class="circulo_imagem">
-                            <img src="../assets/icon/icone_add.svg" alt="" onclick="cadastrar()">
-                        </div>
-                    </div>
-                    <span class="horario">12:34 30/02/2025</span>
-                </div>
-                <div style="display: flex; flex-direction: row; gap: 1%">
-                    <input class="input-search" type="text" oninput="mostrarCards(0)" id="ipt_search">
-                    <div class="filtro" id="div_preferencias">
-                        <img src="../assets/icon/filtroDesativado.svg" alt="" onclick="ativarFiltro(0)">
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
-                <div style="display: flex; flex-direction: row; gap: 5%;" id="div_cards"></div>
-            </div>
-            <dialog id="modal" style="display: none; border: none; width: 50%; height: 60%;"></dialog>
         </main>
     </main>
 </body>
 </html>
-
-<script src="../js/empresaRoot.js"></script>

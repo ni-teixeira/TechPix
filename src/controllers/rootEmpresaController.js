@@ -53,9 +53,9 @@ function atualizarFuncionario(req, res) {
   const nome = req.body.nomeServer;
   const email = req.body.emailServer;
   const cargo = req.body.cargoServer;
-  const nivel = req.body.nivelServer;
+  const equipe = req.body.equipeServer;
 
-  empresaModel.atualizarFuncionario(id, nome, email, cargo, nivel)
+  empresaModel.atualizarFuncionario(id, nome, email, cargo, equipe)
   .then(function (resposta) {
     res.json({
       lista: resposta
@@ -67,10 +67,10 @@ function cadastrarFuncionario(req, res) {
   const nome = req.body.nomeServer;
   const email = req.body.emailServer;
   const cargo = req.body.cargoServer;
-  const nivel = req.body.nivelServer;
+  const equipe = req.body.equipeServer;
   const fkEmpresa = req.body.fkEmpresaServer;
 
-  empresaModel.cadastrarFuncionario(nome, email, cargo, nivel, fkEmpresa)
+  empresaModel.cadastrarFuncionario(nome, email, cargo, equipe, fkEmpresa)
   .then(function (resposta) {
     res.json({
       lista: resposta

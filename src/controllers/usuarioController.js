@@ -12,11 +12,9 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     res.json({
-                        id: resultadoAutenticar[0].id,
+                        id: resultadoAutenticar[0].idFuncionario,
                         email: resultadoAutenticar[0].email,
-                        nome: resultadoAutenticar[0].nome,
-                        senha: resultadoAutenticar[0].senha,
-                        codigo_empresa: resultadoAutenticar[0].codigo_empresa
+                        nome: resultadoAutenticar[0].nome
                     });
                 }
             ).catch(
