@@ -165,6 +165,7 @@ function carregarHorario() {
     }
 
     if(mes < 10) {
+        mes += 1;
         mes = mes.toString();
         mes = '0' + mes;
     }
@@ -185,10 +186,26 @@ function mostrarCards(search, filtro) {
                 "Content-Type": "application/json"
             }
         }).then(function (resposta) {
+            let tela = document.getElementById("div_inferior");
+            let tamHorizontal =  tela.clientWidth;
+            let cards = 0;
+
+            if(tamHorizontal <= 400) {
+                cards = 1;
+            } else if(tamHorizontal <= 1000) {
+                cards = 2;
+            } else if(tamHorizontal <= 1466) {
+                cards = 3;
+            } else {
+                cards = 4;
+            }
+
+            console.log(cards +  " " + tamHorizontal);
     
             resposta.json()
             .then(json => {
-                let vetor = json.lista;
+
+                let div = document.getElementById("div_cards");
                 for(let i = 0; i < (json.lista).length; i++) {
                     let pessoaAtual = (json.lista[i])
                 
@@ -213,11 +230,19 @@ function mostrarCards(search, filtro) {
                         </div>
                     </div>
                 `;
+
+                if((i + 1) % cards == 0 && i != 0) {
+                    div_inferior.innerHTML += "<br>"
+                }
+
                 }
             })
         })
     } else if(filtro == undefined) {
         let mensagem = ipt_search.value;
+        if(mensagem == "") {
+            mensagem = 1;
+        }
     
         fetch(`/empresas/${mensagem}/${id}/search`, {
             method: "GET",
@@ -268,6 +293,7 @@ function mostrarCards(search, filtro) {
     
             resposta.json()
             .then(json => {
+
                 for(let i = 0; i < (json.lista).length; i++) {
                     let pessoaAtual = (json.lista[i])
                 
@@ -455,3 +481,5 @@ function closeModal() {
     modal.style.display = 'none';
     modal.close();
 }
+
+// window.addEventListener("resize", mostrarCards, false);

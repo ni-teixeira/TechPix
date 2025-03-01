@@ -88,7 +88,7 @@
 
 .side-bar-user {
     width: 20%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     left: 0;
     color: #fff;
@@ -591,4 +591,19 @@ select:hover {
 .area-botao-excluir {
     width: 30%;
     height: 22%;
+}
+
+/*
+RESPONSIVIDADE
+*/
+
+/*
+width: 1920px;
+height: 800px;
+
+
+*/
+
+@media (max-width: 1280) {
+    
 }

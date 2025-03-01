@@ -115,4 +115,4 @@ AND Funcionario.email = "gabriel.santos@hotmail.com"
 AND Funcionario.senha = "SenhaGabriel123@";
 
 
-
+SELECT * FROM Funcionario WHERE fkEmpresa = 2;

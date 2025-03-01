@@ -38,7 +38,7 @@ function atualizarFuncionario(id, nome, email, cargo, equipe) {
 }
 
 function cadastrarFuncionario(nome, email, cargo, equipe, fkEmpresa) {
-  let instrucaoSql = `INSERT INTO Funcionario (nome, email, cargo, equipe, fkEmpresa) VALUES ("${nome}", "${email}", "${cargo}", "${equipe}", ${fkEmpresa});`;
+  let instrucaoSql = `INSERT INTO Funcionario (nome, email, senha, cargo, equipe, fkEmpresa) VALUES ("${nome}", "${email}", "Urubu#100","${cargo}", "${equipe}", ${fkEmpresa});`;
 
   return database.executar(instrucaoSql);
 }
