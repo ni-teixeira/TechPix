@@ -33,13 +33,16 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    width: 9dvw;
+    height: 9dvh;
 }
 
-.navlogo img{
-    height: 10vh;
+.navlogo img{   
+    height: 8rem;
     width: auto;
     cursor: pointer;
 }
+
 
 .btn_contato, .btn_log {
     display: inline-block;
