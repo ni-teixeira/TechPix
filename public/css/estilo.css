@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 
 
 
@@ -13,7 +15,7 @@ html, body {
 
 
 body::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem */
+    display: none; /* oculta a barra de rolagem */
 }
 
 
@@ -61,24 +63,29 @@ body::-webkit-scrollbar {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-image: url(../assets/imgs/melhor.jpg); 
-    background-size: cover; /* Faz a imagem cobrir todo o espaço */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-image: url(../assets/imagens_inicial/fundo_banner.png); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.config_cadeado {
+    height: 70vh;
 }
 
 .conteudo_banner{
-    height: 80vh;
-    margin-left: 10vh;
-    margin-top: 10vh;
-    /* border: solid 1px red; */
     display: flex;
-    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    /* border: solid 1px red; */
+    justify-content: space-around;
+    flex-direction: row-reverse;
     align-items: center;
 }
 
 .coluna_banner{
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -117,9 +124,9 @@ body::-webkit-scrollbar {
     font-size: 50px;
     font-weight: bold;
     text-align: center;
-    background: linear-gradient(90deg, #567EBB 35%, #FFFAFF 80%);  /* Aplica o degradê horizontalmente */
-    -webkit-background-clip: text; /* Faz com que o degradê seja aplicado apenas ao texto. */
-    -webkit-text-fill-color: transparent; /* Deixa o preenchimento do texto invisível para exibir o degradê. */
+    background: linear-gradient(90deg, #567EBB 35%, #FFFAFF 80%);  
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
     font-weight: 800;
 }
 
@@ -149,14 +156,29 @@ body::-webkit-scrollbar {
 }
 
 .separacao span{
-    width: 80vw;
-    font-family: 'Lora';
+    width: 60vw;
+    font-family: 'Karla';
+    font-size: 50px;
+    font-weight: bold;
     text-align: center;
-    font-size: 34px;
+    background: linear-gradient(90deg, #001228 9%, #567EBB 51%, #010304 91%);  /* "90deg" Aplica o degradê horizontalmente */
+    -webkit-background-clip: text; /*degrade só no texto*/
+    -webkit-text-fill-color: transparent; /*deixa a cor do texto transparente para que o degrade apareça*/
+    font-weight: 800;
+    
+}
+
+.imagem_impacto {
+    width: 50vw; 
+    height: 100vh; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 .principal_impacto{
     display: flex;
+    height: 100vh; 
     width: 100vw;
     flex-direction: row; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
     align-items: center;
@@ -165,50 +187,81 @@ body::-webkit-scrollbar {
 
 .principal_impacto_2{
     display: flex;
+    height: 100vh; 
     width: 100vw;
-    flex-direction: row-reverse; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
+    flex-direction: row-reverse; 
     align-items: center;
     background-color: #01010D;
 }
 
-.imagem_impacto {
-    width: 50vw; 
-    height: 100vh; 
-    background-size: cover; /* Faz a imagem cobrir todo o espaço */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-}
 
-.texto{
+.principal_impacto .texto{
+    background-image: url(../assets/imagens_inicial/direita.png); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     display: flex;
     flex-direction: column;
-    text-align: justify;
+    text-align: center;
     width: 50vw;
     height: 100vh;
     align-items: center;
+    justify-content: center;
 }
 
 .principal_impacto .texto p{
+    font-family: 'Afacad';
+    width: 40vw;
     margin-top: 100px;
     color: white;
-    font-size: 25px;
-    padding: 20px;
+    font-size: 24px;
 }
 
-.principal_impacto .texto button{
-    margin-top: 30px
+.principal_impacto .texto span{
+    width: 45vw;
+    font-size: 36px;
+    font-family: 'Karla';
+    font-weight: 800;
+    text-align: center;
+    color: white;
+}
+
+.principal_impacto_2 .texto{
+    background-image: url(../assets/imagens_inicial/esquerda.png); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .principal_impacto_2 .texto p{
+    font-family: 'Afacad';
+    width: 40vw;
     margin-top: 100px;
     color: white;
-    font-size: 25px;
-    padding: 20px;
+    font-size: 24px;
 }
 
-.principal_impacto_2 .texto button{
+.principal_impacto_2 .texto span{
+    width: 45vw;
+    font-size: 36px;
+    font-family: 'Karla';
+    font-weight: 800;
+    text-align: center;
+    color: white;
+}
+
+
+.texto button{
     margin-top: 30px
 }
+
 
 .botoes_impacto{
     cursor: pointer;
@@ -220,12 +273,39 @@ body::-webkit-scrollbar {
     background-color: #003F6A;
 }
 
+.separacao_solucao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 20vh;
+    background-image: url(../assets/imagens_inicial/fundo_rowpage.png); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.separacao_solucao span{
+    width: 45vw;
+    font-size: 40px;
+    font-family: 'Karla';
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg, #567EBB 12%, #FFFFFF 91%);  
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent; 
+}
+
 .nossa_solucao{
     display: flex;
+    background-image: url(../assets/imagens_inicial/fundo_rowpage.png); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     background-color: #ffffff;
     height: 105vh;
     width: 100vw;
-    flex-direction: row; /*ISSO QUE DEIXOU A IMAGEM AO LADO*/
+    flex-direction: row; 
     justify-content: space-between;
     align-items: center;
 }
@@ -235,7 +315,7 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     width: 50vw;
-    height: 70vh; 
+    height: 75vh; 
 }
 
 .imagem_solucao img {
@@ -254,9 +334,10 @@ body::-webkit-scrollbar {
 }
 
 .solucao_texto span{
+    color: #FFFFFF;
     width: 80%;
+    font-family: 'Afacad';
     font-size:20px;
-    font-family: 'Karla';
     text-align: justify;
 }
 
@@ -280,6 +361,8 @@ body::-webkit-scrollbar {
 }
 
 
+
+/* Responsidade até 1200px */
 
 @media (max-width: 1200px) {
     .nav-bar, .principal_impacto, .principal_impacto_reverso, .separacao, .nossa_solucao {
@@ -372,31 +455,76 @@ body::-webkit-scrollbar {
         font-size: 12px;
     }
 
-    .principal_impacto_2{
+    .principal_impacto, .principal_impacto_2 {
         display: flex;
+        flex-direction: column;
+        width: 100vw; 
+        height: 100vh;
         align-items: center;
         justify-content: center;
-        height: 140vh;
-        flex-direction: row;
+        background-image: url(../assets/imagens_inicial/direita.png); 
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
-    .principal_impacto_2 .texto p{
-        color: white;
-        font-size: 25px;
-        margin: 0px;
-    }
     
-    .principal_impacto_2 .texto button{
-        margin-top: 30px
+    .principal_impacto .texto,
+    .principal_impacto_2 .texto {
+        background-image: none !important;
     }
 
-    .texto, .solucao_texto {
-        width: 90%;
+
+    .principal_impacto .texto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
     }
 
-    .texto p {
-        font-size: 18px;
+    .principal_impacto .texto p{
+        width: 80vw; 
+    }
+
+    .principal_impacto .texto span {
+        font-size: 36px;
+        width: 80vw; 
+        font-weight: 800;
+        text-align: center;
+        
+    }
+
+    .principal_impacto_2 .texto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .principal_impacto_2 .texto p{
+        width: 80vw; 
+    }
+
+    .principal_impacto_2 .texto span {
+        font-size: 36px;
+        width: 80vw; 
+        font-weight: 800;
+        text-align: center;
+        
+    }
+
+    .nossa_solucao{
+        background-image: url(../assets/imagens_inicial/direita.png);  
+    }
+
+    .separacao_solucao{
+        background-image: url(../assets/imagens_inicial/direita.png);  
+    }
+
+    .solucao_texto{
+        width: 80vw; 
     }
 
     .botoes_impacto, .botoes_login{
@@ -410,9 +538,21 @@ body::-webkit-scrollbar {
 }
 
 
+
+/* Responvidade até 700px */
+
 @media (max-width: 700px) {
     .nav-bar, .principal_impacto, .principal_impacto_reverso, .separacao, .nossa_solucao {
         flex-direction: column;
+    }
+
+    .conteudo_banner{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .config_cadeado{
+        display: none;
     }
     
     .solucao_texto span{
@@ -443,7 +583,6 @@ body::-webkit-scrollbar {
         width: 100vw;
         height: 90vh;
         background-color: #001228;
-        background-image: url();
         padding: 0px;
     }
 
@@ -505,82 +644,130 @@ body::-webkit-scrollbar {
         display: none;
     }
 
+
     .botoes_banner{
         width: 20vh;
         font-size: 12px;
     }
 
-    .principal_impacto{
-        height: 140vh;
-    }
 
-    .principal_impacto_2{
+
+    /* Aplica um mesmo fundo */
+    .principal_impacto, .principal_impacto_2 {
         display: flex;
+        flex-direction: column;
+        width: 100vw; 
+        height: 140vh;
         align-items: center;
         justify-content: center;
-        height: 140vh;
-        flex-direction: row;
+        background-image: url(../assets/imagens_inicial/direita.png); /
+        background-size: cover; 
+        background-position: center;
     }
 
-    .principal_impacto_2 .texto p{
-        color: white;
-        font-size: 25px;
-        margin: 0px;
-    }
-    
-    .principal_impacto_2 .texto button{
-        margin-top: 30px
+    /* Remove imagem */
+    .principal_impacto .texto,
+    .principal_impacto_2 .texto {
+        background-image: none !important;
     }
 
-    .nossa_solucao{
+
+    .principal_impacto .texto {
         display: flex;
-        background-color: #ffffff;
-        height: 210vh;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-    }
-
-    .solucao_texto {
-        display: flex;
-        width: 90vw;
-        height: 140vh;
+        justify-content: center;
         text-align: center;
     }
 
-    .texto p {
-        font-size: 14px;
-        margin: 0px;
+    .principal_impacto .texto p{
+        width: 80vw; 
     }
+
+    .principal_impacto .texto span {
+        font-size: 25px;
+        width: 80vw; 
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .principal_impacto_2 .texto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .principal_impacto_2 .texto p{
+        width: 80vw; 
+    }
+
+    .principal_impacto_2 .texto span {
+        font-size: 25px;
+        width: 80vw; 
+        font-weight: 800;
+        text-align: center;
+    }
+
 
     .botao_login{
         width: 20vw;
         text-align: center;
     }
-
+    
     .botoes_impacto {
         width: 30vw;
     }
+    
+    .separacao_solucao{
+        background-image: none !important;
+        background-color: #001228;
+    }
 
-    .footer{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 10vh;
-    background-color: #FFFAFF;
-    background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
-    background-color: black;
-}
+    .separacao_solucao span{
+        font-size: 26px;
+    }
+    
+    .nossa_solucao{
+        display: flex;
+        height: 220vh;
+        align-items: center;
+        background-image: url(../assets/imagens_inicial/direita.png); 
+    }
+    
+    .solucao_texto {
+        display: flex;
+        width: 100vw;
+        height: 220vh;
+    }
 
-.footer span{
-    font-family: 'Lora';
-    text-align: center;
-    font-size: 20px;
-    color: white;
-}
-
-
+    .solucao_texto span{
+        text-align: center;
+        justify-content: space-around;
+        font-size: 20px;
+    }
+    
+    
     .imagem_impacto, .imagem_solucao {
         display: none;
+    }
+    
+    .footer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 10vh;
+        background-color: #FFFAFF;
+        background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
+        background-color: black;
+    }
+
+    .footer span{
+        font-family: 'Lora';
+        text-align: center;
+        font-size: 20px;
+        color: white;
     }
 }
