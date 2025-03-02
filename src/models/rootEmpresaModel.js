@@ -32,7 +32,7 @@ function procurarCards(id) {
 }
 
 function atualizarFuncionario(id, nome, email, cargo, equipe) {
-  let instrucaoSql = `UPDATE Funcionario SET nome = "${nome}", email = "${email}", cargo = "${cargo}", equipe = "${equipe}" WHERE id = ${id};`;
+  let instrucaoSql = `UPDATE Funcionario SET nome = "${nome}", email = "${email}", cargo = "${cargo}", equipe = "${equipe}" WHERE idFuncionario = ${id};`;
   
   return database.executar(instrucaoSql);
 }
@@ -44,7 +44,7 @@ function cadastrarFuncionario(nome, email, cargo, equipe, fkEmpresa) {
 }
 
 function removerFuncionario(idFunc) {
-  let instrucaoSql = `DELETE FROM Funcionario WHERE id = ${idFunc};`
+  let instrucaoSql = `DELETE FROM Funcionario WHERE idFuncionario = ${idFunc};`
 
   return database.executar(instrucaoSql);
 }

@@ -177,7 +177,7 @@ function carregarHorario() {
 function mostrarCards(search, filtro) {
     carregarHorario();
 
-    div_cards.innerHTML = "";   
+    div_inferior.innerHTML = "";   
 
     if(search == undefined && filtro == undefined) {
         fetch(`/empresas/${id}/procurarCards`, {
@@ -186,30 +186,19 @@ function mostrarCards(search, filtro) {
                 "Content-Type": "application/json"
             }
         }).then(function (resposta) {
-            let tela = document.getElementById("div_inferior");
-            let tamHorizontal =  tela.clientWidth;
-            let cards = 0;
+            // let tela = document.getElementById("div_inferior");
+            // let tamHorizontal =  tela.clientWidth;
+            // let cards = 0;
 
-            if(tamHorizontal <= 400) {
-                cards = 1;
-            } else if(tamHorizontal <= 1000) {
-                cards = 2;
-            } else if(tamHorizontal <= 1466) {
-                cards = 3;
-            } else {
-                cards = 4;
-            }
-
-            console.log(cards +  " " + tamHorizontal);
+            // console.log(cards +  " " + tamHorizontal);
     
             resposta.json()
             .then(json => {
 
-                let div = document.getElementById("div_cards");
                 for(let i = 0; i < (json.lista).length; i++) {
                     let pessoaAtual = (json.lista[i])
                 
-                div_cards.innerHTML += `
+                div_inferior.innerHTML += `
                     <div class="cardMaior">
                         <div class="cabecalho-card">
                             <div class="esquerda-cabecalho-card">
@@ -231,9 +220,9 @@ function mostrarCards(search, filtro) {
                     </div>
                 `;
 
-                if((i + 1) % cards == 0 && i != 0) {
-                    div_inferior.innerHTML += "<br>"
-                }
+                // if((i + 1) % cards == 0 && i != 0) {
+                //     div_inferior.innerHTML += "<br>"
+                // }
 
                 }
             })
@@ -256,7 +245,7 @@ function mostrarCards(search, filtro) {
                     for(let i = 0; i < (json.lista).length; i++) {
                         let pessoaAtual = (json.lista[i])
                     
-                    div_cards.innerHTML += `
+                    div_inferior.innerHTML += `
                         <div class="cardMaior">
                             <div class="cabecalho-card">
                                 <div class="esquerda-cabecalho-card">
@@ -297,7 +286,7 @@ function mostrarCards(search, filtro) {
                 for(let i = 0; i < (json.lista).length; i++) {
                     let pessoaAtual = (json.lista[i])
                 
-                div_cards.innerHTML += `
+                div_inferior.innerHTML += `
                     <div class="cardMaior">
                         <div class="cabecalho-card">
                             <div class="esquerda-cabecalho-card">
@@ -437,6 +426,7 @@ function deleteModal(idFuncionario, nome) {
     modal.showModal();
     modal.style.width = 35 + "%";
     modal.style.height = 40 + "%";
+    console.log(idFuncionario);
 
     modal.innerHTML = `
         <div class="superior-modal">
@@ -451,7 +441,7 @@ function deleteModal(idFuncionario, nome) {
             </div>
         </div>
         <div class="inferior-modal-excluir">
-            <span class="mensagem-excluir">Deseja mesmo excluir o funcionário ${nome}</span>
+            <span class="mensagem-excluir">Deseja mesmo excluir o funcionário ${nome}?</span>
             <div class="area-botao-excluir">
                 <button class="botao-modal-excluir" onclick="enviarDelete(${idFuncionario})">Confirmar</button>
             </div>
@@ -460,7 +450,7 @@ function deleteModal(idFuncionario, nome) {
 }
 
 function enviarDelete(idFuncionario) {
-    console.log(idFuncionario);
+    console.log(idFuncionario + "ID");
 
     fetch(`/empresas/removerFuncionario`, {
         method: "DELETE",

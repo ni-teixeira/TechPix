@@ -215,12 +215,6 @@ a {
     text-decoration: none;
 }
 
-.titulo_pagina {
-    font-size: 40px;
-    font-weight: 600;
-    text-align: left;
-}
-
 .circulo_imagem {
     display: flex;
     align-items: center;
@@ -276,9 +270,15 @@ select:hover {
     cursor: pointer;
 }
 
+#div_inferior {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5%;
+}
+
 .cardMaior {
-    width: 25%;
-    height: 50vh;
+    width: 350px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,11 +287,11 @@ select:hover {
     border: none;
     border-radius: 10%;
     background-color: #70A6B7;
-    padding: 1%;
+    padding: 2%;
 }
 
 .cardMenor {
-    width: 100%;
+    width: 95%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -304,7 +304,7 @@ select:hover {
 }
 
 .cabecalho-card {
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -604,6 +604,20 @@ height: 800px;
 
 */
 
-@media (max-width: 1280) {
-    
+@media (min-width: 2000px) {
+    #div_inferior {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 1500px) {
+    #div_inferior {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1000px) {
+    #div_inferior {
+        grid-template-columns: 1fr;
+    }
 }
