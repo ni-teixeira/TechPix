@@ -17,7 +17,7 @@
             <div class="nav-logo-user">
                 <img src="../assets/imgs/safra.png" alt="" class="imagem-perfil">
             </div>
-            <!-- <div style="display: flex; align-items: center; justify-content: center;">
+            <!-- <div class="div_ola" style="display: flex; align-items: center; justify-content: center;">
                 <span class="legenda_ola">Olá, Banco Safra</span>
             </div> -->
             <div class="nav-list">
@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <div class="logout">
-                    <a href="../index.html" class="selecionado" onclick="sair()">
+                    <a href="../index.html" class="opcao" onclick="sair()">
                         <img src="../assets/icon/sair.svg" alt="">
                         <span class="nav-item">Sair</span>
                     </a>
@@ -47,8 +47,8 @@
         <main class="main-content-user">
             <dialog id="modal" style="display: none; border: none"></dialog>
             <div class="cabecalho">
-                <div style="width: 98%;display: flex; flex-direction: row; justify-content: space-between;">
-                    <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5%;">
+                <div style="width: 95%;display: flex; flex-direction: row; justify-content: space-between;">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 2%;">
                         <span class="titulo_pagina">Funcionários</span>
                         <div class="circulo_imagem">
                             <img src="../assets/icon/icone_add.svg" alt="" onclick="cadastrar()">
@@ -56,10 +56,10 @@
                     </div>
                     <span class="horario" id="horario"></span>
                 </div>
-                <div style="display: flex; flex-direction: row; gap: 1%">
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 1%">
                     <input class="input-search" type="text" oninput="mostrarCards(0)" id="ipt_search">
                     <div class="filtro" id="div_preferencias">
-                        <img src="../assets/icon/filtroDesativado.svg" alt="" onclick="ativarFiltro(0)">
+                        <img class="icon_filtro" src="../assets/icon/filtroDesativado.svg" alt="" onclick="ativarFiltro(0)">
                     </div>
                 </div>
             </div>

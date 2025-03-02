@@ -257,6 +257,17 @@ a {
     cursor: pointer;
 }
 
+.preferencias {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon_filtro {
+    width: 40px;
+    height: 40px;
+}
+
 .select-filtro {
     height: 100%;
     font-size: 24px;
@@ -600,8 +611,6 @@ RESPONSIVIDADE
 /*
 width: 1920px;
 height: 800px;
-
-
 */
 
 @media (min-width: 2000px) {
@@ -630,14 +639,13 @@ height: 800px;
 
     .side-bar-user {
         width: 100%;
-        height: 20%;
+        height: 23%;
         position: fixed;
         top: 0;
         color: #fff;
         background-color: #003F69;
         display: flex;
         flex-direction: column;
-        gap: 2%;
     }
 
     .nav-logo-user {
@@ -649,8 +657,8 @@ height: 800px;
     }
     
     .nav-logo-user img{
-        width: 144px;
-        height: 144px;
+        width: 100px;
+        height: 100px;
     }
 
     .nav-list {
@@ -659,7 +667,6 @@ height: 800px;
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        justify-content: flex-start;
     }
 
     .nav-list-options {
@@ -675,8 +682,19 @@ height: 800px;
         padding-top: 10px;
         padding-bottom: 10px;
         gap: 5px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        font-size: 60%;
+        color: white;
+        font-weight: 600;
+    }
+
+    .nav-item img {
+        width: 80%;
     }
 
     .selecionado {
@@ -686,8 +704,63 @@ height: 800px;
         background-color: hsl(204, 80%, 41%);
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
         gap: 5px;
     }
+
+    .main-content-user {
+        margin-top: 55%;
+        margin-left: 5%;
+    }
+
+    .titulo_pagina {
+        color: black;
+        font-size: 24px;
+        font-weight: 800;
+        text-align: left;
+    }
+
+    .circulo_imagem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+
+    .horario {
+        font-size: 20px;
+        color: black;
+        font-weight: 600;
+        text-align: right;
+    }
+
+    .input-search {
+        width: 150px;
+        height: (fit-content + 2%);
+        font-size: 24px;
+        border: 2px solid black;
+        border-radius: 30px;
+        padding: 0.5%;
+        color: #c8c8c8;
+        margin-top: 3%;
+    }
+
+    .icon_filtro {
+        width: 36px;
+        height: 36px;
+    }
+
+    .select-filtro {
+        width: fit-content;
+        height: (fit-content + 1%);
+        font-size: 20px;
+        border: 2px solid black;
+        border-radius: 30px;
+        color: #c8c8c8;
+    }
 }
+

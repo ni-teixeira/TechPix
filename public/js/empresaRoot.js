@@ -93,7 +93,7 @@ function ativarFiltro(atividade) {
 
     if(ativacao == 0) {
         div_preferencias.innerHTML = `
-            <img src="../assets/icon/filtroAtivo.svg" alt="" onclick="ativarFiltro(1)">
+            <img class="icon_filtro" src="../assets/icon/filtroAtivo.svg" alt="" onclick="ativarFiltro(1)">
             <select class="select-filtro" id="slt_tipo" onchange="trocarSegundoFiltro()">
                 <option value="nome" selected>Nome Completo</option>
                 <option value="email">Email</option>
@@ -107,7 +107,7 @@ function ativarFiltro(atividade) {
         `;
     } else {
         div_preferencias.innerHTML = `
-            <img src="../assets/icon/filtroDesativado.svg" alt="" onclick="ativarFiltro(0)">
+            <img class="icon_filtro" src="../assets/icon/filtroDesativado.svg" alt="" onclick="ativarFiltro(0)">
         `;
     }
 }
