@@ -95,13 +95,15 @@ function ativarFiltro(atividade) {
         div_preferencias.innerHTML = `
             <img class="icon_filtro" src="../assets/icon/filtroAtivo.svg" alt="" onclick="ativarFiltro(1)">
             <select class="select-filtro" id="slt_tipo" onchange="trocarSegundoFiltro()">
-                <option value="nome" selected>Nome Completo</option>
+                <option value="#" selected disabled>Categoria</option>
+                <option value="nome" >Nome</option>
                 <option value="email">Email</option>
                 <option value="cargo">Cargo</option>
                 <option value="equipe">Equipe</option>
             </select>
             <select class="select-filtro" id="slt_categoria" oninput="mostrarCards(1, 1)">
-                <option value="ASC" selected>A-Z</option>
+                <option value="#" selected disabled>Tipo</option>
+                <option value="ASC">A-Z</option>
                 <option value="DESC">Z-A</option>
             </select>
         `;
@@ -117,7 +119,8 @@ function trocarSegundoFiltro() {
 
     if(selecionado == "nome") {
         slt_categoria.innerHTML = `
-            <option value="ASC" selected>A-Z</option>
+            <option value="#" selected disabled>Tipo</option>
+            <option value="ASC">A-Z</option>
             <option value="DESC">Z-A</option>
         `;
     } else {
@@ -127,26 +130,39 @@ function trocarSegundoFiltro() {
                 "Content-Type": "application/json"
             }
         }).then(function (resposta){
-            slt_categoria.innerHTML = "";
+            slt_categoria.innerHTML = '<option value="#" selected disabled>Tipo</option>';
 
             resposta.json()
             .then(json => {
                 let vetorEmail = [];
+                let vetor = [];
                 for(let i = 0; i < (json.lista).length; i++) {
                     let opcaoAtual = (json.lista[i]).Cargo ;
                     let confirmacao = 0;
                     let mensagem = "";
+                    let palavra = ""
 
-                    for(let ind = 0; ind < opcaoAtual.length; ind++) {
-                        if(opcaoAtual[ind] == "@" && !vetorEmail.includes()) {
-                            vetorEmail.push(opcaoAtual)
-                            confirmacao = 1
-                            mensagem += "@"
-                        } else if(confirmacao == 1) {
-                            mensagem += opcaoAtual[ind]
+                        if(opcaoAtual.includes("@")) {
+                            for(let ind = 0; ind < opcaoAtual.length; ind++) {
+                                if(opcaoAtual[ind] == "@") {
+                                    confirmacao = 1;
+                                    palavra = "@";
+                                } else if(confirmacao == 1) {
+                                    palavra += opcaoAtual[ind];
+                                }
+    
+                                if(!vetorEmail.includes(palavra)) {
+                                    vetorEmail.push(palavra);
+                                    mensagem = palavra;
+                                }
+                            }
+                        } else if(!vetor.includes(opcaoAtual)) {
+                            vetor.push(opcaoAtual);
+                            mensagem = opcaoAtual;
                         }
+                    if(mensagem != "") {
+                        slt_categoria.innerHTML += `<option value="${mensagem}">${mensagem}</option>`;
                     }
-                    slt_categoria.innerHTML += `<option value="${mensagem}">${mensagem}</option>`;
                 }
             })
         })
@@ -181,7 +197,7 @@ function carregarHorario() {
 }
 
 function mostrarCards(search, filtro) {
-    carregarHorario();
+    carregarHorario()
 
     div_inferior.innerHTML = "";   
 
@@ -192,12 +208,6 @@ function mostrarCards(search, filtro) {
                 "Content-Type": "application/json"
             }
         }).then(function (resposta) {
-            // let tela = document.getElementById("div_inferior");
-            // let tamHorizontal =  tela.clientWidth;
-            // let cards = 0;
-
-            // console.log(cards +  " " + tamHorizontal);
-    
             resposta.json()
             .then(json => {
 
@@ -208,7 +218,7 @@ function mostrarCards(search, filtro) {
                     <div class="cardMaior">
                         <div class="cabecalho-card">
                             <div class="esquerda-cabecalho-card">
-                                <img class="imagem-perfil-card" src="../assets/imgs/empresario.jpg" alt="">
+                                <img class="imagem-perfil-card" src="../assets/imgs/user.png" alt="">
                                 <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                             </div>
                             <div class="circulo_icone">
@@ -218,6 +228,8 @@ function mostrarCards(search, filtro) {
                         <div class="cardMenor">
                             <span class="textoCard">Email:</span>
                             <span class="textoCard" id="spn_email">${pessoaAtual.email}</span>
+                            <span class="textoCard">Senha:</span>
+                            <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                             <span class="textoCard">Cargo:</span>
                             <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
                             <span class="textoCard">Equipe:</span>
@@ -255,7 +267,7 @@ function mostrarCards(search, filtro) {
                         <div class="cardMaior">
                             <div class="cabecalho-card">
                                 <div class="esquerda-cabecalho-card">
-                                    <img class="imagem-perfil-card" src="../assets/imgs/empresario.jpg" alt="">
+                                    <img class="imagem-perfil-card" src="../assets/imgs/user.png" alt="">
                                     <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                                 </div>
                                 <div class="circulo_icone">
@@ -265,6 +277,8 @@ function mostrarCards(search, filtro) {
                             <div class="cardMenor">
                                 <span class="textoCard">Email:</span>
                                 <span class="textoCard" id="spn_email">${pessoaAtual.email}</span>
+                                <span class="textoCard">Senha:</span>
+                                <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                                 <span class="textoCard">Cargo:</span>
                                 <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
                                 <span class="textoCard">Equipe:</span>
@@ -296,7 +310,7 @@ function mostrarCards(search, filtro) {
                     <div class="cardMaior">
                         <div class="cabecalho-card">
                             <div class="esquerda-cabecalho-card">
-                                <img class="imagem-perfil-card" src="../assets/imgs/empresario.jpg" alt="">
+                                <img class="imagem-perfil-card" src="../assets/imgs/user.png" alt="">
                                 <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                             </div>
                             <div class="circulo_icone">
@@ -306,6 +320,8 @@ function mostrarCards(search, filtro) {
                         <div class="cardMenor">
                             <span class="textoCard">Email:</span>
                             <span class="textoCard" id="spn_email">${pessoaAtual.email}</span>
+                                <span class="textoCard">Senha:</span>
+                                <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                             <span class="textoCard">Cargo:</span>
                             <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
                             <span class="textoCard">Equipe:</span>
@@ -364,7 +380,7 @@ function editar(nome, email, cargo, equipe, id) {
                     <span class="descricao-modal">Foto de Perfil: <span class="obrigatorio">*</span></span>
                     <div class="regiao-foto">
                         <div class="fundo-imagem">
-                            <img class="upload-imagem" src="../assets/imgs/empresario.jpg" alt="">
+                            <img class="upload-imagem" src="../assets/imgs/user.png" alt="">
                         </div>
                     </div>
                 </div>

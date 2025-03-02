@@ -261,6 +261,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 1%;
 }
 
 .icon_filtro {
@@ -686,6 +687,11 @@ height: 800px;
         padding-right: 10px;
     }
 
+    .opcao img {
+        width: 36px;
+        height: 36px;
+    }
+
     .nav-item {
         text-decoration: none;
         font-size: 60%;
@@ -711,7 +717,7 @@ height: 800px;
 
     .main-content-user {
         margin-top: 55%;
-        margin-left: 5%;
+        margin-left: 2%;
     }
 
     .titulo_pagina {
@@ -762,5 +768,11 @@ height: 800px;
         border-radius: 30px;
         color: #c8c8c8;
     }
-}
 
+    .preferencias {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1%;
+    }
+}

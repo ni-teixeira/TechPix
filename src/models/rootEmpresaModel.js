@@ -1,7 +1,13 @@
 var database = require("../database/config");
 
 function search(id, mensagem) {
-  let instrucaoSql = `SELECT * FROM Funcionario WHERE nome LIKE '%${mensagem}%' AND fkEmpresa = ${id}`;
+  let instrucaoSql = "";
+
+  if(mensagem == 1) {
+    instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id}`;
+  } else {
+    instrucaoSql = `SELECT * FROM Funcionario WHERE nome LIKE '%${mensagem}%' AND fkEmpresa = ${id}`;
+  }
 
   return database.executar(instrucaoSql);
 }
