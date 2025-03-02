@@ -156,8 +156,9 @@ function trocarSegundoFiltro() {
 function carregarHorario() {
     let horario = document.getElementById('horario');
     let dataAtual = new Date();
+    let minuto = dataAtual.getMinutes();
     let dia = dataAtual.getDate();
-    let mes = dataAtual.getMonth()
+    let mes = dataAtual.getMonth();
 
     if(dia < 10) {
         dia = dia.toString();
@@ -170,7 +171,12 @@ function carregarHorario() {
         mes = '0' + mes;
     }
 
-    let mensagem = dataAtual.getHours() + ":" + dataAtual.getMinutes() + " " + dia + "/" + mes + "/" + dataAtual.getFullYear();
+    if(minuto < 10) {
+        minuto = minuto.toString();
+        minuto = '0' + minuto;
+    }
+
+    let mensagem = dataAtual.getHours() + ":" + minuto + " " + dia + "/" + mes + "/" + dataAtual.getFullYear();
     horario.innerHTML = mensagem;
 }
 
