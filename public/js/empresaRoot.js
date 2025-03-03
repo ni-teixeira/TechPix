@@ -10,14 +10,21 @@ function sair() {
 function cadastrar() {
     modal.style.display = 'flex';
     modal.showModal();
-    modal.style.width = 45 + "%";
-    modal.style.height = 75 + "%";
+    console.log(window.innerWidth);
+
+    if(window.innerWidth <= 1000) {
+        modal.style.width = 70 + "%";
+        modal.style.height = 75 + "%";
+    } else {
+        modal.style.width = 45 + "%";
+        modal.style.height = 75 + "%";
+    }
 
     modal.innerHTML = `
         <div class="superior-modal">
             <div class="esquerda-superior-modal">
                 <div class="circulo_imagem-modal">
-                    <img src="../assets/icon/cadastrar.svg" alt="" style="width: 70%; height:70%">
+                    <img class="icon-modal" src="../assets/icon/cadastrar.svg" alt="">
                 </div>
                 <span class="titulo_pagina">Cadastrar</span>
             </div>
@@ -338,18 +345,24 @@ function mostrarCards(search, filtro) {
 function editar(nome, email, cargo, equipe, id) {
     modal.style.display = 'flex';
     modal.showModal();
-    modal.style.width = 45 + "%";
-    modal.style.height = 70 + "%";
+
+    if(window.innerWidth <= 1000) {
+        modal.style.width = 70 + "%";
+        modal.style.height = 75 + "%";
+    } else {
+        modal.style.width = 45 + "%";
+        modal.style.height = 70 + "%";
+    }
     
     modal.innerHTML = `
         <div class="superior-modal">
             <div class="esquerda-superior-modal">
                 <div class="circulo_imagem-modal">
-                    <img src="../assets/icon/edit.svg" alt="" style="width: 50%; height:50%">
+                    <img class="icon-modal" src="../assets/icon/edit.svg" alt="">
                 </div>
                 <span class="titulo_pagina">Editar</span>
                 <div class="circulo_imagem-modal-v">
-                    <img src="../assets/icon/remove.svg" alt="" class="icon" onclick="deleteModal(${id}, '${nome}')">
+                    <img src="../assets/icon/remove.svg" alt="" class="icon-delete" onclick="deleteModal(${id}, '${nome}')">
                 </div>
             </div>
             <div class="direita-superior-modal">
@@ -446,15 +459,22 @@ function enviarEdicao(id) {
 function deleteModal(idFuncionario, nome) {
     modal.style.display = 'flex';
     modal.showModal();
-    modal.style.width = 35 + "%";
-    modal.style.height = 40 + "%";
+
+    if(window.innerWidth <= 1000) {
+        modal.style.width = 70 + "%";
+        modal.style.height = 18 + "%";
+        modal.style.paddingTop = 5 + "%"
+    } else {
+        modal.style.width = 35 + "%";
+        modal.style.height = 40 + "%";
+    }
     console.log(idFuncionario);
 
     modal.innerHTML = `
         <div class="superior-modal">
             <div class="esquerda-superior-modal">
                 <div class="circulo_imagem-modal-excluir">
-                    <img src="../assets/icon/remover-vermelho.svg" alt="" style="width: 70%; height:70%">
+                    <img class="" src="../assets/icon/remover-vermelho.svg" alt="">
                 </div>
                 <span class="titulo_modal_excluir">Excluir</span>
             </div>

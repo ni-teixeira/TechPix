@@ -22,10 +22,6 @@
 .close {
     width: 100%;
     height: fit-content;
-    font-size: 40px;
-    font-weight: 400;
-    color: black;
-    text-align: right;
 }
 
 .close:hover {
@@ -91,6 +87,7 @@
     height: 100%;
     position: fixed;
     left: 0;
+    top: 0;
     color: #fff;
     background-color: #003F69;
     display: flex;
@@ -430,6 +427,11 @@ select:hover {
     border-radius: 100%;
 }
 
+.icon-modal {
+    width: 70%;
+    height: 70%;
+}
+
 .direita-superior-modal {
     height: 100%;
     display: flex;
@@ -583,6 +585,16 @@ select:hover {
     font-size: 30px;
     font-weight: 800;
     text-align: center;
+}
+
+.icon-delete {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-vermelho {
+    width: 100%;
+    height: 100%;
 }
 
 .botao-modal-excluir {
@@ -774,5 +786,107 @@ height: 800px;
         flex-direction: row;
         align-items: center;
         gap: 1%;
+    }
+
+    #modal {
+        width: 400px;
+        padding-bottom: 9%;
+    }
+
+    .superior-modal {
+        width: 100%;
+        height: 10%;
+    }
+
+    .circulo_imagem-modal {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 100%;
+        padding: 5px;
+    }
+
+    /**/
+    .icon-modal {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .inferior-modal {
+        padding-top: 5%;
+        flex-direction: column;
+        justify-content: none;
+        align-items: center;
+        gap: 12%;
+    }
+
+    .esquerda-inferior-modal {
+        width: 90%;
+    }
+
+    .descricao-modal {
+        font-size: 20px;
+    }
+
+    .borda-imagem {
+        width: 80%;
+        height: 100%;
+        padding-bottom: 9%;
+    }
+
+    .fundo-imagem {
+        width: 200px;
+        height: 200px;
+    }
+
+    .regiao-botao {
+        padding-bottom: 9%;
+    }
+
+    .direita-superior-modal {
+        height: 100%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .circulo_imagem-modal-v {
+        width: 11%;
+        height: 45%;
+    }
+
+    .icon-delete {
+        width: 25px;
+        height: 25px;
+    }
+
+    .circulo_imagem-modal-excluir {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon-vermelho {
+        width: 30px;
+        height: 30px;
+    }
+
+    .titulo_modal_excluir {
+        font-size: 24px;
+    }
+
+    .inferior-modal-excluir {
+        width: 90%;
+        padding-top: 5%;
+    }
+
+    .mensagem-excluir {
+        font-size: 20px;
+    }
+
+    .area-botao-excluir {
+        width: 50%;
+        height: 100%;
+        padding: 10%;
     }
 }
