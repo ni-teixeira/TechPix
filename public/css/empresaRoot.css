@@ -617,6 +617,12 @@ select:hover {
     height: 22%;
 }
 
+.div_ola {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*
 RESPONSIVIDADE
 */
@@ -827,6 +833,10 @@ height: 800px;
     .selecionado {
         padding: 10px;
         gap: 5px;
+    }
+
+    .div_ola {
+        display: none;
     }
 
     .main-content-user {

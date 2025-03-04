@@ -1,4 +1,5 @@
 const id = sessionStorage.ID_USUARIO;
+razao.innerHTML = sessionStorage.NOME_USUARIO;
 const modal = document.getElementById("modal");
 
 function sair() {

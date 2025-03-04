@@ -120,4 +120,5 @@ SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
 
 SELECT AVG(medida) FROM Monitoramento WHERE fkComponente = 5 AND tipo LIKE 'Porcentagem%' LIMIT 10;
 
+SELECT * FROM Componentes;
 SELECT * FROM Monitoramento;
