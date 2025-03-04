@@ -514,4 +514,4 @@ function closeModal() {
     modal.close();
 }
 
-// window.addEventListener("resize", mostrarCards, false);
+window.addEventListener("resize", mostrarCards, false);
