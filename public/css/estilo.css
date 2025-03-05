@@ -63,24 +63,22 @@ body::-webkit-scrollbar {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-image: url(../assets/imagens_inicial/fundo_banner.png); 
+    background-image: url(../assets/imgs/melhor.jpg); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
 }
 
-.config_cadeado {
+/* .config_cadeado {
     height: 70vh;
-}
+} */
 
 .conteudo_banner{
     display: flex;
+    align-items: center;
+    margin-left: 100px;
     height: 100vh;
     width: 100vw;
-    /* border: solid 1px red; */
-    justify-content: space-around;
-    flex-direction: row-reverse;
-    align-items: center;
 }
 
 .coluna_banner{
@@ -96,7 +94,6 @@ body::-webkit-scrollbar {
     align-items: center;
     /* border: 1px solid red; */
     width: 40vw;
-    height: 50vh;
 }
 
 .pix{
@@ -660,16 +657,22 @@ body::-webkit-scrollbar {
         height: 140vh;
         align-items: center;
         justify-content: center;
-        background-image: url(../assets/imagens_inicial/direita.png); /
+        background-image: url(../assets/imagens_inicial/direita.png); 
         background-size: cover; 
         background-position: center;
     }
 
     /* Remove imagem */
+    .banner_fundo,
     .principal_impacto .texto,
     .principal_impacto_2 .texto {
         background-image: none !important;
     }
+
+    /* Para deixar o fundo antigo */
+    /* .banner_fundo {
+        background-image: url(../assets/imagens_inicial/fundo_banner.png);
+    } */
 
 
     .principal_impacto .texto {
