@@ -90,7 +90,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 65%;
     height: 25%;
     border-radius: 50%;
     background-color: white;
@@ -158,6 +158,7 @@
 .kpi{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
     background-color: #77AFD4;
     height: 75%;
@@ -166,10 +167,28 @@
     border-radius: 15px;
 }
 
-.kpi-texto h1{
-    font-family: "Afacad", serif;
+.kpi h1{
     font-weight: 100;
+}
+
+.kpi-texto h1{
     color: white;
+}
+
+.kpi-media, .kpi-percentual, .kpi-componente{
+    font-size: xx-large;
+}
+
+.kpi-media h1{
+    color: #98FB98;
+}
+
+.kpi-percentual h1{
+    color: #D93E3E;
+}
+
+.kpi-componente h1{
+    color: #003F69;
 }
 
 .container-grafico{
@@ -188,6 +207,7 @@
 
 .grafico{
     display: flex;
+    align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #77AFD4;
@@ -195,4 +215,15 @@
     padding: 1rem;
     width: 70dvh;
     border-radius: 15px;
+}
+
+.grafico-pizza{
+    height: 20rem;
+}
+
+.grafico-barra{
+    width: 100%;
+    background-color: #003F6A;
+    border-radius: 20px;
+    color: #ffffff;
 }
