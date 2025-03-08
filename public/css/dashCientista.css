@@ -61,11 +61,11 @@
 }
 
 .btn_home{
-    background: #106B86;
+    background: #003F6A;
 }
 
 .btn_home:hover{
-    background: rgb(12, 83, 105);
+    background: #002b47;
 }
 
 .container{
@@ -122,7 +122,11 @@
     background: #77AFD4;
 }
 
-.btn_nav_sair{
+.btn_nav:hover{
+    background: #6599bc;
+}
+
+#sair{
     width: 50%;
 }
 
@@ -236,6 +240,10 @@
     font-weight: 100;
     transition: 0.2s;
     background: #003F6A;
+}
+
+.select-servidor select:hover{
+    background: #002b47;
 }
 
 .grafico-pizza{
