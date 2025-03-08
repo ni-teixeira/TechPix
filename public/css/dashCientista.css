@@ -96,7 +96,24 @@
 
 .kpis{
     display: flex;
-    justify-content: center;
-    border: 2px solid #000000;;
+    justify-content: space-around;
+    align-items: flex-end;
     width: 100%;
+}
+
+.kpi{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #77AFD4;
+    height: 80%;
+    padding: 1rem;
+    width: 40dvh;
+    border-radius: 15px;
+}
+
+.kpi-texto h1{
+    font-family: "Afacad", serif;
+    font-weight: 100;
+    color: white;
 }
