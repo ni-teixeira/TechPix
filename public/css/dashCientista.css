@@ -220,7 +220,7 @@
     background-color: #77AFD4;
     height: 100%;
     padding: 1rem;
-    width: 70dvh;
+    width: 48%;
     border-radius: 15px;
 }
 
@@ -248,13 +248,9 @@
     background: #002b47;
 }
 
-.grafico-pizza{
-    height: 25rem;
-}
-
 .grafico-barra{
     width: 100%;
-    background-color: #003F6A;
+    /* background-color: #003F6A; */
     border-radius: 20px;
     color: #ffffff;
 }

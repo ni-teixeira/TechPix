@@ -1,15 +1,15 @@
-    function carregarGraficos(){
-        const graficoPizza = document.getElementById('pizza');
-        const graficoBarra = document.getElementById('barra');
-        
-        new Chart(graficoBarra, {
+function carregarGraficos() {
+    const graficoPizza = document.getElementById('pizza');
+    const graficoBarra = document.getElementById('barra');
+
+    new Chart(graficoBarra, {
         type: 'bar',
         data: {
             labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
             datasets: [{
                 label: 'Quantidade de Alertas',
                 data: [12, 20, 15, 8, 7, 11, 13],
-                backgroundColor: ['#03C8E4'],
+                backgroundColor: ['#003F6A'],
                 borderRadius: 5,
                 borderWidth: 1,
                 barThickness: 40,
@@ -20,37 +20,46 @@
             plugins: {
                 legend: {
                     labels: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 18
+                        }
                     }
                 },
                 datalabels: {
-                    align: 'top', 
+                    align: 'top',
                     anchor: 'end',
                     color: '#ffffff',
                     font: {
                         weight: 'linear',
-                        size: 10 
+                        size: 10
                     },
-                    formatter: (value) => value 
+                    formatter: (value) => value
                 }
             },
             scales: {
                 x: {
                     ticks: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 16
+                        }
                     }
                 },
                 y: {
-                    beginAtZero: true,
                     ticks: {
-                        color: '#ffffff'
-                    }
+                        color: '#ffffff',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    beginAtZero: true
                 }
             }
         },
-        plugins: [ChartDataLabels] 
+        plugins: [ChartDataLabels]
     });
-    
+
     new Chart(graficoPizza, {
         type: 'pie',
         data: {
@@ -67,12 +76,14 @@
             plugins: {
                 legend: {
                     labels: {
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        font: {
+                            size: 18
+                        }
                     }
                 },
             }
         }
     });
 }
-    
-    
+
