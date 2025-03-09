@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Afacad", serif;
+    font-family: "Inter", sans-serif;
 }
   
 
@@ -12,13 +12,13 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 10vh;
+    height: 8vh;
     justify-content: space-between;
     align-items: center;
     background-color: whitesmoke;
-    padding: 0 4vh;
+    padding: 0 3vh;
     color: white;
-    font-family: "Afacad", serif;
+    font-family: "Inter", sans-serif;
     font-weight: bold;
 }
 
@@ -97,6 +97,24 @@
     margin: -0.2em;
 }
 
+.form_login input {
+    padding: 8px 10px 8px 30px; /* Menos padding */
+    font-size: 1.2rem; /* Fonte levemente menor */
+    margin: 8px 0; /* Menos espaçamento entre inputs */
+    border-radius: 20px; /* Bordas menores */
+    width: 85%; /* Diminui a largura */
+    max-width: 280px; /* Antes era maior */
+    height: 4.5vh; /* Menos altura */
+    border: none;
+}
+/* ÍCONES DENTRO DOS INPUTS */
+.form_login .input_icon {
+    position: absolute;
+    left: 8px; /* Move um pouco mais para a esquerda */
+    width: 18px; /* Ícone um pouco menor */
+    height: 18px;
+}
+
 .form {
     display: flex;
     justify-content: center;
@@ -145,6 +163,20 @@ input::placeholder{
     font-size: 2rem;
     color: white;
     height: 50px;
+    background: #003F6A;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+/* BOTÃO DE LOGIN */
+.form_login button {   
+    font-weight: bold;
+    border: 0;
+    width: 40%;
+    min-width: 150px;
+    font-size: 1.8rem;
+    color: white;
+    height: 45px;
     background: #003F6A;
     border-radius: 25px;
     cursor: pointer;

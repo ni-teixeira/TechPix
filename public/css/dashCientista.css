@@ -172,11 +172,13 @@
 }
 
 .kpi h1{
-    font-weight: 100;
+    font-weight: 700;
 }
 
 .kpi-texto h1{
     color: white;
+    font-size: 20px;
+
 }
 
 .kpi-media, .kpi-percentual, .kpi-componente{
