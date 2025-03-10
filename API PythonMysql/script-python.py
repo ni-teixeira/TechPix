@@ -452,7 +452,7 @@ def login():
 # Caso dê certo, encaminha para a função de login para o usuário se conectar (try:).
 # Se não, é encaminhada a mensagem de erro respectiva da falha que ocorreu (except = erros específicos de conexão e permissão; else = outros erros).
 try:
-    conexaoInsert = mysql.connector.connect(host='localhost', user='techpixInsert', password='Urubu100', database='Techpix')
+    conexaoInsert = mysql.connector.connect(host='10.18.32.188', user='techpixInsert', password='Urubu100', database='Techpix')
     print("Banco de dados conectado!")
     login()
 except mysql.connector.Error as error:
