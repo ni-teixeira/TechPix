@@ -137,5 +137,5 @@ WHERE f.email = 'pedro@gmail.com'
 AND e.codigoEmpresa = 'UFG14SR32'
 AND f.senha = 'SenhaBoa123#';
 
-SELECT * FROM Monitoramento as m JOIN Componentes as c ON c.idComponente WHERE fkCompontente = 1;
+SELECT * FROM Monitoramento as m JOIN Componentes as c ON m.fkComponente = c.idComponente WHERE m.fkCompontente = 1;
 
