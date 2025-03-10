@@ -103,11 +103,25 @@ INSERT INTO Servidores VALUES
 (DEFAULT, 'Ariel', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 2); -- 21, 22, 23, 24, 25
 
 INSERT INTO Componentes VALUES
-(DEFAULT, 'CPU', 'Intel i9', 1, 1),
-(DEFAULT, 'RAM', 'RAM 16GB', 1, 1),
-(DEFAULT, 'Disco', 'SSD 512GB', 1, 1),
-(DEFAULT, 'Placa de Rede', 'rede1', 1, 1),
-(DEFAULT, 'Processos', 'teste', 1, 1);
+(DEFAULT, 'CPUPercentual', 'Porcentagem', 1, 1),
+(DEFAULT, 'CPUInterrupt', 'Minutos', 1, 1),
+(DEFAULT, 'CPUInterruptSoft', 'Minutos', 1, 1),
+(DEFAULT, 'CPUFreq', 'GHz', 1, 1),
+
+(DEFAULT, 'RAMTotal', 'GB', 1, 1),
+(DEFAULT, 'RAMUsed', 'GB', 1, 1),
+(DEFAULT, 'RAMPercent', 'Porcentagem', 1, 1),
+
+(DEFAULT, 'DISKSwap', 'GB', 1, 1),
+(DEFAULT, 'DISKPercent', 'Porcentagem', 1, 1),
+(DEFAULT, 'DISKTotal', 'GB', 1, 1),
+
+(DEFAULT, 'REDESent', 'Pacotes', 1, 1),
+(DEFAULT, 'REDERecv', 'Pacotes', 1, 1),
+
+(DEFAULT, 'ProcessosTotal', 'Processos', 1, 1),
+(DEFAULT, 'ProcessosAtivo', 'Processos', 1, 1),
+(DEFAULT, 'ProcessosDesativados', 'Processos', 1, 1);
 
 
 SELECT 
@@ -123,5 +137,5 @@ WHERE f.email = 'pedro@gmail.com'
 AND e.codigoEmpresa = 'UFG14SR32'
 AND f.senha = 'SenhaBoa123#';
 
-SELECT * FROM Monitoramento;
+SELECT * FROM Monitoramento as m JOIN Componentes as c ON c.idComponente WHERE fkCompontente = 1;
 
