@@ -58,6 +58,10 @@ body::-webkit-scrollbar {
     border-radius: 10px;
 }
 
+.botao_login:hover{
+    background: rgb(0, 32, 53);
+}
+
 
 .banner_fundo{
     display: flex;

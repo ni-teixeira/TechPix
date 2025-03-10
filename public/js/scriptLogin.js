@@ -104,7 +104,8 @@ function logar() {
     const btnTentar = document.querySelector('.tentar-novamente');
 
     if (validarEmail() && validarSenha()) {
-        const respostaUsuarios = fetch("/usuarios/autenticar", {
+
+        fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -113,68 +114,60 @@ function logar() {
                 emailServer: email,
                 senhaServer: senha,
                 codigoServer: codigo,
-            }),
+            })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!", resposta)
-
+            console.log("ESTOU NO THEN DO entrar()!");
+        
             if (resposta.ok) {
+                console.log(resposta);
+        
                 resposta.json().then(json => {
                     console.log(json);
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
+        
+                    // Armazena os valores no sessionStorage
+                    sessionStorage.NOME_EMPRESA = json.nome_empresa; 
+                    sessionStorage.CARGO_FUNCIONARIO = json.cargo_func; 
+                    sessionStorage.ID_FUNCIONARIO = json.id_func; 
+                    sessionStorage.ID_EMPRESA = json.id_empresa;
+                    sessionStorage.NOME_USUARIO = json.nome_func;
+                    sessionStorage.EMAIL_USUARIO = email;
                     modalLogin.style.display = 'block';
+
                     btnProsseguir.addEventListener("click", () => {
+
                         setTimeout(function () {
-                            window.location = "../root/contaEmpresaRootServidores.html";
-                            modalLogin.style.display = 'none';
-                        }, 1000);
+                            if (sessionStorage.CARGO_FUNCIONARIO == "Gestor") {
+                                window.location.href = "../root/contaEmpresaRootFuncionarios.html";  
+                                modalLogin.style.display = 'none';
+                            }
+                            else if (sessionStorage.CARGO_FUNCIONARIO == "Analista de Infraestrutura"){
+                                window.location.href = "../user/dashboard.html";
+                            }
+                            else if (sessionStorage.CARGO_FUNCIONARIO == "Ciêntista de Dados"){
+                                window.location.href = "../user/dashboardCientista.html";
+                            }
+                        }, 2000); // apenas para exibir o loading
+
                     })
+        
                 });
-            } else if (respostaUsuarios) {
-                fetch("/empresas/autenticar", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        emailServer: email,
-                        senhaServer: senha,
-                        codigoServer: codigo,
-                    }),
-                }).then(function (resposta) {
-                    console.log("ESTOU NO THEN DO entrar()!", resposta)
-
-                    if (resposta.ok) {
-                        resposta.json().then(json => {
-                            console.log(json);
-                            sessionStorage.EMAIL_USUARIO = json.email;
-                            sessionStorage.NOME_USUARIO = json.nome;
-                            sessionStorage.ID_USUARIO = json.id;
-
-                            modalLogin.style.display = 'block';
-                            btnProsseguir.addEventListener("click", () => {
-                                setTimeout(function () {
-                                    window.location = "../root/contaEmpresaRootFuncionarios.html";
-                                    modalLogin.style.display = 'none';
-                                }, 1000);
-                            })
-                        });
-                    } else {
-                        console.log("Houve um erro ao tentar realizar o login!");
-                        modalErroLogin.style.display = 'block';
-                        btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
-
-                    }
-
-                }).catch(function (erro) {
-                    console.log(erro);
-                })
-
-                return false;
+        
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+                modalErroLogin.style.display = 'block';
+                btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
+                
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
             }
-        }
-        )
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+        
+        return false;
+        
+
     }
 }

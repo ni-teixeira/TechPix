@@ -3,6 +3,7 @@
 -- Script de BD do projeto do TechPix
 
 -- novo script c:
+-- DROP DATABASE TechPix;
 
 create database TechPix;
 use TechPix;
@@ -38,7 +39,6 @@ create table if not exists Funcionario(
     email varchar(100) not null,
     senha varchar(100) not null,
     cargo varchar(45) not null,
-    equipe varchar(45) not null,
     fkEmpresa int,
 	constraint fkEmpFunc foreign key (fkEmpresa) references Empresa(idEmpresa)
 );
@@ -83,12 +83,25 @@ create table if not exists Alertas(
 );
 
 INSERT INTO Empresa VALUES
-(DEFAULT, 'Banco Safra', 'SF8A90', 'safra@gmail.com', 'Urubu#100', '12345678901234');
+(DEFAULT, 'TechPix', 'ABCD12345', 'techpix@gmail.com', 'TechPix@100', '4254364334'),
+(DEFAULT, 'Banco Safra', 'UFG14SR32', 'contato_safra@outlook.com', 'Teste123%', '1234567833'),
+(DEFAULT, 'Banco Itaú', 'RTE251G44', 'equipe_itau@gmail.com', 'Teste@123', '2345678912'),
+(DEFAULT, 'Banco C6', 'HIJ987C11', 'c6_ctt@hotmail.com', 'Urubu100%', '1122233344'),
+(DEFAULT, 'Banco Bradesco', 'CAS112Q57', 'bradescontato@yahoo.com', 'VaiBrasil2025#', '1019228710');
+
+INSERT INTO Funcionario (nome, email, senha, cargo, fkEmpresa) VALUES
+('Ariel Rocha', 'ariel.rocha@gmail.com', 'SenhaAriel123#', 'CEO', 1),
+('Caio Visconti', 'caio.visconti@outlook.com', 'SenhaCaio123@', 'CEO', 1),
+('Gabriel Santos', 'gabriel.santos@hotmail.com', 'SenhaGabriel123@', 'CEO', 1),
+('Guilherme Fonseca', 'guilherme.fonseca@yahoo.com', 'SenhaGuilherme123@', 'CEO', 1),
+('Nicoly Teixeira', 'nicoly.teixeira@gmail.com', 'SenhaNicoly123@', 'CEO', 1),
+('Pedro Alcântara', 'pedro@gmail.com', 'SenhaBoa123#', 'Gestor', 2),
+('Rafael Sampaio', 'sampaio@hotmail.com', '#TesteSenh4', 'Analista de Infraestrutura', 2),
+('Maria Antônia', 'maria@yahoo.com', 'f@zsenhaL0g0', 'Ciêntista de Dados', 2),
+('Gabriella Pedrosa', 'gabriella@outlook.com', 'grubu100$', 'Gestor', 3);
 
 INSERT INTO Servidores VALUES
-(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 1);
-
-INSERT INTO Servidores VALUES
+(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 1),
 (DEFAULT, 'BCD', '123.0.1.1', 'ALI DO LADO', 'Ativo', 1),
 (DEFAULT, 'CDE', '123.0.1.1', 'ALI EMBAIXO', 'Ativo', 1),
 (DEFAULT, 'DEF', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 1),
@@ -102,17 +115,32 @@ INSERT INTO Componentes VALUES
 (DEFAULT, 'Processos', 'teste', 1, 1);
 
 
+SELECT 
+    f.idFuncionario, 
+    f.nome,
+    e.idEmpresa, 
+    e.razaoSocial, 
+    f.cargo AS cargo
+FROM Funcionario as f
+JOIN Empresa as e 
+ON f.fkEmpresa = e.idEmpresa
+WHERE f.email = 'pedro@gmail.com'
+AND e.codigoEmpresa = 'UFG14SR32'
+AND f.senha = 'SenhaBoa123#';
+
 SELECT * FROM Monitoramento;
 
 SELECT * FROM Componentes;
 
-TRUNCATE Monitoramento;
+SELECT * FROM Funcionario;
+
+TRUNCATE Funcionario;
 
 USE Techpix;
 
 SELECT * FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON s.idServidores = c.fkServidor WHERE idServidores = 1;
 
-SELECT idServidores,  FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';
+SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';
 
 SELECT DISTINCT  m.tipo FROM Monitoramento AS m JOIN Componentes AS c ON m.fkComponente = c.idComponentes WHERE c.fkServidor = 1;
 

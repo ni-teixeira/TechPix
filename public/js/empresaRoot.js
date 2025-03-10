@@ -1,10 +1,10 @@
-const id = sessionStorage.ID_USUARIO;
+const id = sessionStorage.ID_FUNCIONARIO;
 razao.innerHTML = sessionStorage.NOME_USUARIO;
 const modal = document.getElementById("modal");
 
 function sair() {
     sessionStorage.removeItem(EMAIL_USUARIO);
-    sessionStorage.removeItem(ID_USUARIO);
+    sessionStorage.removeItem(ID_FUNCIONARIO);
     sessionStorage.removeItem(NOME_USUARIO);
 }
 

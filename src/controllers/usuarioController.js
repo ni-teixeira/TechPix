@@ -10,9 +10,13 @@ function autenticar(req, res) {
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
-
+                    // É assim que vai chegar o json no Script Login
                     res.json({
-                        id: resultadoAutenticar[0].idFuncionario,
+                        id_func: resultadoAutenticar[0].idFuncionario,
+                        nome_func: resultadoAutenticar[0].nome,
+                        id_empresa: resultadoAutenticar[0].idEmpresa,
+                        nome_empresa: resultadoAutenticar[0].razaoSocial,
+                        cargo_func: resultadoAutenticar[0].cargo,
                         email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome
                     });
