@@ -33,7 +33,7 @@ def metricas(componente, listaComponentes):
     indice = listaComponentes.index(componente)
     id = listaIDComponente[indice]
 
-    sql = "SELECT tipo FROM Monitoramento WHERE fkComponente = %s"
+    sql = "SELECT tipo FROM Componente WHERE idComponente = %s"
     values = (id)
     cursor.execute(sql, values)
 

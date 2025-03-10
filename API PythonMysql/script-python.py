@@ -17,7 +17,7 @@ def executar(dados):
     cursor = conexaoInsert.cursor()
 	
     # Comando MySql utilizado para inserir os dados da maneira adequada ao banco de dados.
-    sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+    sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
     
     # Variável responsável por armazenar a chamada da biblioteca de captura de dados da máquina.
     bibliotecaCaptura = psutil
@@ -35,7 +35,7 @@ def executar(dados):
             total += 1
 
         # Criação do restante do comando sql com as informações que deverão ser enviadas e seu tipo.
-        sql += "('Quantidade total de processos', %s, %s, 5);"
+        sql += "(%s, %s, 5);"
 
         # Variável que irá armazenar os dados que serão inseridos no lugar dos "%s" do comando sql.
         values = (total, dataHoraAtual)
@@ -47,7 +47,7 @@ def executar(dados):
         print(total)
 
         # Reestruturação do comando sql para o formato original.
-        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+        sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
     # Caso o usuário tenha escolhido o total de processos ativos no sistema irá realizar essa validação, onde fará a coleta e inserção dos dados no banco de dados.
     if "ProcessosAtivo" in dados:
@@ -59,11 +59,11 @@ def executar(dados):
             if processo.status() == "running":
                 ativos += 1
 
-        sql += "('Quantidade de processos ativos', %s, %s, 5)"
+        sql += "(%s, %s, 5)"
         values = (ativos, dataHoraAtual)
         cursor.execute(sql, values)
         print(ativos)
-        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+        sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
     #  Caso o usuário tenha escolhido o total de processos inativos no sistema irá realizar essa validação, onde fará a coleta e inserção dos dados no banco de dados.
     if "ProcessosDesativados" in dados:
@@ -75,11 +75,11 @@ def executar(dados):
             if processo.status() == "stopped":
                 desativados += 1
 
-        sql += "('Quantidade de processos inativados', %s, %s, 5);"
+        sql += "(%s, %s, 5);"
         values = (desativados, dataHoraAtual)
         cursor.execute(sql, values)
         print(desativados)
-        sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+        sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
     
     # Caso o usuário tenha realizado a coleta de alguma métrica de processos, irá realizar a inserção dos dados no banco de dados.
     if "ProcessosTotal" in dados or "ProcessosAtivo" in dados or "ProcessosDesativados" in dados:
@@ -98,110 +98,110 @@ def executar(dados):
             # Variável responsável por armazenar a métrica pedida pelo usuário
             porcentagem_atual = bibliotecaCaptura.cpu_percent(interval=1)
             print("Porcentagem da CPU: ", porcentagem_atual, "%")
-            sql += "('Porcentagem da CPU', %s, %s, 1);"
+            sql += "(%s, %s, 1);"
             values = (porcentagem_atual, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do número de interrupções do sistema desde a sua inicialização, irá realizar a inserção dos dados no banco de dados.
         if "CPUInterrupt" in dados:
 
             interrupcoes = bibliotecaCaptura.cpu_stats().interrupts
             print("Número de interrupções do sistema desde a sua inicialização: ", interrupcoes)
-            sql += "('Número de interrupções do sistema desde a sua inicialização', %s, %s, 1);"
+            sql += "(%s, %s, 1);"
             values = (interrupcoes, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do número de interrupções de softwares desde a sua inicialização, irá realizar a inserção dos dados no banco de dados.
         if "CPUInterruptSoft" in dados:
             interrupcoesSoft = bibliotecaCaptura.cpu_stats().soft_interrupts
             print("Número de interrupções de softwares desde a sua inicialização: ", interrupcoesSoft)
-            sql += "('Número de interrupções de softwares desde a sua inicialização', %s, %s, 1);"
+            sql += "(%s, %s, 1);"
             values = (interrupcoesSoft, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta da frequência da CPU, irá realizar a inserção dos dados no banco de dados.
         if "CPUFreq" in dados:
             frequencia_atual = (bibliotecaCaptura.cpu_freq()).current
             print("Frequência da CPU: ", frequencia_atual, 'Hz')
-            sql += "('Frequência da CPU', %s, %s, 1);"
+            sql += "(%s, %s, 1);"
             values = (frequencia_atual, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do total de RAM, irá realizar a inserção dos dados no banco de dados.
         if "RAMTotal" in dados:
             ramTotal = bibliotecaCaptura.virtual_memory().total
             print("Total de RAM: ", ramTotal)
-            sql += "('Total de RAM', %s, %s, 2);"
+            sql += "(%s, %s, 2);"
             values = (ramTotal, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do total de RAM utilizada, irá realizar a inserção dos dados no banco de dados.
         if "RAMUsed" in dados:
             ramUtilizada = bibliotecaCaptura.virtual_memory().used
             print("Total de RAM disponível: ", ramUtilizada)
-            sql += "('Total de RAM disponível', %s, %s, 2);"
+            sql += "(%s, %s, 2);"
             values = (ramUtilizada, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do percentual de RAM utilizada, irá realizar a inserção dos dados no banco de dados.
         if "RAMPercent" in dados:
             ramPercentual = bibliotecaCaptura.virtual_memory().percent
             print("Porcentagem de RAM disponível: ", ramPercentual, "%")
-            sql += "('Porcentagem de RAM disponível', %s, %s, 2);"
+            sql += "(%s, %s, 2);"
             values = (ramPercentual, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do total de memória Swap, irá realizar a inserção dos dados no banco de dados.
         if "DISKSwap" in dados:
             memoriaSwap = bibliotecaCaptura.swap_memory().used
             (f"Total de Memória Swap utilizada: {memoriaSwap}")
-            sql += "('Total de Memória Swap utilizada', %s, %s, 2);"
+            sql += "(%s, %s, 2);"
             values = (memoriaSwap, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta da porcentagem de Armazenamento utilizado, irá realizar a inserção dos dados no banco de dados.
         if "DISKPercent" in dados:
             discoPercentual = bibliotecaCaptura.disk_usage('C:\\').percent
             print("Porcentagem de Armazenamento utilizado: ", discoPercentual, "%")
-            sql += "('Porcentagem de Armazenamento utilizado', %s, %s, 3);"
+            sql += "(%s, %s, 3);"
             values = (discoPercentual, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do total de armazenamento do disco, irá realizar a inserção dos dados no banco de dados.
         if "DISKTotal" in dados:
             discoTotal = bibliotecaCaptura.disk_usage('C:\\').total
             print("Total de Armazenamento: ", discoTotal)
-            sql += "('Total de Armazenamento', %s, %s, 3);"
+            sql += "(%s, %s, 3);"
             values = (discoTotal, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do número de pacotes enviados pelo servidor, irá realizar a inserção dos dados no banco de dados.
         if "REDESent" in dados:
             redeEnviado = bibliotecaCaptura.net_io_counters().packets_sent
             print("Número de pacotes enviados: ", redeEnviado)
-            sql += "('Número de pacotes enviados', %s, %s, 4);"
+            sql += "(%s, %s, 4);"
             values = (redeEnviado, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         # Caso o usuário tenha escolhido a coleta do número de pacotes recebidos pelo servidor, irá realizar a inserção dos dados no banco de dados.
         if "REDERecv" in dados:
             redeRecebido = bibliotecaCaptura.net_io_counters().packets_recv
             print("Número de pacotes recebidos: ", redeRecebido)
-            sql += "('Número de pacotes recebidos', %s, %s, 4);"
+            sql += "(%s, %s, 4);"
             values = (redeRecebido, dataHoraAtual)
             cursor.execute(sql, values)
-            sql = "INSERT INTO Monitoramento (tipo, medida, dtHora, fkComponente) VALUES "
+            sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
 
         conexaoInsert.commit()
 

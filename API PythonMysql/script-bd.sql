@@ -43,8 +43,7 @@ create table if not exists Servidores(
 	idServidores int primary key auto_increment,
     nomeServidor varchar(45) not null,
     ip varchar(45) not null,
-    andar int not null,
-	rack int not null,
+    localizacao varchar(45),
     status varchar(10) not null,
 	fkEmpresa int,
 	constraint fkEmpServ foreign key (fkEmpresa) references Empresa(idEmpresa)
@@ -61,7 +60,6 @@ create table if not exists Componentes(
 
 create table if not exists Monitoramento (
     idMonitoramento int primary key auto_increment,
-    tipo VARCHAR(90),
     medida float not null,
     dtHora DATETIME,
     fkComponente int,
@@ -98,13 +96,6 @@ INSERT INTO Funcionario (nome, email, senha, cargo, fkEmpresa) VALUES
 ('Gabriella Pedrosa', 'gabriella@outlook.com', 'grubu100$', 'Gestor', 3);
 
 INSERT INTO Servidores VALUES
-<<<<<<< Updated upstream
-(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 2),
-(DEFAULT, 'BCD', '123.0.1.1', 'ALI DO LADO', 'Ativo', 2),
-(DEFAULT, 'CDE', '123.0.1.1', 'ALI EMBAIXO', 'Ativo', 2),
-(DEFAULT, 'DEF', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 2),
-(DEFAULT, 'EFG', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 2);
-=======
 (DEFAULT, 'Nicoly', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 2), -- 1, 2, 3, 4, 5
 (DEFAULT, 'Gabriel', '123.0.1.1', 'ALI DO LADO', 'Ativo', 2), -- 6, 7, 8, 9, 10
 (DEFAULT, 'Guilherme', '123.0.1.2', 'ALI EMBAIXO', 'Ativo', 2), -- 11, 12, 13, 14, 15
