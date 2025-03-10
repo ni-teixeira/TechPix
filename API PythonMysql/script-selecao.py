@@ -192,7 +192,7 @@ def login():
 
     # Caso seja logado com sucesso, é realizada a busca de servidores que o usuário logado tem acesso.
     # Caso contrário, será emitido um alerta alertando o erro no login e reencaminha os campos de email e senha para tentar logar novamente.
-    if email == "safra@gmail.com" and senha == "Urubu#100":
+    if email == "contato_safra@outlook.com" and senha == "Teste123%":
 
         # Criação da estrutura do comando SQL para a coleta dos servidores.
         sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
