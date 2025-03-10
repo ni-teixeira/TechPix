@@ -98,21 +98,22 @@
 }
 
 .form_login input {
-    padding: 8px 10px 8px 30px; /* Menos padding */
-    font-size: 1.2rem; /* Fonte levemente menor */
-    margin: 8px 0; /* Menos espaçamento entre inputs */
-    border-radius: 20px; /* Bordas menores */
-    width: 85%; /* Diminui a largura */
-    max-width: 280px; /* Antes era maior */
-    height: 4.5vh; /* Menos altura */
+    padding: 10px 15px 10px 35px; 
+    font-size: 1.3rem; 
+    margin: 8px 0; 
+    border-radius: 20px; 
+    width: 100%; 
+    max-width: 500px; 
+    height: 6vh; 
     border: none;
+    margin-left: 10%;
 }
 /* ÍCONES DENTRO DOS INPUTS */
 .form_login .input_icon {
     position: absolute;
-    left: 8px; /* Move um pouco mais para a esquerda */
-    width: 18px; /* Ícone um pouco menor */
-    height: 18px;
+    left: 15px;
+    width: 20px; 
+    height: 20px;
 }
 
 .form {
@@ -124,11 +125,31 @@
     position: relative;
 }
 
-.form_login h2 {
-    font-size: 5rem;
+
+.form_login_titulo {
+    width: 100%;
     text-align: center;
+    margin-top: -70px; 
+    margin-bottom: 20px; 
+}
+
+.form_login_titulo h1 {
+    font-size: 3rem;
     color: #FEFFFF;
 }
+
+
+.form_login_subtitulo {
+    width: 85%; 
+    text-align: left;
+    margin-bottom: 8px; 
+}
+
+.form_login_subtitulo h2 {
+    font-size: 2rem;
+    color: #FEFFFF;
+}
+
 
 input{
     padding: 10px 10px 10px 35px;
@@ -144,15 +165,16 @@ input{
 .input_icon {
     position: absolute;
     top: 50%;
-    left: 10px;
+    margin-left: 4%;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     filter: brightness(0.8) contrast(1.5);
 }
 
 input::placeholder{
     color: #C6C6C6;
+    font-size: 1.0rem;
 }
 
 .form button{   
@@ -181,6 +203,8 @@ input::placeholder{
     border-radius: 25px;
     cursor: pointer;
     transition: 0.2s;
+    margin-top: 15px;
+    font-size: 1.0rem;
 }
 
 .form button:hover{
