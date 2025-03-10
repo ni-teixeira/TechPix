@@ -101,7 +101,6 @@ INSERT INTO Servidores VALUES
 (DEFAULT, 'Guilherme', '123.0.1.2', 'ALI EMBAIXO', 'Ativo', 2), -- 11, 12, 13, 14, 15
 (DEFAULT, 'Caio', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 2), -- 16, 17, 18, 19, 20
 (DEFAULT, 'Ariel', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 2); -- 21, 22, 23, 24, 25
->>>>>>> Stashed changes
 
 INSERT INTO Componentes VALUES
 (DEFAULT, 'CPU', 'Intel i9', 1, 1),
@@ -126,34 +125,3 @@ AND f.senha = 'SenhaBoa123#';
 
 SELECT * FROM Monitoramento;
 
-SELECT * FROM Componentes;
-
-SELECT * FROM Funcionario;
-
-TRUNCATE Funcionario;
-
-USE Techpix;
-
-SELECT * FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON s.idServidores = c.fkServidor WHERE idServidores = 1;
-
-SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = 'safra@gmail.com' and e.senha = 'Urubu#100';
-
-SELECT DISTINCT  m.tipo FROM Monitoramento AS m JOIN Componentes AS c ON m.fkComponente = c.idComponentes WHERE c.fkServidor = 1;
-
-SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
-
-SELECT AVG(medida) FROM Monitoramento WHERE fkComponente = 5 AND tipo LIKE 'Porcentagem%' LIMIT 10;
-
-SELECT * FROM Componentes;
-<<<<<<< HEAD
-SELECT * FROM Monitoramento;
-=======
-<<<<<<< HEAD
-SELECT * FROM Monitoramento;
-
-SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
-=======
--- Comando mysql
-SELECT * FROM Monitoramento;
->>>>>>> d3076d2548fda6ede11e7b514f188e1b06794d3e
->>>>>>> b5708891fd8aacc8345c53f7e1d13c69c79dc34b

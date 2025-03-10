@@ -405,9 +405,9 @@ def interagir():
                         print('\nPor favor insira números como "1", "2" e "3".')
                     else:
                         if "1" in resposta:
-                            dados += "ProcessosTotal "
+                            dados += "ProcessosTotal"
                         if "2" in resposta:
-                            dados += "ProcessosAtivo "
+                            dados += "ProcessosAtivo"
                         if "3" in resposta:
                             dados += "ProcessosDesativados"
 
