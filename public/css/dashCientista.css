@@ -71,7 +71,6 @@
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
 }
 
 .nav-lateral{
@@ -186,7 +185,7 @@
 }
 
 .kpi-media h1{
-    color: #98FB98;
+    color: #36932f;
 }
 
 .kpi-percentual h1{
