@@ -145,6 +145,11 @@ SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
 SELECT AVG(medida) FROM Monitoramento WHERE fkComponente = 5 AND tipo LIKE 'Porcentagem%' LIMIT 10;
 
 SELECT * FROM Componentes;
+<<<<<<< HEAD
 SELECT * FROM Monitoramento;
 
 SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
+=======
+-- Comando mysql
+SELECT * FROM Monitoramento;
+>>>>>>> d3076d2548fda6ede11e7b514f188e1b06794d3e
