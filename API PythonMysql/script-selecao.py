@@ -129,10 +129,9 @@ def interagir(listaServidores):
 
         # Caso a máquina escolhida esteja dentro das máquinas disponíveis irá dar continuidade à API.
         # Caso contrário, irá alertar sobre a escolha de uma máquina válida e irá reencaminhar a pergunta de máquinas disponíveis.
-        if escolha in listaServidores:
+        if escolha in str(listaServidores):
             sql = "SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = %s;"
-            values = (escolha)
-            cursor.execute(sql, values)
+            cursor.execute(sql, list(escolha))
 
             # Método para armazenar o tipo e o ID do componente que o servidor selecionado possui.
             for (tipo, idComponente) in cursor:
@@ -141,7 +140,7 @@ def interagir(listaServidores):
 
             # Caso a listaComponentes esteja vazia, irá emitir um alerta e reencaminhar a pergunta de máquinas disponíveis.
             # Caso contrário, irá dar continuidade à API.
-            if not listaComponentes:
+            if len(str(listaComponentes)) == -1:
                 print("Nenhum componente encontrado para esta máquina.")
             else:
 
@@ -169,7 +168,7 @@ def interagir(listaServidores):
 
                         # Caso o índice da contagem seja o mesmo que o último índice da lista, deve exibir sem vírgula.
                         # Caso contrário, deverá listar o tipo atual com vírgula.
-                        if listaComponentes[componenteAtual] == listaComponentes[len(listaComponentes - 1)]:
+                        if listaComponentes[componenteAtual] == listaComponentes[len(listaComponentes) - 1]:
                             mensagemComponentes += tipo
                         else:
                             mensagemComponentes += tipo + ", "
@@ -230,7 +229,7 @@ def login():
 # Caso dê certo, encaminha para a função de login para o usuário se conectar (try:).
 # Se não, é encaminhada a mensagem de erro respectiva da falha que ocorreu (except = erros específicos de conexão e permissão; else = outros erros).
 try:
-    conexaoSelect = mysql.connector.connect(host='localhost', user='techpixSelect', password='Urubu100', database='techpix')
+    conexaoSelect = mysql.connector.connect(host='10.18.32.76', user='techpixSelect', password='Urubu100', database='techpix')
     print("Banco de dados conectado!")
     cursor = conexaoSelect.cursor()
     login()
