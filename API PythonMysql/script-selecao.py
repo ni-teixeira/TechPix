@@ -106,19 +106,27 @@ def interagir(listaServidores):
     mensagemServidores = ""
     indice = 0
 
-    for (idServidores) in listaServidores:
+    for idServidores in listaServidores:
+        # idAtual = idServidores
+
+        # contador = 0
+        # mensagem = ""
+        # while contador != (len(idAtual) - 1):
+        #     if idAtual[contador] != "(" or idAtual[contador] != ")":
+        #         mensagem += idAtual[contador]
+        #     contador += 1
 
         # Caso o ID atual da contagem seja o mesmo que o último ID da lista, deve exibir sem vírgula.
         # Caso contrário, deverá listar o ID atual com vírgula.
         if listaServidores[indice] == listaServidores[len(listaServidores) - 1]:
-            mensagemServidores += idServidores
+            mensagemServidores += map(idServidores)
         else:
-            mensagemServidores += idServidores
+            mensagemServidores += map(idServidores)
         indice += 1
 
     # Etapa de escolha da máquina que deseja visualizar
     while True:
-        escolha = input("Insira qual máquina gostaria de visualizar os dados: (Máquinas disponíveis: " + mensagemServidores + ".)  ")
+        escolha = input("Insira qual máquina gostaria de visualizar os dados: (Máquinas disponíveis: " + mensagemServidores + "  ")
 
         # Caso a máquina escolhida esteja dentro das máquinas disponíveis irá dar continuidade à API.
         # Caso contrário, irá alertar sobre a escolha de uma máquina válida e irá reencaminhar a pergunta de máquinas disponíveis.
