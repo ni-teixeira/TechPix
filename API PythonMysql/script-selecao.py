@@ -106,19 +106,26 @@ def interagir(listaServidores):
     mensagemServidores = ""
     indice = 0
 
-    for (idServidores) in listaServidores:
+    for idServidores in listaServidores:
+        idAtual = str(idServidores)
 
         # Caso o ID atual da contagem seja o mesmo que o último ID da lista, deve exibir sem vírgula.
         # Caso contrário, deverá listar o ID atual com vírgula.
         if listaServidores[indice] == listaServidores[len(listaServidores) - 1]:
-            mensagemServidores += idServidores
+            if idAtual[2] == ",":
+                mensagemServidores += idAtual[1]
+            else:
+                mensagemServidores += idAtual[1] + idAtual[2] 
         else:
-            mensagemServidores += idServidores
+            if idAtual[2] == ",":
+                mensagemServidores += idAtual[1] + ", "
+            else:
+                mensagemServidores += idAtual[1] + idAtual[2] + ", " 
         indice += 1
 
     # Etapa de escolha da máquina que deseja visualizar
     while True:
-        escolha = input("Insira qual máquina gostaria de visualizar os dados: (Máquinas disponíveis: " + mensagemServidores + ".)  ")
+        escolha = input("Insira qual máquina gostaria de visualizar os dados: (Máquinas disponíveis: " + mensagemServidores + ")  ")
 
         # Caso a máquina escolhida esteja dentro das máquinas disponíveis irá dar continuidade à API.
         # Caso contrário, irá alertar sobre a escolha de uma máquina válida e irá reencaminhar a pergunta de máquinas disponíveis.
@@ -192,7 +199,7 @@ def login():
 
     # Caso seja logado com sucesso, é realizada a busca de servidores que o usuário logado tem acesso.
     # Caso contrário, será emitido um alerta alertando o erro no login e reencaminha os campos de email e senha para tentar logar novamente.
-    if email == "safra@gmail.com" and senha == "Urubu#100":
+    if email == "contato_safra@outlook.com" and senha == "Teste123%":
 
         # Criação da estrutura do comando SQL para a coleta dos servidores.
         sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
@@ -236,3 +243,4 @@ except mysql.connector.Error as error:
 		print(error)
 else:
 	conexaoSelect.close()
+

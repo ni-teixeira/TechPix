@@ -4,12 +4,17 @@
 
 -- novo script c:
 -- DROP DATABASE TechPix;
-
-create database TechPix;
-use TechPix;
-
 create database if not exists TechPix;
 use TechPix;
+
+create table if not exists Empresa(
+	idEmpresa int primary key auto_increment,
+    razaoSocial varchar(45) not null,
+    codigoEmpresa varchar(20) not null,
+    email varchar(100) not null,
+    senha varchar(100) not null,
+    cnpj char(14) not null
+);
 
 create table if not exists Enderecos(
 	idEndereco int primary key auto_increment,
@@ -22,15 +27,6 @@ create table if not exists Enderecos(
     estado char(2) not null,
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa)
-);
-
-create table if not exists Empresa(
-	idEmpresa int primary key auto_increment,
-    razaoSocial varchar(45) not null,
-    codigoEmpresa varchar(20) not null,
-    email varchar(100) not null,
-    senha varchar(100) not null,
-    cnpj char(14) not null
 );
 
 create table if not exists Funcionario(
@@ -47,7 +43,8 @@ create table if not exists Servidores(
 	idServidores int primary key auto_increment,
     nomeServidor varchar(45) not null,
     ip varchar(45) not null,
-    localizacao varchar(30) not null,
+    andar int not null,
+	rack int not null,
     status varchar(10) not null,
 	fkEmpresa int,
 	constraint fkEmpServ foreign key (fkEmpresa) references Empresa(idEmpresa)
@@ -101,11 +98,19 @@ INSERT INTO Funcionario (nome, email, senha, cargo, fkEmpresa) VALUES
 ('Gabriella Pedrosa', 'gabriella@outlook.com', 'grubu100$', 'Gestor', 3);
 
 INSERT INTO Servidores VALUES
-(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 1),
-(DEFAULT, 'BCD', '123.0.1.1', 'ALI DO LADO', 'Ativo', 1),
-(DEFAULT, 'CDE', '123.0.1.1', 'ALI EMBAIXO', 'Ativo', 1),
-(DEFAULT, 'DEF', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 1),
-(DEFAULT, 'EFG', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 1);
+<<<<<<< Updated upstream
+(DEFAULT, 'ABC', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 2),
+(DEFAULT, 'BCD', '123.0.1.1', 'ALI DO LADO', 'Ativo', 2),
+(DEFAULT, 'CDE', '123.0.1.1', 'ALI EMBAIXO', 'Ativo', 2),
+(DEFAULT, 'DEF', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 2),
+(DEFAULT, 'EFG', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 2);
+=======
+(DEFAULT, 'Nicoly', '123.0.0.1', 'ALI EM CIMA', 'Ativo', 2), -- 1, 2, 3, 4, 5
+(DEFAULT, 'Gabriel', '123.0.1.1', 'ALI DO LADO', 'Ativo', 2), -- 6, 7, 8, 9, 10
+(DEFAULT, 'Guilherme', '123.0.1.2', 'ALI EMBAIXO', 'Ativo', 2), -- 11, 12, 13, 14, 15
+(DEFAULT, 'Caio', '123.1.1.0', 'ALI ATRÁS', 'Ativo', 2), -- 16, 17, 18, 19, 20
+(DEFAULT, 'Ariel', '123.0.1.0', 'ALI NA FRENTE', 'Ativo', 2); -- 21, 22, 23, 24, 25
+>>>>>>> Stashed changes
 
 INSERT INTO Componentes VALUES
 (DEFAULT, 'CPU', 'Intel i9', 1, 1),
@@ -149,5 +154,15 @@ SELECT tipo, idComponentes FROM Componentes WHERE fkServidor = 1;
 SELECT AVG(medida) FROM Monitoramento WHERE fkComponente = 5 AND tipo LIKE 'Porcentagem%' LIMIT 10;
 
 SELECT * FROM Componentes;
+<<<<<<< HEAD
+SELECT * FROM Monitoramento;
+=======
+<<<<<<< HEAD
+SELECT * FROM Monitoramento;
+
+SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
+=======
 -- Comando mysql
 SELECT * FROM Monitoramento;
+>>>>>>> d3076d2548fda6ede11e7b514f188e1b06794d3e
+>>>>>>> b5708891fd8aacc8345c53f7e1d13c69c79dc34b
