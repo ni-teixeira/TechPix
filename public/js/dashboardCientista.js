@@ -75,6 +75,7 @@ function carregarGraficos() {
             responsive: true,
             plugins: {
                 legend: {
+                    position: 'bottom',
                     labels: {
                         color: '#ffffff',
                         font: {
