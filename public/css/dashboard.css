@@ -147,8 +147,7 @@
 .container-dash{
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    height: 100vh; 
+    height: 90vh; 
     width: 100vw; 
 }
 
@@ -156,9 +155,8 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 30vh; 
+    height: 30vh;
     width: 100%; 
-    border: 2px solid black;
 }
 
 .kpis{
@@ -205,11 +203,10 @@
     color: #D93E3E;
 }
 
-/* .container-grafico{
+.container-grafico{
     display: flex;
     justify-content: center;
-    height: 50dvh;
-    width: 160dvh;
+    height: 60dvh;
 }
 
 .graficos{
@@ -220,45 +217,27 @@
 }
 
 .grafico{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    text-align: center;
     background-color: #77AFD4;
-    height: 100%;
+    width: 92%;
+    height: 95%;
+    border-radius: 15px;
     padding: 1rem;
-    width: 48%;
-    border-radius: 15px;
 }
 
-.select-servidor{
-    align-self: flex-start;
+.titulo{
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
 }
 
-.select-servidor select{
-    display: inline-block;
+.titulo p{
+    font-size: 20px;
     color: white;
-    text-align: center;
-    width: 100%;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-weight: 100;
-    transition: 0.2s;
-    background: #003F6A;
+    font-weight: semibold;
 }
 
-.select-servidor select:hover{
-    background: #002b47;
+hr{
+    border: white 1px solid;
+    border-radius: 50px;
 }
 
-.grafico-barra{
-    width: 100%;
-
-    border-radius: 20px;
-    color: #ffffff;
-} */
