@@ -2,9 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Karla:ital,wght@0,200..800;1,200..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-
-
-
 html, body {
     margin: 0;
     padding: 0;
@@ -13,55 +10,70 @@ html, body {
     /* color: rgb(221, 85, 12); */
 }
 
-
 body::-webkit-scrollbar {
     display: none; /* oculta a barra de rolagem */
 }
 
-
-.nav-bar{
+.navbar {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw; 
+    top: 0;
+    left: 0;
+    right: 0;
     height: 10vh;
-    background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
-    background-color: black;
-}
-
-.conteudo{
-    width: 90%;
-    height: 90%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-}
-
-.logo{
-    width: 7vw;
-    height: 9vh;
-}
-
-.botoes{
-    display: flex;
-    width: 20vw;
-    justify-content: space-around;
-}
-
-.botao_login{
-    border: none;
-    cursor: pointer;
-    width: 9vw;
-    height: 5vh;
-    background-color: #003F6A;
+    align-items: center;
+    background-color: #000000;
+    padding: 0 4vh;
     color: white;
+    font-family: "Afacad", serif;
+    font-weight: bold;
+}
+
+.botoes_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+}
+
+.navlogo{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 9dvw;
+    height: 9dvh;
+}
+
+.navlogo img{   
+    height: 6rem;
+    width: auto;
+    cursor: pointer;
+}
+
+.btn_contato, .btn_log {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    border: none;
+    width: auto;
+    padding: 0.75rem 1.5rem;
     border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
-.botao_login:hover{
-    background: rgb(0, 32, 53);
+.btn_contato{
+    background: #003F6A;
 }
 
+.btn_contato:hover{
+    background: rgba(0,49,82, 0.4);
+}
 
 .banner_fundo{
     display: flex;

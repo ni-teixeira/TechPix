@@ -38,11 +38,10 @@
 }
 
 .navlogo img{   
-    height: 8rem;
+    height: 6rem;
     width: auto;
     cursor: pointer;
 }
-
 
 .btn_contato, .btn_log {
     display: inline-block;
@@ -58,7 +57,6 @@
     text-decoration: none;
     transition: 0.2s;
 }
-
 
 .btn_contato{
     background: #003F6A;
