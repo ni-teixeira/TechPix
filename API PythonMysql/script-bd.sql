@@ -1,9 +1,8 @@
 
--- Active: 1724686043904@@127.0.0.1@3306@ajuda
+-- Active: 1723075943621@@127.0.0.1@3306@techpix-- Active: 1724686043904@@127.0.0.1@3306@ajuda
 -- Script de BD do projeto do TechPix
 
 -- novo script c:
--- DROP DATABASE TechPix;
 create database if not exists TechPix;
 use TechPix;
 

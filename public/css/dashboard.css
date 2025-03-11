@@ -216,55 +216,90 @@
     width: 100%;
 }
 
-.grafico{
+.grafico {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
     background-color: #77AFD4;
-    width: 92%;
+    width: 92%; 
     height: 95%;
     border-radius: 15px;
-    padding: 1rem;
+    padding: 0.2rem;
 }
 
-.titulo{
-    display: flex;
-    justify-content: space-evenly; 
+.titulo {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
     width: 100%;
+    margin: 5px;
 }
 
-.titulo p{
+.titulo p {
     font-size: 20px;
-    color: white;
-    font-weight: semibold;
-}
-
-hr{
-    border: white 1px solid;
-    border-radius: 50px;
-}
-
-.servidor{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.servidor p{
-    font-size: 15px;
-    color: white;
-}
-
-.btn-visualizar{
-    background-color: #003F6A;
-    height: 4vh;
-    width: 6vw;
-    border-radius: 8px;
-    border: none;
-    color: white;
+    color:#003F6A;
     font-weight: bold;
-    transition: ease-in-out 0.2s;
-    cursor: pointer;
+    margin: 0;
+    text-align: center;
 }
 
-.btn-visualizar:hover{
-    background-color: rgba(0, 63, 106, 0.4);
+.servidores {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-sizing: border-box;
+}
+
+.servidor {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 0.5rem 0;
+    background-color: #77AFD4;
+    border-radius: 10px;
+}
+
+.servidor div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bom {
+    color: #98FB98; 
+}
+
+#ruim {
+    color: #F0FB8F;
+}
+
+#critico {
+    color: #D93E3E;
+}
+
+.servidor p {
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.btn-visualizar {
+    background-color: #567EBB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    font-weight: bold;
+}
+
+.btn-visualizar:hover {
+    background-color: #455a8f;
+}
+
+hr {
+    width: 100%;
+    margin: 0;
+    border: 1px solid white;
+    border-radius: 100%;
 }
