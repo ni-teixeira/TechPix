@@ -4,8 +4,6 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
-  
-
 
 .navbar {
     display: flex;
@@ -31,21 +29,22 @@
     gap: 1vh;
 }
 
-.navlogo{
+.navlogo {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     width: 9dvw;
     height: 9dvh;
 }
 
-.navlogo img{   
+.navlogo img {
     height: 8rem;
     width: auto;
     cursor: pointer;
 }
 
-.btn_contato, .btn_home {
+.btn_contato,
+.btn_home {
     display: inline-block;
     color: white;
     text-align: center;
@@ -60,19 +59,19 @@
     transition: 0.2s;
 }
 
-.btn_contato{
+.btn_contato {
     background: #003F6A;
 }
 
-.btn_contato:hover{
+.btn_contato:hover {
     background: rgb(0, 32, 53);
 }
 
-.btn_home{
+.btn_home {
     background: #106B86;
 }
 
-.btn_home:hover{
+.btn_home:hover {
     background: rgb(12, 83, 105);
 }
 
@@ -84,7 +83,7 @@
     align-items: center;
 }
 
-.form_login{
+.form_login {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,21 +97,21 @@
 }
 
 .form_login input {
-    padding: 10px 15px 10px 35px; 
-    font-size: 1.3rem; 
-    margin: 8px 0; 
-    border-radius: 20px; 
-    width: 100%; 
-    max-width: 500px; 
-    height: 6vh; 
+    padding: 10px 15px 10px 35px;
+    font-size: 1.3rem;
+    margin: 8px 0;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 6vh;
     border: none;
     margin-left: 10%;
 }
-/* ÍCONES DENTRO DOS INPUTS */
+
 .form_login .input_icon {
     position: absolute;
     left: 15px;
-    width: 20px; 
+    width: 20px;
     height: 20px;
 }
 
@@ -127,31 +126,20 @@
 
 
 .form_login_titulo {
+    display: flex;
+    justify-content: center;
     width: 100%;
     text-align: center;
-    margin-top: -70px; 
-    margin-bottom: 20px; 
 }
 
-.form_login_titulo h1 {
+.form_login_titulo h1,
+.form_login_subtitulo h1 {
     font-size: 3rem;
     color: #FEFFFF;
 }
 
 
-.form_login_subtitulo {
-    width: 85%; 
-    text-align: left;
-    margin-bottom: 8px; 
-}
-
-.form_login_subtitulo h2 {
-    font-size: 2rem;
-    color: #FEFFFF;
-}
-
-
-input{
+input {
     padding: 10px 10px 10px 35px;
     font-size: 1.5rem;
     margin: 10px 0;
@@ -172,12 +160,12 @@ input{
     filter: brightness(0.8) contrast(1.5);
 }
 
-input::placeholder{
+input::placeholder {
     color: #C6C6C6;
     font-size: 1.0rem;
 }
 
-.form button{   
+.form button {
     font-weight: bold;
     border: 0;
     width: 40%;
@@ -190,8 +178,9 @@ input::placeholder{
     cursor: pointer;
     transition: 0.2s;
 }
+
 /* BOTÃO DE LOGIN */
-.form_login button {   
+.form_login button {
     font-weight: bold;
     border: 0;
     width: 40%;
@@ -207,7 +196,7 @@ input::placeholder{
     font-size: 1.0rem;
 }
 
-.form button:hover{
+.form button:hover {
     background-color: #012b47;
 }
 
@@ -236,7 +225,7 @@ input::placeholder{
     width: 80%;
 }
 
-.fade{
+.fade {
     position: fixed;
     top: 0;
     left: 0;
@@ -246,7 +235,7 @@ input::placeholder{
     z-index: 5;
 }
 
-.modal{
+.modal {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -263,7 +252,7 @@ input::placeholder{
     overflow: hidden;
 }
 
-.modal-header{
+.modal-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,7 +264,7 @@ input::placeholder{
     font-size: large;
 }
 
-.texto-modal{
+.texto-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -284,15 +273,17 @@ input::placeholder{
     text-align: center;
 }
 
-.modal-header img{
+.modal-header img {
     height: 10rem;
 }
 
-.botao-modal, .botao-modal-erro {
+.botao-modal,
+.botao-modal-erro {
     margin-top: 2rem;
 }
 
-.botao-modal button, .botao-modal-erro button{
+.botao-modal button,
+.botao-modal-erro button {
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -308,27 +299,34 @@ input::placeholder{
     transition: 0.2s;
 }
 
-.botao-modal-erro button{
+.botao-modal-erro button {
     font-size: 1.3rem;
 }
 
 
 
-@media (max-width: 920px){
-    .form_login h2 {
-        font-size: 4rem;
+@media (max-width: 920px) {
+
+    .form_login h1 {
+        font-size: 2.2rem;
         text-align: center;
         color: #FEFFFF;
     }
-    .form_login{
+
+
+    .form_login {
         height: 100%;
         width: 60%;
     }
-    
+
+    .img_login {
+        height: 100%;
+    }
+
 }
 
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .modal {
         max-width: 95%;
         padding: 1rem;
@@ -347,21 +345,24 @@ input::placeholder{
         font-size: 1rem;
     }
 
-    .botao-modal button, .botao-modal-erro button {
+    .botao-modal button,
+    .botao-modal-erro button {
         width: 60%;
-        font-size: 1.4rem; 
+        font-size: 1.4rem;
     }
-    .navbar{
+
+    .navbar {
         flex-direction: row;
-        align-items: center; 
+        align-items: center;
         /* height: auto; */
         padding: 1rem;
     }
 
-    .navlogo img{   
+    .navlogo img {
         height: 6rem;
     }
-    .form_login{
+
+    .form_login {
         width: 100%;
         height: 100%;
     }
@@ -369,21 +370,27 @@ input::placeholder{
     .mensagemErro {
         font-size: 1.2rem;
     }
-    
+
     .form_login h2 {
         font-size: 3rem;
         text-align: center;
     }
 
-    input{
+    input {
         font-size: 0.8rem;
     }
 
-    .container_login{
+    .container_login {
         flex-direction: column;
     }
-    .img_login{
+
+    .img_login {
         display: none;
+    }
+
+    .btn_contato,
+    .btn_home {
+        padding: 0.65rem 0.60rem;
     }
 
     @media (max-width: 480px) {
@@ -391,7 +398,7 @@ input::placeholder{
             max-width: 100%;
             padding: 0.8rem;
         }
-    
+
         .modal-header img {
             height: 6rem;
         }
@@ -399,10 +406,11 @@ input::placeholder{
         .texto-modal {
             font-size: 0.8rem;
         }
-    
-        .botao-modal button, .botao-modal-erro button {
+
+        .botao-modal button,
+        .botao-modal-erro button {
             width: 70%;
             font-size: 1.2rem;
         }
-}
+    }
 }

@@ -176,7 +176,7 @@
 }
 
 .kpi h1{
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .kpi-texto h1{
@@ -216,12 +216,12 @@
 
 .grafico{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    flex-direction: column;
     text-align: center;
     background-color: #77AFD4;
-    height: 100%;
+    height: 95%;
     padding: 1rem;
     width: 48%;
     border-radius: 15px;
@@ -237,7 +237,7 @@
     text-align: center;
     width: 100%;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
     font-size: 1.5rem;
