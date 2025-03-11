@@ -226,7 +226,7 @@
 
 .titulo{
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-evenly; 
     width: 100%;
 }
 
@@ -241,3 +241,30 @@ hr{
     border-radius: 50px;
 }
 
+.servidor{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.servidor p{
+    font-size: 15px;
+    color: white;
+}
+
+.btn-visualizar{
+    background-color: #003F6A;
+    height: 4vh;
+    width: 6vw;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+.btn-visualizar:hover{
+    background-color: rgba(0, 63, 106, 0.4);
+}
