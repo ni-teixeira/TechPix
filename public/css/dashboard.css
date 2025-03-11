@@ -63,14 +63,6 @@
     background: rgba(0,49,82, 0.4);
 }
 
-/* .btn_log{
-    background: #106B86;
-}
-
-.btn_log:hover{
-    background: rgba(16, 106, 134, 0.4);
-} */
-
 .container{
     display: flex;
     flex-direction: row;
