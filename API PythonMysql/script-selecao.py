@@ -26,40 +26,27 @@ def executar(metricas, componente, formato):
 # Lista para armazenar o tipo de coleta.
 listaMetricas = []
 listaIDComponente = []
-metricaTexto = []
+b = 0
 
-def metricas(componente, listaComponentes):
+def metricas(componente):
+    metricaTexto = []
 
-    indice = listaComponentes.index(componente)
-    id = listaIDComponente[indice]
-
-    sql = "SELECT tipo FROM Componente WHERE idComponente = %s"
-    values = (id)
-    cursor.execute(sql, values)
-
-    for (tipo) in cursor:
-        
-        if tipo in listaMetricas:
-            b += 1
-        else:
-            listaMetricas.append(tipo)
-
-    if "Porcentagem da CPU" in listaMetricas or "Porcentagem de RAM disponível" in listaMetricas or "Porcentagem de Armazenamento utilizado" in listaMetricas:
+    if componente == ("CPUPercentual" or "RAMPercent" or "DISKPercent"):
         metricaTexto.append("Porcentagem")
-    elif "Número de pacotes enviados" in listaMetricas or "Número de pacotes recebidos" in listaMetricas:
+    elif componente == ('REDESent' or 'REDERecv'):
         metricaTexto.append("Pacotes")
-    elif "Frequência da CPU" in listaMetricas:
+    elif componente == "CPUFreq":
         metricaTexto.append("Frequência")
-    elif "Total de RAM" in listaMetricas or "Total de RAM disponível" in listaMetricas or "Total de Memória Swap utilizada" in listaMetricas or "Total de Armazenamento" in listaMetricas:
+    elif componente == ('RAMTotal' or "RAMUsed" or 'DISKSwap' or 'DISKTotal'):
         metricaTexto.append("Bytes")
-    elif "Quantidade total de processos" in listaMetricas or "Quantidade de processos ativos" in listaMetricas or "Quantidade de processos inativados" in listaMetricas or "Número de interrupções do sistema desde a sua inicialização" in listaMetricas or "Número de interrupções de softwares desde a sua inicialização" in listaMetricas:
+    elif componente == ("CPUInterruptSoft" or "CPUInterrupt" or 'ProcessosTotal' or 'ProcessosAtivo' or 'ProcessosDesativados'):
         metricaTexto.append("Processos")
 
     metricaAtual = 0
     mensagemMetricas = ""
 
     for tipo in metricaTexto:
-        if metricaTexto[metricaAtual] == metricaTexto[len(metricaTexto - 1)]:
+        if metricaTexto[metricaAtual] == metricaTexto[len(metricaTexto) - 1]:
             mensagemMetricas += tipo
         else:
             mensagemMetricas += tipo + ", "
@@ -155,7 +142,7 @@ def interagir(listaServidores):
 
                 # Variável utilizada para evitar bugs durante a validação de tipos repetidos.
                 a = 0
-
+                contador = 0
                 # Méetodo utilizado para ver todos os tipos inseridos na lista de componentes.
                 for tipo in listaComponentes:
 
@@ -165,6 +152,7 @@ def interagir(listaServidores):
                         a += 1
                     else:
                         listaNRepetidos.append(tipo)
+                        contador += 1
 
                         # Caso o índice da contagem seja o mesmo que o último índice da lista, deve exibir sem vírgula.
                         # Caso contrário, deverá listar o tipo atual com vírgula.
