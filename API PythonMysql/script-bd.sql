@@ -1,5 +1,5 @@
 
--- Active: 1723075943621@@127.0.0.1@3306@techpix-- Active: 1724686043904@@127.0.0.1@3306@ajuda
+-- Active: 1724686043904@@127.0.0.1@3306@techpix-- Active: 1723075943621@@127.0.0.1@3306@techpix-- Active: 1724686043904@@127.0.0.1@3306@ajuda
 -- Script de BD do projeto do TechPix
 
 -- novo script c:
@@ -137,4 +137,3 @@ AND e.codigoEmpresa = 'UFG14SR32'
 AND f.senha = 'SenhaBoa123#';
 
 SELECT * FROM Monitoramento as m JOIN Componentes as c ON m.fkComponente = c.idComponente WHERE m.fkCompontente = 1;
-
