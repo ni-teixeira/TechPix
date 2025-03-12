@@ -35,7 +35,7 @@ def executar(dados):
             total += 1
 
         # Criação do restante do comando sql com as informações que deverão ser enviadas e seu tipo.
-        sql += "(%s, %s, 5);"
+        sql += "(%s, %s, 13);"
 
         # Variável que irá armazenar os dados que serão inseridos no lugar dos "%s" do comando sql.
         values = (total, dataHoraAtual)
@@ -59,7 +59,7 @@ def executar(dados):
             if processo.status() == "running":
                 ativos += 1
 
-        sql += "(%s, %s, 5)"
+        sql += "(%s, %s, 14)"
         values = (ativos, dataHoraAtual)
         cursor.execute(sql, values)
         print(ativos)
@@ -75,7 +75,7 @@ def executar(dados):
             if processo.status() == "stopped":
                 desativados += 1
 
-        sql += "(%s, %s, 5);"
+        sql += "(%s, %s, 15);"
         values = (desativados, dataHoraAtual)
         cursor.execute(sql, values)
         print(desativados)
@@ -108,7 +108,7 @@ def executar(dados):
 
             interrupcoes = bibliotecaCaptura.cpu_stats().interrupts
             print("Número de interrupções do sistema desde a sua inicialização: ", interrupcoes)
-            sql += "(%s, %s, 1);"
+            sql += "(%s, %s, 2);"
             values = (interrupcoes, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -117,7 +117,7 @@ def executar(dados):
         if "CPUInterruptSoft" in dados:
             interrupcoesSoft = bibliotecaCaptura.cpu_stats().soft_interrupts
             print("Número de interrupções de softwares desde a sua inicialização: ", interrupcoesSoft)
-            sql += "(%s, %s, 1);"
+            sql += "(%s, %s, 3);"
             values = (interrupcoesSoft, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -126,7 +126,7 @@ def executar(dados):
         if "CPUFreq" in dados:
             frequencia_atual = (bibliotecaCaptura.cpu_freq()).current
             print("Frequência da CPU: ", frequencia_atual, 'Hz')
-            sql += "(%s, %s, 1);"
+            sql += "(%s, %s, 4);"
             values = (frequencia_atual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -135,7 +135,7 @@ def executar(dados):
         if "RAMTotal" in dados:
             ramTotal = bibliotecaCaptura.virtual_memory().total
             print("Total de RAM: ", ramTotal)
-            sql += "(%s, %s, 2);"
+            sql += "(%s, %s, 5);"
             values = (ramTotal, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -144,7 +144,7 @@ def executar(dados):
         if "RAMUsed" in dados:
             ramUtilizada = bibliotecaCaptura.virtual_memory().used
             print("Total de RAM disponível: ", ramUtilizada)
-            sql += "(%s, %s, 2);"
+            sql += "(%s, %s, 6);"
             values = (ramUtilizada, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -153,7 +153,7 @@ def executar(dados):
         if "RAMPercent" in dados:
             ramPercentual = bibliotecaCaptura.virtual_memory().percent
             print("Porcentagem de RAM disponível: ", ramPercentual, "%")
-            sql += "(%s, %s, 2);"
+            sql += "(%s, %s, 7);"
             values = (ramPercentual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -162,7 +162,7 @@ def executar(dados):
         if "DISKSwap" in dados:
             memoriaSwap = bibliotecaCaptura.swap_memory().used
             (f"Total de Memória Swap utilizada: {memoriaSwap}")
-            sql += "(%s, %s, 2);"
+            sql += "(%s, %s, 8);"
             values = (memoriaSwap, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -171,7 +171,7 @@ def executar(dados):
         if "DISKPercent" in dados:
             discoPercentual = bibliotecaCaptura.disk_usage('C:\\').percent
             print("Porcentagem de Armazenamento utilizado: ", discoPercentual, "%")
-            sql += "(%s, %s, 3);"
+            sql += "(%s, %s, 9);"
             values = (discoPercentual, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -180,7 +180,7 @@ def executar(dados):
         if "DISKTotal" in dados:
             discoTotal = bibliotecaCaptura.disk_usage('C:\\').total
             print("Total de Armazenamento: ", discoTotal)
-            sql += "(%s, %s, 3);"
+            sql += "(%s, %s, 10);"
             values = (discoTotal, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -189,7 +189,7 @@ def executar(dados):
         if "REDESent" in dados:
             redeEnviado = bibliotecaCaptura.net_io_counters().packets_sent
             print("Número de pacotes enviados: ", redeEnviado)
-            sql += "(%s, %s, 4);"
+            sql += "(%s, %s, 11);"
             values = (redeEnviado, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
@@ -198,7 +198,7 @@ def executar(dados):
         if "REDERecv" in dados:
             redeRecebido = bibliotecaCaptura.net_io_counters().packets_recv
             print("Número de pacotes recebidos: ", redeRecebido)
-            sql += "(%s, %s, 4);"
+            sql += "(%s, %s, 12);"
             values = (redeRecebido, dataHoraAtual)
             cursor.execute(sql, values)
             sql = "INSERT INTO Monitoramento (medida, dtHora, fkComponente) VALUES "
