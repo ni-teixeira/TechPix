@@ -156,7 +156,7 @@ body::-webkit-scrollbar {
     height: 8vh;
     background-color: #606D80;
     cursor: pointer;
-    font-family: 'Karla';
+    font-family: "Afacad", serif;
 }
 
 .separacao{
