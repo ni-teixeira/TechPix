@@ -314,6 +314,24 @@ input::placeholder {
 }
 
 
+.footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 10vh;
+    background-color: #FFFAFF;
+    background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
+    background-color: black;
+}
+
+.footer span{
+    font-family: 'Inter';
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
 
 @media (min-width: 766px) and (max-width: 1025px) {
 
