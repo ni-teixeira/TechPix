@@ -1,6 +1,7 @@
 # TechPix - Sistema de Monitoramento de Servidores PIX
 
-![Logo TechPix](Logo.png)
+![Logo TechPix](https://i.ibb.co/JjpGcpHg/paleta-1-removebg-preview.png)
+
 
 ## Sobre o Projeto
 O TechPix é uma solução de monitoramento automatizado de hardware para servidores de dados envolvidos no processo de transações PIX. Com o crescente aumento do uso do PIX e os riscos causados pela falta de manutenção adequada nos servidores bancários, torna-se essencial um serviço eficiente de monitoramento dos componentes de hardware.
