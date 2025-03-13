@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+    font-family: "Afacad", serif;
 }
 
 .navbar {
@@ -30,27 +30,31 @@
     gap: 1vh;
 }
 
-.navlogo{
+.navlogo {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     width: 9dvw;
     height: 9dvh;
 }
 
-.navlogo img{   
+.navlogo img {
     height: 6rem;
     width: auto;
     cursor: pointer;
 }
 
-.btn_contato, .btn_log {
+.btn_contato,
+.btn_log {
     display: inline-block;
     color: white;
     text-align: center;
     border: none;
     width: auto;
     padding: 0.75rem 1.5rem;
+    min-width: 130px; 
+    max-width: 250px;
+    /* font-size: 1.2rem; */
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -59,19 +63,19 @@
     transition: 0.2s;
 }
 
-.btn_contato{
+.btn_contato {
     background: #003F6A;
 }
 
-.btn_contato:hover{
-    background: rgba(0,49,82, 0.4);
+.btn_contato:hover {
+    background: rgba(0, 49, 82, 0.4);
 }
 
-.btn_log{
+.btn_log {
     background: #106B86;
 }
 
-.btn_log:hover{
+.btn_log:hover {
     background: rgba(16, 106, 134, 0.4);
 }
 
@@ -138,6 +142,12 @@
     color: #FEFFFF;
 }
 
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #FEFFFF;
+    margin-bottom: 10px;
+}
 
 input {
     padding: 10px 10px 10px 35px;
@@ -305,7 +315,13 @@ input::placeholder {
 
 
 
-@media (max-width: 920px) {
+@media (min-width: 766px) and (max-width: 1025px) {
+
+    .btn_contato,
+    .btn_log {
+        width: 20vw;
+        font-size: 1.2rem;
+    }
 
     .form_login h1 {
         font-size: 2.2rem;
@@ -313,10 +329,18 @@ input::placeholder {
         color: #FEFFFF;
     }
 
+    .img_login {
+        display: none;
+    }
+
+    .navlogo img {
+        height: 12vh;
+    }
+
 
     .form_login {
-        height: 100%;
-        width: 60%;
+        width: 85vw;
+        height: 75vh;
     }
 
     .img_login {
@@ -326,7 +350,7 @@ input::placeholder {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 765px) {
     .modal {
         max-width: 95%;
         padding: 1rem;
@@ -351,15 +375,8 @@ input::placeholder {
         font-size: 1.4rem;
     }
 
-    .navbar {
-        flex-direction: row;
-        align-items: center;
-        /* height: auto; */
-        padding: 1rem;
-    }
-
     .navlogo img {
-        height: 6rem;
+        height: 12vh;
     }
 
     .form_login {
@@ -388,29 +405,40 @@ input::placeholder {
         display: none;
     }
 
-    .btn_contato,
-    .btn_home {
-        padding: 0.65rem 0.60rem;
+    .btn_contato, .btn_log {
+        width: 20vw;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .modal {
+        max-width: 100%;
+        padding: 0.8rem;
     }
 
-    @media (max-width: 480px) {
-        .modal {
-            max-width: 100%;
-            padding: 0.8rem;
-        }
+    .modal-header img {
+        height: 6rem;
+    }
 
-        .modal-header img {
-            height: 6rem;
-        }
+    .texto-modal {
+        font-size: 0.8rem;
+    }
 
-        .texto-modal {
-            font-size: 0.8rem;
-        }
+    .botao-modal button,
+    .botao-modal-erro button {
+        width: 70%;
+        font-size: 1.2rem;
+    }
 
-        .botao-modal button,
-        .botao-modal-erro button {
-            width: 70%;
-            font-size: 1.2rem;
-        }
+    .navlogo img{
+        height: 8vh;
+    }
+
+    .btn_contato,
+    .btn_log {
+        width: 20vw;
+        font-size: 1rem;
     }
 }

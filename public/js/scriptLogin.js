@@ -117,17 +117,17 @@ function logar() {
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!");
-        
+
             if (resposta.ok) {
                 console.log(resposta);
-        
+
                 resposta.json().then(json => {
                     console.log(json);
-        
+
                     // Armazena os valores no sessionStorage
-                    sessionStorage.NOME_EMPRESA = json.nome_empresa; 
-                    sessionStorage.CARGO_FUNCIONARIO = json.cargo_func; 
-                    sessionStorage.ID_FUNCIONARIO = json.id_func; 
+                    sessionStorage.NOME_EMPRESA = json.nome_empresa;
+                    sessionStorage.CARGO_FUNCIONARIO = json.cargo_func;
+                    sessionStorage.ID_FUNCIONARIO = json.id_func;
                     sessionStorage.ID_EMPRESA = json.id_empresa;
                     sessionStorage.NOME_USUARIO = json.nome_func;
                     sessionStorage.EMAIL_USUARIO = email;
@@ -137,26 +137,26 @@ function logar() {
 
                         setTimeout(function () {
                             if (sessionStorage.CARGO_FUNCIONARIO == "Gestor") {
-                                window.location.href = "../root/contaEmpresaRootFuncionarios.html";  
+                                window.location.href = "../root/contaEmpresaRootFuncionarios.html";
                                 modalLogin.style.display = 'none';
                             }
-                            else if (sessionStorage.CARGO_FUNCIONARIO == "Analista de Infraestrutura"){
+                            else if (sessionStorage.CARGO_FUNCIONARIO == "Analista de Infraestrutura") {
                                 window.location.href = "../user/dashboard.html";
                             }
-                            else if (sessionStorage.CARGO_FUNCIONARIO == "Ciêntista de Dados"){
+                            else if (sessionStorage.CARGO_FUNCIONARIO == "Ciêntista de Dados") {
                                 window.location.href = "../user/dashboardCientista.html";
                             }
                         }, 2000); // apenas para exibir o loading
 
                     })
-        
+
                 });
-        
+
             } else {
                 console.log("Houve um erro ao tentar realizar o login!");
                 modalErroLogin.style.display = 'block';
                 btnTentar.addEventListener("click", () => modalErroLogin.style.display = 'none');
-                
+
                 resposta.text().then(texto => {
                     console.error(texto);
                     finalizarAguardar(texto);
@@ -165,9 +165,9 @@ function logar() {
         }).catch(function (erro) {
             console.log(erro);
         });
-        
+
         return false;
-        
+
 
     }
 }
