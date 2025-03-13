@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title> TechPix | Dashboard Infraestrutura </title>
+
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="icon" type="image/png" href="../assets/icon/logo.png" sizes="16x16">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/dashboardCientista.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="../js/dashboard.js"></script>
 </head>
 
-<body onload="carregarGraficos()">
+<body>
 
     <header>
         <nav class="navbar">
@@ -58,7 +61,7 @@
                             <h1>Total de alertas ativos atualmente</h1>
                         </div>
                         <div class="kpi-media">
-                            <h1>05</h1>
+                            <h1>02</h1>
                         </div>
                     </div>
                     <div class="kpi">
@@ -66,7 +69,7 @@
                             <h1>Percentual de servidores sem alertas</h1>
                         </div>
                         <div class="kpi-percentual">
-                            <h1>80%</h1>
+                            <h1>67%</h1>
                         </div>
                     </div>
                     <div class="kpi">
@@ -74,7 +77,7 @@
                             <h1>Percentual de servidores com alertas</h1>
                         </div>
                         <div class="kpi-componente">
-                            <h1>20%</h1>
+                            <h1>33%</h1>
                         </div>
                     </div>
                 </div>
@@ -102,7 +105,7 @@
                                     <div class="ip"><p>123.123.12.12</p></div>
                                     <div class="localizacao"><p>Andar 01</p></div>
                                     <div class="status"><p>Ativo</p></div>
-                                    <div class="situacao"><p id="bom">Bom</p></div>
+                                    <div class="situacao"><p id="normal">Normal</p></div>
                                     <div class="hardware"><button class="btn-visualizar">Visualizar</button></div>
                                 </div>
                                 <div class="servidor">
@@ -110,7 +113,7 @@
                                     <div class="ip"><p>456.456.12.12</p></div>
                                     <div class="localizacao"><p>Andar 01</p></div>
                                     <div class="status"><p>Ativo</p></div>
-                                    <div class="situacao"><p id="ruim">Ruim</p></div>
+                                    <div class="situacao"><p id="atencao">Atenção</p></div>
                                     <div class="hardware"><button class="btn-visualizar">Visualizar</button></div>
                                 </div>
                                 <div class="servidor">
@@ -126,7 +129,7 @@
                                     <div class="ip"><p>123.123.12.12</p></div>
                                     <div class="localizacao"><p>Andar 02</p></div>
                                     <div class="status"><p>Ativo</p></div>
-                                    <div class="situacao"><p id="bom">Bom</p></div>
+                                    <div class="situacao"><p id="normal">Normal</p></div>
                                     <div class="hardware"><button class="btn-visualizar">Visualizar</button></div>
                                 </div>
                                 <div class="servidor">
@@ -134,7 +137,7 @@
                                     <div class="ip"><p>456.456.12.12</p></div>
                                     <div class="localizacao"><p>Andar 03</p></div>
                                     <div class="status"><p>Ativo</p></div>
-                                    <div class="situacao"><p id="bom">Bom</p></div>
+                                    <div class="situacao"><p id="normal">Normal</p></div>
                                     <div class="hardware"><button class="btn-visualizar">Visualizar</button></div>
                                 </div>
                                 <div class="servidor">
@@ -142,7 +145,7 @@
                                     <div class="ip"><p>789.789.12.12</p></div>
                                     <div class="localizacao"><p>Andar 03</p></div>
                                     <div class="status"><p>Ativo</p></div>
-                                    <div class="situacao"><p id="bom"">Bom</p></div>
+                                    <div class="situacao"><p id="normal">Normal</p></div>
                                     <div class="hardware"><button class="btn-visualizar">Visualizar</button></div>
                                 </div>
                             </div>
@@ -151,6 +154,13 @@
 
                 </div>
 
+            </div>
+
+            <div class="modal">
+                <div class="content">
+                    <h2>Detalhes do Servidor</h2>
+                    <p>Informações sobre o servidor selecionado...</p>
+                </div>
             </div>
             
         </div>
