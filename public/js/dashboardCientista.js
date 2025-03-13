@@ -42,7 +42,7 @@ function carregarGraficos() {
                     ticks: {
                         color: '#ffffff',
                         font: {
-                            size: 16
+                            size: 12
                         }
                     }
                 },
@@ -50,7 +50,7 @@ function carregarGraficos() {
                     ticks: {
                         color: '#ffffff',
                         font: {
-                            size: 16
+                            size: 12
                         }
                     },
                     beginAtZero: true
@@ -79,7 +79,7 @@ function carregarGraficos() {
                     labels: {
                         color: '#ffffff',
                         font: {
-                            size: 18
+                            size: 15
                         }
                     }
                 },
