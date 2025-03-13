@@ -1,5 +1,5 @@
 
--- Active: 1724686043904@@127.0.0.1@3306@techpix-- Active: 1723075943621@@127.0.0.1@3306@techpix-- Active: 1724686043904@@127.0.0.1@3306@ajuda
+-- Active: 1724686043904@@127.0.0.1@3306@techpix-- Active: 1730206043218@@127.0.0.1@3307-- Active: 1724686043904@@127.0.0.1@3306@techpix-- Active: 1723075943621@@127.0.0.1@3306@techpix-- Active: 1724686043904@@127.0.0.1@3306@ajuda
 -- Script de BD do projeto do TechPix
 
 -- novo script c:
@@ -147,3 +147,7 @@ USE Techpix;
 SELECT tipo FROM Componentes WHERE idComponentes = 1;
 
 SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente WHERE fkComponente = 1 GROUP BY tipo LIMIT 10;
+
+SELECT s.idServidores, e.idEmpresa FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
+
+SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente WHERE c.tipo = "CPUPercentual" GROUP BY tipo LIMIT 10;

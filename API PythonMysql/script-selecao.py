@@ -2,6 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 cursor = ""
+id = 0
 
 def executar(componente, formato):
     global cursor
@@ -187,7 +188,7 @@ def login():
     if email == "contato_safra@outlook.com" and senha == "Teste123%":
 
         # Criação da estrutura do comando SQL para a coleta dos servidores.
-        sql = "SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
+        sql = "SELECT idServidores, fkEmpresa FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
 
         # Chamada da execução do comando MySQL com os parâmetros que sejam enviados no objeto que armazena a conexão com o servidor do BD.
         cursor.execute(sql, (email, senha))
@@ -195,6 +196,13 @@ def login():
         # Inserção dos ID's dos servidores encontrados na execução do comando SQL no objeto que armazena a conexão com o servidor do BD.
         for (idServidores) in cursor:
             listaServidores.append(idServidores)
+
+        sql = "SELECT fkEmpresa FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = %s AND e.senha = %s;"
+
+        cursor.execute(sql, (email, senha))
+
+        for (fkEmpresa) in cursor:
+            id = str(fkEmpresa[0])
         
         # Caso não haja nenhum valor dentro do vetor que armazens os servidores disponíveis, emite um alerta e finaliza o andamento da API.
         if not listaServidores:
