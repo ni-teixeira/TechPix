@@ -10,13 +10,14 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 8vh;
+    height: 10vh;
     justify-content: space-between;
     align-items: center;
+    /* background-color: #000000; */
     background-color: whitesmoke;
-    padding: 0 3vh;
+    padding: 0 4vh;
     color: white;
-    font-family: "Inter", sans-serif;
+    font-family: "Afacad", serif;
     font-weight: bold;
 }
 
@@ -29,22 +30,21 @@
     gap: 1vh;
 }
 
-.navlogo {
+.navlogo{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     width: 9dvw;
     height: 9dvh;
 }
 
-.navlogo img {
+.navlogo img{   
     height: 6rem;
     width: auto;
     cursor: pointer;
 }
 
-.btn_contato,
-.btn_home {
+.btn_contato, .btn_log {
     display: inline-block;
     color: white;
     text-align: center;
@@ -59,20 +59,20 @@
     transition: 0.2s;
 }
 
-.btn_contato {
+.btn_contato{
     background: #003F6A;
 }
 
-.btn_contato:hover {
-    background: rgb(0, 32, 53);
+.btn_contato:hover{
+    background: rgba(0,49,82, 0.4);
 }
 
-.btn_home {
+.btn_log{
     background: #106B86;
 }
 
-.btn_home:hover {
-    background: rgb(12, 83, 105);
+.btn_log:hover{
+    background: rgba(16, 106, 134, 0.4);
 }
 
 .container_login {
