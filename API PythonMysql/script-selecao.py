@@ -6,12 +6,12 @@ cursor = ""
 def executar(componente, formato):
     global cursor
 
+    values = (componente)
+
     if formato != '2': 
-        sql = "SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE fkComponente = %s GROUP BY tipo LIMIT 10;"
-        values = (componente)
+        sql = "SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE c.tipo == %s GROUP BY tipo LIMIT 10;"
     else:
-        sql = "SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE fkComponente = %s;"
-        values = (componente)
+        sql = "SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE c.tipo == %s;"
 
     cursor.execute(sql, values)
 
@@ -59,7 +59,7 @@ def metricas(componente):
         if metricas in metricaTexto:
 
             if metricas in ["Porcentagem", "Pacotes", "Bytes", "Frequência"]:
-                formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário.) (2- Média dos últimos 10 registros.)")
+                formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário.) (2- Média dos últimos 10 registros.)  ")
             else:
                 formato = " "
                 executar(componente, formato)
@@ -200,9 +200,6 @@ def login():
         if not listaServidores:
             print("Nenhuma máquina encontrada para este usuário.")
             return
-
-        # Envio no terminal dos ID's dos servidores
-        print(listaServidores)
 
         # Chamada da função de interação do usuário com a API passando a lista dos ID's encontrados a partir do login.
         interagir(listaServidores)
