@@ -3,23 +3,23 @@ from mysql.connector import errorcode
 
 cursor = ""
 
-def executar(metricas, componente, formato):
+def executar(componente, formato):
     global cursor
 
     if formato != '2': 
-        sql = "SELECT tipo, AVG(medida) FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s GROUP BY tipo LIMIT 10;"
-        values = (componente, f"%{metricas}%")
+        sql = "SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE fkComponente = %s GROUP BY tipo LIMIT 10;"
+        values = (componente)
     else:
-        sql = "SELECT tipo, medida FROM Monitoramento WHERE fkComponente = %s AND tipo LIKE %s;"
-        values = (componente, f"%{metricas}%")
+        sql = "SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE fkComponente = %s;"
+        values = (componente)
 
     cursor.execute(sql, values)
 
     resultados = cursor.fetchall()
 
     if resultados:
-        for (tipo, medida) in resultados:
-            print(f"{tipo} {medida}")
+        for (Tipo, Medida) in resultados:
+            print(f"{Tipo} {Medida}")
     else:
         print("Nenhum dado encontrado para esta consulta.")
 
@@ -62,16 +62,14 @@ def metricas(componente):
                 formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário.) (2- Média dos últimos 10 registros.)")
             else:
                 formato = " "
-                executar(metricas, componente, formato)
+                executar(componente, formato)
                 return
 
             if formato == '1' or formato == '2':
-                executar(metricas, componente, formato)
+                executar(componente, formato)
                 return
             
             print("Por favor insira apenas valores como '1' ou '2'.")
-        else:
-            print("Por favor insira apenas " + mensagemMetricas)
 
 # Função responsável por gerar a interação do usuário sobre os componentes que pode visualizar e como quer que sejam exibidas as métricas.
 def interagir(listaServidores):
@@ -169,7 +167,7 @@ def interagir(listaServidores):
                 # Caso o compontente escolhido esteja na lista de componentes, irá chamar a função métricas com o componente escolhido pelo usuário.
                 # Caso contrário, irá alertar sobre a escolha do componente e reencaminha a pergunta dos componentes.
                 if componente in listaComponentes:
-                    metricas(componente, listaComponentes)
+                    metricas(componente)
                     return
                 else:
                     print("Por favor, insira um dos componentes listados acima.")

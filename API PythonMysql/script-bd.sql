@@ -137,3 +137,13 @@ AND e.codigoEmpresa = 'UFG14SR32'
 AND f.senha = 'SenhaBoa123#';
 
 SELECT * FROM Monitoramento as m JOIN Componentes as c ON m.fkComponente = c.idComponente WHERE m.fkCompontente = 1;
+
+SELECT * FROM monitoramento;
+
+SELECT idServidores FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
+
+USE Techpix;
+
+SELECT tipo FROM Componentes WHERE idComponentes = 1;
+
+SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente WHERE fkComponente = 1 GROUP BY tipo LIMIT 10;
