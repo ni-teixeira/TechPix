@@ -13,7 +13,6 @@
     height: 10vh;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #000000; */
     background-color: whitesmoke;
     padding: 0 4vh;
     color: white;
@@ -54,7 +53,6 @@
     padding: 0.75rem 1.5rem;
     min-width: 130px; 
     max-width: 250px;
-    /* font-size: 1.2rem; */
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -191,19 +189,21 @@ input::placeholder {
 
 /* BOTÃO DE LOGIN */
 .form_login button {
+    display: inline-block;
     font-weight: bold;
-    border: 0;
-    width: 40%;
-    min-width: 150px;
-    font-size: 1.8rem;
     color: white;
-    height: 45px;
-    background: #003F6A;
+    background-color: #003F6A;
+    text-align: center;
+    border: none;
+    width: 8vw;
+    padding: 1vh;
     border-radius: 25px;
     cursor: pointer;
-    transition: 0.2s;
-    margin-top: 15px;
-    font-size: 1.0rem;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+    margin-top: 8px;
 }
 
 .form button:hover {

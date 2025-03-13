@@ -130,7 +130,7 @@ h1{
 input, textarea {
     width: 25vw;
     height: 6vh;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     margin: 2px;
     padding-left: 30px;
@@ -147,10 +147,11 @@ textarea {
 }
 
 /* icons */
+
 .inputs i {
     position: absolute;
     left: 10px;
-    color: #888;
+    color: #88888878;
 }
 
 /* todo icon dentro das inputs q nao sao da classe maior */
