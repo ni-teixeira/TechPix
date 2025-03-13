@@ -16,7 +16,7 @@
     <script src="../js/dashboard.js"></script>
 </head>
 
-<body>
+<body onload="carregarGraficos()">
 
     <header>
         <nav class="navbar">
@@ -158,8 +158,63 @@
 
             <div class="modal">
                 <div class="content">
-                    <h2>Detalhes do Servidor</h2>
-                    <p>Informações sobre o servidor selecionado...</p>
+                    <div class="componente">
+                        <h1 class="tituloComp">CPU:</h1>
+                        <div class="card-container">
+
+                            <div class="card">
+                                <h3 class="subtituloComp">Porcentagem da CPU:</h3>
+                                <canvas id="donut1" width="300" height="300"></canvas>
+                            </div>
+
+                            <div class="card">
+                                <h3 class="subtituloComp">Interrupções do sistema:</h3>
+                                <canvas id="donut2" width="300" height="300"></canvas>
+                            </div>
+
+                            <div class="card">
+                                <h3 class="subtituloComp">Interrupções de softwares:</h3>
+                                <canvas id="donut3" width="300" height="300"></canvas>
+                            </div>
+
+                            <div class="card">
+                                <h3 class="subtituloComp">Frequência da CPU:</h3>
+                                <canvas id="donut4" width="300" height="300"></canvas>
+                            </div>
+                            
+                        </div>
+
+                    <!-- <div class="componente">
+                        <h1 class="tituloComp"> RAM: </h1>
+                        <div class="card">total </div>
+                        <div class="card">total disponivel</div>
+                        <div class="card">memoria swap</div>
+                    </div>
+
+                    <div class="componente">
+                        <h1 class="tituloComp"> Disco: </h1>
+                        <div class="card">total de armazenamento</div>
+                        <div class="card">armazenamento usado</div>
+
+                    <!-- <div class="componente">
+                        <h1 class="tituloComp"> RAM: </h1>
+                        <div class="card">total </div>
+                        <div class="card">total disponivel</div>
+                        <div class="card">memoria swap</div>
+                    </div>
+
+                    <div class="componente">
+                        <h1 class="tituloComp"> Disco: </h1>
+                        <div class="card">total de armazenamento</div>
+                        <div class="card">armazenamento usado</div>
+                    </div>
+
+                    <div class="componente">
+                        <h1 class="tituloComp"> Rede: </h1>
+                        <div class="card">pacotes enviados</div>
+                        <div class="card">pacotes recebidos</div>
+                    </div> -->
+
                 </div>
             </div>
             

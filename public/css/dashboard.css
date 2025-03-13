@@ -313,10 +313,52 @@ hr {
 
 .modal .content {
     background-color: aliceblue;
-    margin: 10% auto;
+    margin: 10% ;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     width: 80%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    overflow-y: auto;
+    max-height: 80%; 
+}
+
+.componente{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloComp{
+    color: #003F6A;
+    font-size: 30px;
+    margin-bottom: 1rem; 
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #77AFD4;
+    border-radius: 25px;
+    padding: 1rem;
+    height: 40vh;
+    width: 30vw;
+    margin: 0.5rem;
+}
+
+.subtituloComp{
+    color: aliceblue;
+    font-size: 20px;
+    margin: 0.5rem;
 }
