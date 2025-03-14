@@ -49,7 +49,11 @@ function cadastrar() {
                 </div>
                 <div class="formulario">
                     <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
-                    <input class="input-modal" type="text" id="ipt_cargo">
+                    <select class="input-modal"id="ipt_cargo">
+                        <option value="" selected disabled>Tipo</option>
+                        <option value="analista" >Analista de Infraestrutura</option>
+                        <option value="cientista" >Cientista de Dados</option>
+                    </select>
                 </div>
             </div>
             <div class="direita-inferior-modal">
@@ -88,8 +92,6 @@ function enviarCadastro() {
     } else if(!senha.includes(vetorNumeros) || senha == senhaMaiusculo || senha == senhaMinusculo || senha.length == 8) {
         alert("Por favor insira uma senha válida");
     } else {
-
-        if()
 
     fetch("/empresas/cadastrarFuncionario", {
         method: "POST",
