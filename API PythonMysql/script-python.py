@@ -441,7 +441,7 @@ def login():
     email = input("\n\nInsira o seu email de acesso:  ")
     senha = input("Insira o sua senha de acesso:  ")
 
-    if email == "safra@outlook.com" and senha == "urubu100":
+    if email == "contato_safra@outlook.com" and senha == "Teste123%":
         interagir()
     else:
         print("\nPor favor insira email ou senha inválidos")
