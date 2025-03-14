@@ -150,4 +150,14 @@ SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.
 
 SELECT s.idServidores, e.idEmpresa FROM Servidores AS s JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa WHERE e.email = "contato_safra@outlook.com" AND e.senha = "Teste123%";
 
-SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente WHERE c.tipo = "CPUPercentual" GROUP BY tipo LIMIT 10;
+SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m
+JOIN Componentes AS c ON c.idComponentes = m.fkComponente
+JOIN Servidores AS s ON s.idServidores = c.fkServidor
+JOIN Empresa AS e ON e.idEmpresa = s.fkEmpresa
+WHERE c.tipo = "CPUPercentual" GROUP BY tipo LIMIT 10;
+
+SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON c.fkServidor = s.idServidores WHERE c.tipo = "CPUPercentual" AND s.fkEmpresa = 2 GROUP BY tipo LIMIT 10;
+
+SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON c.fkServidor = s.idServidores WHERE c.tipo = 'CPUPercentual' AND fkEmpresa = 2;
+
+SELECT * FROM Monitoramento;

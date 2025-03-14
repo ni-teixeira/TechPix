@@ -2,25 +2,24 @@ import mysql.connector
 from mysql.connector import errorcode
 
 cursor = ""
-id = 0
+id = 2
 
 def executar(componente, formato):
     global cursor
 
-    values = (componente)
-
-    if formato != '2': 
-        sql = "SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE c.tipo == %s GROUP BY tipo LIMIT 10;"
+    if formato == '2': 
+        sql = "SELECT c.tipo, AVG(m.medida) FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON c.fkServidor = s.idServidores WHERE c.tipo = %s AND s.fkEmpresa = %s GROUP BY tipo LIMIT 10;"
     else:
-        sql = "SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes ON c.idComponentes = m.fkComponente WHERE c.tipo == %s;"
+        sql = "SELECT c.tipo AS 'Tipo', m.medida AS 'Medida' FROM Monitoramento AS m JOIN Componentes AS c ON c.idComponentes = m.fkComponente JOIN Servidores AS s ON c.fkServidor = s.idServidores WHERE c.tipo = %s AND fkEmpresa = %s;"
 
+    values = (componente, id)
     cursor.execute(sql, values)
 
     resultados = cursor.fetchall()
 
     if resultados:
         for (Tipo, Medida) in resultados:
-            print(f"{Tipo} {Medida}")
+            print(f"{Tipo}: {Medida}")
     else:
         print("Nenhum dado encontrado para esta consulta.")
 
