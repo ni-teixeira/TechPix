@@ -320,8 +320,9 @@ hr {
     width: 80%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    overflow-y: auto;
-    min-height: 85%; 
+    overflow-y: scroll;   
+    min-height: 70%;
+    max-height: 90%;
 }
 
 .componente{
@@ -356,7 +357,7 @@ hr {
     background-color: #77AFD4;
     border-radius: 25px;
     padding: 1rem;
-    height: 40vh;
+    height: 30vh;
     width: 30vw;
     margin: 0.5rem;
 }
