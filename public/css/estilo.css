@@ -545,6 +545,10 @@ body::-webkit-scrollbar {
     .imagem_impacto, .imagem_solucao {
         display: none;
     }
+
+    .footer{
+        background-color: #FFFFFF;
+    }
 }
 
 
@@ -667,7 +671,7 @@ body::-webkit-scrollbar {
         display: flex;
         flex-direction: column;
         width: 100vw; 
-        height: 140vh;
+        height: 100vh;
         align-items: center;
         justify-content: center;
         background-image: url(../assets/imagens_inicial/direita.png); 
@@ -775,15 +779,34 @@ body::-webkit-scrollbar {
         flex-direction: column;
         justify-content: center;
         height: 10vh;
-        background-color: #FFFAFF;
-        background: linear-gradient(rgba(28, 31, 35, 0.7), rgba(28, 31, 35, 0.7));
-        background-color: black;
+        background-color: #FFFFFF;
     }
 
     .footer span{
         font-family: 'Lora';
         text-align: center;
         font-size: 20px;
-        color: white;
+        color: black;
+    }
+}
+
+@media (max-height: 670px){
+    .principal_impacto, .principal_impacto_2 {
+        display: flex;
+        flex-direction: column;
+        width: 100vw; 
+        height: 140vh;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../assets/imagens_inicial/direita.png); 
+        background-size: cover; 
+        background-position: center;
+    }
+
+    .footer{
+        background-color: #FFFFFF;
+    }
+    .footer span{
+        color: black;
     }
 }
