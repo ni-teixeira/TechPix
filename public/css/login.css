@@ -406,6 +406,11 @@ input::placeholder {
         display: none;
     }
 
+    /* O botão para entrar */
+    .form button {
+        width: 35vw;
+    }
+
     .btn_contato, .btn_log {
         width: 20vw;
         font-size: 1rem;
@@ -437,9 +442,18 @@ input::placeholder {
         height: 8vh;
     }
 
-    .btn_contato,
+    /* O botão estava quebrando na nav e para entrar */
+    .form button {
+        width: 35vw;
+    }
+
     .btn_log {
-        width: 20vw;
+        width: 25vw;
+        font-size: 1rem;
+    }
+
+    .btn_contato{
+        width: 35vw;
         font-size: 1rem;
     }
 }
