@@ -1,4 +1,4 @@
-const id = sessionStorage.ID_FUNCIONARIO;
+const id = sessionStorage.ID_EMPRESA;
 razao.innerHTML = sessionStorage.NOME_USUARIO;
 const modal = document.getElementById("modal");
 
@@ -44,12 +44,12 @@ function cadastrar() {
                     <input class="input-modal" type="text" id="ipt_email">
                 </div>
                 <div class="formulario">
-                    <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
-                    <input class="input-modal" type="text" id="ipt_cargo">
+                    <span class="descricao-modal">Senha:<span class="obrigatorio">*</span></span>
+                    <input class="input-modal" type="text" id="ipt_senha">
                 </div>
                 <div class="formulario">
-                    <span class="descricao-modal">Equipe:<span class="obrigatorio">*</span></span>
-                    <input class="input-modal" type="text" id="ipt_equipe">
+                    <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
+                    <input class="input-modal" type="text" id="ipt_cargo">
                 </div>
             </div>
             <div class="direita-inferior-modal">
@@ -72,11 +72,24 @@ function cadastrar() {
 function enviarCadastro() {
     const nome = ipt_nome.value;
     const email = ipt_email.value;
+    const senha = ipt_senha.value
     const cargo = ipt_cargo.value;
-    const equipe = ipt_equipe.value;
     const idEmpresa = id
 
+    const vetorNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const senhaMaiusculo = senha.toUpperCase();
+    const senhaMinusculo = senha.toLowerCase();    
+
     // validacao
+    if(!nome.includes(" ")) {
+        alert("É necessário que coloque o nome completo do funcionário");
+    } else if(!email.includes("@") || !email.includes(".com")) {
+        alert("Por favor insira um email válido");
+    } else if(!senha.includes(vetorNumeros) || senha == senhaMaiusculo || senha == senhaMinusculo || senha.length == 8) {
+        alert("Por favor insira uma senha válida");
+    } else {
+
+        if()
 
     fetch("/empresas/cadastrarFuncionario", {
         method: "POST",
@@ -94,6 +107,7 @@ function enviarCadastro() {
         console.log(resultado);
         mostrarCards();
     })
+    }
 }
 
 function ativarFiltro(atividade) {
