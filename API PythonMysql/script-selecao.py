@@ -42,34 +42,20 @@ def metricas(componente):
     elif componente == ("CPUInterruptSoft" or "CPUInterrupt" or 'ProcessosTotal' or 'ProcessosAtivo' or 'ProcessosDesativados'):
         metricaTexto.append("Processos")
 
-    metricaAtual = 0
-    mensagemMetricas = ""
-
-    for tipo in metricaTexto:
-        if metricaTexto[metricaAtual] == metricaTexto[len(metricaTexto) - 1]:
-            mensagemMetricas += tipo
-        else:
-            mensagemMetricas += tipo + ", "
-        metricaAtual += 1
-
     while True:
-
-        metricas = input("Quais métricas deseja analisar? Métricas disponíveis: " + mensagemMetricas + ")  ")
-
-        if metricas in metricaTexto:
-
-            if metricas in ["Porcentagem", "Pacotes", "Bytes", "Frequência"]:
-                formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário.) (2- Média dos últimos 10 registros.)  ")
-            else:
-                formato = " "
-                executar(componente, formato)
-                return
-
-            if formato == '1' or formato == '2':
-                executar(componente, formato)
-                return
             
-            print("Por favor insira apenas valores como '1' ou '2'.")
+        if metricaTexto[0] == ("Porcentagem" or "Pacotes" or "Bytes" or "Frequência"):
+            formato = input("Qual formato gostaria que aparecessem os resultados? (1 - Unitário.) (2- Média dos últimos 10 registros.)  ")
+        else:
+            formato = " "
+            executar(componente, formato)
+            return
+
+        if formato == '1' or formato == '2':
+            executar(componente, formato)
+            return
+            
+        print("Por favor insira apenas valores como '1' ou '2'.")
 
 # Função responsável por gerar a interação do usuário sobre os componentes que pode visualizar e como quer que sejam exibidas as métricas.
 def interagir(listaServidores):
