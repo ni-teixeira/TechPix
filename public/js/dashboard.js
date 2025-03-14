@@ -31,7 +31,9 @@ function carregarGraficos() {
         { id: 'donut1', data: [80], label: 'Porcentagem da CPU' },
         { id: 'donut2', data: [60], label: 'Interrupções do sistema' },
         { id: 'donut3', data: [40], label: 'Interrupções de softwares' },
-        { id: 'donut4', data: [20], label: 'Frequência da CPU' }
+        { id: 'donut4', data: [20], label: 'Frequência da CPU' },
+        { id: 'donut5', data: [20], label: 'Memória usada e disponivel: da RAM' },
+        { id: 'donut6', data: [20], label:'Porcentagem da RAM' }
     ];
 
     graficos.forEach(grafico => {
