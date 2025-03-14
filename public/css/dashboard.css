@@ -303,6 +303,7 @@ hr {
 .modal {
     display: flex;
     position: fixed;
+    flex-direction: column;
     z-index: 2;
     left: 0;
     top: 0;
@@ -316,6 +317,7 @@ hr {
     display: flex;
     background-color: aliceblue;
     justify-self: center;
+    flex-direction: column;
     border-radius: 20px;
     width: 80%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -327,6 +329,7 @@ hr {
 
 .componente{
     display: flex;
+    border: 1px solid red;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
