@@ -27,19 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function carregarGraficos() {
-    const graficos = [
-        { id: 'donut1', data: [80], label: 'Porcentagem da CPU' },
-        { id: 'donut2', data: [60], label: 'Interrupções do sistema' },
-        { id: 'donut3', data: [40], label: 'Interrupções de softwares' },
-        { id: 'donut4', data: [20], label: 'Frequência da CPU' },
-        { id: 'donut5', data: [20], label: 'Memória usada e disponivel: da RAM' },
-        { id: 'donut6', data: [20], label:'Porcentagem da RAM' }
+    const graficosPizza = [
+        { id: 'pizza1', data: [80, 100], label: 'Porcentagem da CPU' },
+        { id: 'pizza2', data: [60, 90], label: 'Armazenamento' },
+        { id: 'pizza3', data: [40, 20], label: 'Memoria Swap' },
+        { id: 'pizza4', data: [20, 90], label: 'RAM' }
     ];
 
-    graficos.forEach(grafico => {
+    const graficosLinhas = [
+        { id: 'linha1', data: [80, 100], label: 'Frequencia da CPU' },
+        { id: 'linha2', data: [60, 90], label: 'Interrupções' },
+        { id: 'linha3', data: [40, 20], label: 'Interrupções' },
+        { id: 'linha4', data: [20, 90], label: 'Pacotes enviados' },
+        { id: 'linha5', data: [20, 90], label: 'Pacotes recebidos' }
+    ];
+
+    graficosPizza.forEach(grafico => {
         const ctx = document.getElementById(grafico.id);
         new Chart(ctx, {
-            type: 'doughnut',
+            type: 'pie',
             data: {
                 datasets: [{
                     label: grafico.label,
@@ -64,4 +70,35 @@ function carregarGraficos() {
             }
         });
     });
+
+
+    graficosLinhas.forEach(grafico => {
+        const ctx = document.getElementById(grafico.id);
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: grafico.label,
+                    data: grafico.data,
+                    backgroundColor: ['#4868A5', '#899EC9'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#ffffff',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+
 }
