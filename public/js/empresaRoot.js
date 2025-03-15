@@ -80,16 +80,15 @@ function enviarCadastro() {
     const cargo = ipt_cargo.value;
     const idEmpresa = id
 
-    const vetorNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     const senhaMaiusculo = senha.toUpperCase();
-    const senhaMinusculo = senha.toLowerCase();    
+    const senhaMinusculo = senha.toLowerCase();
 
     // validacao
     if(!nome.includes(" ")) {
         alert("É necessário que coloque o nome completo do funcionário");
     } else if(!email.includes("@") || !email.includes(".com")) {
         alert("Por favor insira um email válido");
-    } else if(!senha.includes(vetorNumeros) || senha == senhaMaiusculo || senha == senhaMinusculo || senha.length == 8) {
+    } else if(!senha.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) || senha == senhaMaiusculo || senha == senhaMinusculo || senha.length <= 8) {
         alert("Por favor insira uma senha válida");
     } else {
 
@@ -102,11 +101,12 @@ function enviarCadastro() {
             nomeServer: nome,
             emailServer: email,
             cargoServer: cargo,
-            equipeServer: equipe,
+            senhaServer: senha,
             fkEmpresaServer: idEmpresa
         })
     }).then(function (resultado) {
         console.log(resultado);
+        closeModal();
         mostrarCards();
     })
     }
@@ -123,7 +123,6 @@ function ativarFiltro(atividade) {
                 <option value="nome" >Nome</option>
                 <option value="email">Email</option>
                 <option value="cargo">Cargo</option>
-                <option value="equipe">Equipe</option>
             </select>
             <select class="select-filtro" id="slt_categoria" oninput="mostrarCards(1, 1)">
                 <option value="#" selected disabled>Tipo</option>
@@ -246,7 +245,7 @@ function mostrarCards(search, filtro) {
                                 <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                             </div>
                             <div class="circulo_icone">
-                                <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.cargo}', '${pessoaAtual.equipe}', ${pessoaAtual.id})" src="../assets/icon/edit.svg" alt="">
+                                <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.senha}', '${pessoaAtual.cargo}', ${pessoaAtual.idFuncionario})" src="../assets/icon/edit.svg" alt="">
                             </div>
                         </div>
                         <div class="cardMenor">
@@ -256,15 +255,9 @@ function mostrarCards(search, filtro) {
                             <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                             <span class="textoCard">Cargo:</span>
                             <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
-                            <span class="textoCard">Equipe:</span>
-                            <span class="textoCard" id="spn_equipe">${pessoaAtual.equipe}</span>
                         </div>
                     </div>
                 `;
-
-                // if((i + 1) % cards == 0 && i != 0) {
-                //     div_inferior.innerHTML += "<br>"
-                // }
 
                 }
             })
@@ -295,7 +288,7 @@ function mostrarCards(search, filtro) {
                                     <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                                 </div>
                                 <div class="circulo_icone">
-                                    <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.cargo}', '${pessoaAtual.equipe}', ${pessoaAtual.id})" src="../assets/icon/edit.svg" alt="">
+                                    <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.senha}', '${pessoaAtual.cargo}', ${pessoaAtual.idFuncionario})" src="../assets/icon/edit.svg" alt="">
                                 </div>
                             </div>
                             <div class="cardMenor">
@@ -305,8 +298,6 @@ function mostrarCards(search, filtro) {
                                 <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                                 <span class="textoCard">Cargo:</span>
                                 <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
-                                <span class="textoCard">Equipe:</span>
-                                <span class="textoCard" id="spn_equipe">${pessoaAtual.equipe}</span>
                             </div>
                         </div>
                     `;
@@ -338,18 +329,16 @@ function mostrarCards(search, filtro) {
                                 <span class="titulo-card" id="spn_nome">${pessoaAtual.nome}</span>
                             </div>
                             <div class="circulo_icone">
-                                <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.cargo}', '${pessoaAtual.equipe}', ${pessoaAtual.id})" src="../assets/icon/edit.svg" alt="">
+                                <img class="icone-edit" onclick="editar('${pessoaAtual.nome}', '${pessoaAtual.email}', '${pessoaAtual.senha}', '${pessoaAtual.cargo}', ${pessoaAtual.idFuncionario})" src="../assets/icon/edit.svg" alt="">
                             </div>
                         </div>
                         <div class="cardMenor">
                             <span class="textoCard">Email:</span>
                             <span class="textoCard" id="spn_email">${pessoaAtual.email}</span>
-                                <span class="textoCard">Senha:</span>
-                                <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
+                            <span class="textoCard">Senha:</span>
+                            <span class="textoCard" id="spn_senha">${pessoaAtual.senha}</span>
                             <span class="textoCard">Cargo:</span>
                             <span class="textoCard" id="spn_cargo">${pessoaAtual.cargo}</span>
-                            <span class="textoCard">Equipe:</span>
-                            <span class="textoCard" id="spn_equipe">${pessoaAtual.equipe}</span>
                         </div>
                     </div>
                 `;
@@ -359,9 +348,10 @@ function mostrarCards(search, filtro) {
     }
 }
 
-function editar(nome, email, cargo, equipe, id) {
+function editar(nome, email, senha, cargo, id) {
     modal.style.display = 'flex';
     modal.showModal();
+    console.log(id);
 
     if(window.innerWidth <= 1000) {
         modal.style.width = 70 + "%";
@@ -397,12 +387,15 @@ function editar(nome, email, cargo, equipe, id) {
                     <input class="input-modal" type="text" id="ipt_email" value="${email}">
                 </div>
                 <div class="formulario">
-                    <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
-                    <input class="input-modal" type="text" id="ipt_cargo" value="${cargo}">
+                    <span class="descricao-modal">Senha:<span class="obrigatorio">*</span></span>
+                    <input class="input-modal" type="text" id="ipt_senha" value="${senha}">
                 </div>
                 <div class="formulario">
-                    <span class="descricao-modal">Equipe:<span class="obrigatorio">*</span></span>
-                    <input class="input-modal" type="text" id="ipt_equipe" value="${equipe}">
+                    <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
+                    <select class="input-modal" id="ipt_cargo">
+                        <option value="Analista de Infraestrutura">Analista de Infraestrutura</option>
+                        <option value="Cientista de Dados">Cientista de Dados</option>
+                    </select>
                 </div>
             </div>
             <div class="direita-inferior-modal">
@@ -420,7 +413,7 @@ function editar(nome, email, cargo, equipe, id) {
             </div>
         </div>
     `;
-
+    ipt_cargo.value = cargo;
 }
 
 function enviarEdicao(id) {
@@ -434,7 +427,6 @@ function enviarEdicao(id) {
     const emailValue = email.value;
     const cargoValue = cargo.value;
     const equipeValue = equipe.value;
-    console.log(idFuncionario);
 
     fetch("/empresas/atualizarFuncionario", {
         method: "PUT",
@@ -530,5 +522,3 @@ function closeModal() {
     modal.style.display = 'none';
     modal.close();
 }
-
-window.addEventListener("resize", mostrarCards, false);

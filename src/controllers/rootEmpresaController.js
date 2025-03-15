@@ -67,10 +67,10 @@ function cadastrarFuncionario(req, res) {
   const nome = req.body.nomeServer;
   const email = req.body.emailServer;
   const cargo = req.body.cargoServer;
-  const equipe = req.body.equipeServer;
+  const senha = req.body.senhaServer;
   const fkEmpresa = req.body.fkEmpresaServer;
 
-  empresaModel.cadastrarFuncionario(nome, email, cargo, equipe, fkEmpresa)
+  empresaModel.cadastrarFuncionario(nome, email, cargo, senha, fkEmpresa)
   .then(function (resposta) {
     res.json({
       lista: resposta

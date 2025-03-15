@@ -4,9 +4,9 @@ function search(id, mensagem) {
   let instrucaoSql = "";
 
   if(mensagem == 1) {
-    instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id}`;
+    instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id} AND cargo <> "Gestor"`;
   } else {
-    instrucaoSql = `SELECT * FROM Funcionario WHERE nome LIKE '%${mensagem}%' AND fkEmpresa = ${id}`;
+    instrucaoSql = `SELECT * FROM Funcionario WHERE nome LIKE '%${mensagem}%' AND fkEmpresa = ${id} AND cargo <> "Gestor";`;
   }
 
   return database.executar(instrucaoSql);
@@ -21,18 +21,18 @@ function filtrar(id, selecionado) {
 function procurarFiltro(id, tipo, filtro) {
   let instrucaoSql;
     if(filtro == "ASC" || filtro == "DESC") {
-      instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id} ORDER BY ${tipo} ${filtro}`;
+      instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id} ORDER BY ${tipo} ${filtro} AND cargo <> "Gestor"`;
     } else if(filtro.includes("@")) {
-      instrucaoSql = `SELECT * FROM Funcionario WHERE ${tipo} LIKE "%${filtro}" AND fkEmpresa = ${id}`;
+      instrucaoSql = `SELECT * FROM Funcionario WHERE ${tipo} LIKE "%${filtro}" AND fkEmpresa = ${id} AND cargo <> "Gestor"`;
     } else {
-      instrucaoSql = `SELECT * FROM Funcionario WHERE ${tipo} = "${filtro}" AND fkEmpresa = ${id}`;
+      instrucaoSql = `SELECT * FROM Funcionario WHERE ${tipo} = "${filtro}" AND fkEmpresa = ${id} AND cargo <> "Gestor"`;
     }
 
     return database.executar(instrucaoSql);
 }
 
 function procurarCards(id) {
-  let instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id}`;
+  let instrucaoSql = `SELECT * FROM Funcionario WHERE fkEmpresa = ${id} AND cargo <> "Gestor"`;
 
   return database.executar(instrucaoSql);
 }
@@ -43,8 +43,8 @@ function atualizarFuncionario(id, nome, email, cargo, equipe) {
   return database.executar(instrucaoSql);
 }
 
-function cadastrarFuncionario(nome, email, cargo, equipe, fkEmpresa) {
-  let instrucaoSql = `INSERT INTO Funcionario (nome, email, senha, cargo, equipe, fkEmpresa) VALUES ("${nome}", "${email}", "Urubu#100","${cargo}", "${equipe}", ${fkEmpresa});`;
+function cadastrarFuncionario(nome, email, cargo, senha, fkEmpresa) {
+  let instrucaoSql = `INSERT INTO Funcionario (nome, email, senha, cargo, fkEmpresa) VALUES ("${nome}", "${email}", "${senha}", "${cargo}", ${fkEmpresa});`;
 
   return database.executar(instrucaoSql);
 }
