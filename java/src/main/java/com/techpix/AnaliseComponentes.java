@@ -32,7 +32,7 @@ public class AnaliseComponentes {
             Integer escolha;
             
             do { 
-                System.out.println("\n1 - Nome\n2 - Componente\n3 - Sair\n");
+                System.out.println("\n1 - Nome do Componente\n2 - Medida\n3 - Sair\n");
                 escolha = scan.nextInt();
             } while (escolha < 1 || escolha > 3);
 
