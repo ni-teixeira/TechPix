@@ -1,6 +1,7 @@
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class AnaliseComponentes {
 
@@ -20,8 +21,49 @@ public class AnaliseComponentes {
         lista.add(componente5);
         lista.add(componente6);
 
-        Componente.ordernarNome(lista);
-        Componente.ordernarMedida(lista);
-        /*Componente.ordernarValor(lista);*/
+        interagirComUsuario(lista);
     }
+
+    public static void interagirComUsuario(List<Componente> lista) {
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.println("------------------------------------------------------------");
+            System.out.println("Seja bem-vindo ao nosso sistema!\nVocê gostaria de ordernar a lista por:");
+            Integer escolha;
+            
+            do { 
+                System.out.println("\n1 - Nome\n2 - Componente\n3 - Sair\n");
+                escolha = scan.nextInt();
+            } while (escolha < 1 || escolha > 3);
+
+            switch (escolha) {
+                case 1:
+                    Componente.ordernarNome(lista);
+                    mostrarLista(lista);
+                    break;
+                case 2:
+                    Componente.ordernarMedida(lista);
+                    mostrarLista(lista);
+                    break;
+                default:
+                    System.out.println("Até mais!");
+                    break;
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("Entrada inválida! Informe apenas 1, 2 ou 3!");
+        }
+
+    }
+
+    public static void mostrarLista(List<Componente> lista){
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("%-20s %-20s %-10s\n", "Componente", "Medida", "Valor");
+        System.out.println("--------------------------------------------------------");
+        for (Componente componente : lista) {
+            System.out.printf("%-20s %-20s  %.2f\n", componente.getNome(), componente.getMedida(), componente.getValor());
+        }
+        System.out.println("--------------------------------------------------------");
+    }
+
 }

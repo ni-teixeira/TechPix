@@ -46,15 +46,14 @@ public class Componente {
                 nomeComparado = (vetor.get(j)).getNome();
                 if((vetor.get(indice).getNome()).compareTo(nomeComparado) >= 0) {
                     indice = j;
-                    System.out.println("teste");
                 }
-                System.out.println(nomeAtual + "  " + nomeComparado + " " + indice);
+             
             }
             aux.setNome((vetor.get(i)).getNome());
             vetor.get(i).setNome(vetor.get(indice).getNome());
             vetor.get(indice).setNome(aux.getNome());
         }
-        System.out.println(vetor);
+       
     }
 
     public static void ordernarMedida(List<Componente> vetor){
@@ -73,7 +72,7 @@ public class Componente {
             vetor.get(i).setMedida(vetor.get(indice).getMedida());
             vetor.get(indice).setMedida(aux.getMedida());
         }
-        System.out.println(vetor);
+       
     }
 
     /*
