@@ -1,3 +1,4 @@
+package com.techpix;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class AnaliseComponentes {
 
     public static void mostrarLista(List<Componente> lista){
         System.out.println("--------------------------------------------------------");
-        System.out.printf("%-20s %-20s %-10s\n", "Componente", "Medida", "Valor");
+        System.out.printf("%-20s %-21s %-10s\n", "Componente", "Medida", "Valor");
         System.out.println("--------------------------------------------------------");
         for (Componente componente : lista) {
             System.out.printf("%-20s %-20s  %.2f\n", componente.getNome(), componente.getMedida(), componente.getValor());

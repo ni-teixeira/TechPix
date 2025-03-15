@@ -1,3 +1,4 @@
+package com.techpix;
 import java.util.List;
 
 public class Componente {
