@@ -342,10 +342,15 @@ input::placeholder {
     .form_login {
         width: 85vw;
         height: 75vh;
+        border: 2px solid red;
     }
 
     .img_login {
         height: 100%;
+    }
+
+    .form button {
+        width: 15vw;
     }
 
 }
@@ -447,13 +452,9 @@ input::placeholder {
         width: 35vw;
     }
 
-    .btn_log {
-        width: 25vw;
-        font-size: 1rem;
+    .btn_contato, .btn_log {
+        width: 34vw;
+        font-size: 0.8rem;
     }
 
-    .btn_contato{
-        width: 35vw;
-        font-size: 1rem;
-    }
 }
