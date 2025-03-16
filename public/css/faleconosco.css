@@ -314,7 +314,6 @@ textarea {
     }
 }
 
-
 @media (min-width: 766px) and (max-width: 1025px) {
 
     .btn_contato, .btn_log {
@@ -341,17 +340,14 @@ textarea {
     }
 
     input, textarea {
-        width: 100%;
+        width: 70vw;
         height: 6vh;
-        max-width: 400px;
         margin-left: 12px;
         padding-left: 40px;
-        border: 2px solid #0044cc;
-        border-radius: 8px;
     }
 
     h1 {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 
     input::placeholder {
