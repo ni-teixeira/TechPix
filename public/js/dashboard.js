@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    
     const modal = document.querySelector('.modal');
     const botoesVisualizar = document.querySelectorAll('.btn-visualizar');
 
@@ -35,11 +36,11 @@ function carregarGraficos() {
     ];
 
     const graficosLinhas = [
-        { id: 'linha1', data: [80, 100], label: 'Frequencia da CPU' },
-        { id: 'linha2', data: [60, 90], label: 'Interrupções' },
-        { id: 'linha3', data: [40, 20], label: 'Interrupções' },
-        { id: 'linha4', data: [20, 90], label: 'Pacotes enviados' },
-        { id: 'linha5', data: [20, 90], label: 'Pacotes recebidos' }
+        { id: 'linha1', data: [80, 100, 20, 50, 10, 60, 120], label: 'Frequencia da CPU', labels: ['14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00']},
+        { id: 'linha2', data: [0, 1, 0, 2, 0, 0, 0], label: 'Interrupções', labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']},
+        { id: 'linha3', data: [50, 55, 65, 54, 52, 58, 49], label: 'Interrupções', labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']},
+        { id: 'linha4', data: [100, 100, 110, 110, 120, 120, 130], label: 'Pacotes enviados', labels: ['14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00']},
+        { id: 'linha5', data: [85, 94, 84, 97, 78, 40, 140], label: 'Pacotes recebidos', labels: ['14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00']}
     ];
 
     graficosPizza.forEach(grafico => {
@@ -67,7 +68,7 @@ function carregarGraficos() {
                         }
                     }
                 }
-            }
+            }            
         });
     });
 
@@ -77,11 +78,13 @@ function carregarGraficos() {
         new Chart(ctx, {
             type: 'line',
             data: {
+                labels: grafico.labels,
                 datasets: [{
                     label: grafico.label,
                     data: grafico.data,
-                    backgroundColor: ['#4868A5', '#899EC9'],
-                    borderWidth: 1
+                    backgroundColor: ['#4868A5'],
+                    borderColor: '#4868A5',
+                    borderWidth: 2
                 }]
             },
             options: {

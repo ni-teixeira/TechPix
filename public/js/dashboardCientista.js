@@ -5,10 +5,10 @@ function carregarGraficos() {
     new Chart(graficoBarra, {
         type: 'bar',
         data: {
-            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+            labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
             datasets: [{
                 label: 'Quantidade de Alertas',
-                data: [12, 20, 15, 8, 7, 11, 13],
+                data: [12, 18, 15, 8, 7, 11, 13],
                 backgroundColor: ['#003F6A'],
                 borderRadius: 5,
                 borderWidth: 1,
@@ -53,7 +53,9 @@ function carregarGraficos() {
                             size: 12
                         }
                     },
-                    beginAtZero: true
+                    beginAtZero: true,
+                    min: 0,
+                    max: 20
                 }
             }
         },
