@@ -233,14 +233,17 @@
 }
 
 .select-servidor{
-    align-self: flex-start;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem 0 1rem;
+    align-items: flex-start;
 }
 
 .select-servidor select{
-    display: inline-block;
     color: white;
     text-align: center;
-    width: 100%;
+    width: 100px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -257,7 +260,38 @@
 }
 
 .grafico-barra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #77AFD4;
+    height: 100%;
+    padding: 1rem;
     width: 100%;
-    border-radius: 20px;
-    color: #ffffff;
+    border-radius: 15px;
+}
+
+.botoes-grafico{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+    gap: 6px;
+}
+
+.botao-grafico{
+    color: white;
+    text-align: center;
+    border: none;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 100;
+    transition: 0.2s;
+    background: #003F6A;
 }

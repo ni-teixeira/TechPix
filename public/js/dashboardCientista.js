@@ -65,7 +65,7 @@ function carregarGraficos() {
     new Chart(graficoPizza, {
         type: 'pie',
         data: {
-            labels: ['Alertas Críticos', 'Alertas Não Críticos'],
+            labels: ['Alertas de Atenção', 'Alertas Críticos'],
             datasets: [{
                 label: 'Percentual de Alertas',
                 data: [19, 12],
