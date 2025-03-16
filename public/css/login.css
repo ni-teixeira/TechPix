@@ -152,7 +152,6 @@ input {
     border-radius: 25px;
     border: none;
     width: 100%;
-    min-width: 250px;
     height: 6vh;
 }
 
@@ -342,7 +341,6 @@ input::placeholder {
     .form_login {
         width: 85vw;
         height: 75vh;
-        border: 2px solid red;
     }
 
     .img_login {
@@ -451,6 +449,8 @@ input::placeholder {
     .form button {
         width: 35vw;
     }
+
+  
 
     .btn_contato, .btn_log {
         width: 34vw;
