@@ -97,7 +97,8 @@
 }
 
 .nav-logo-user img{
-    height: 70%;
+    height: 100%;
+    width: 100%;
 }
 
 .nav-botoes{
@@ -138,7 +139,7 @@
 
 .nav-texto h1{
     color: white;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .container-dash{

@@ -4,48 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entregas</title>
+    <title>Conta - Funcionários</title>
     <link rel="stylesheet" href="../css/empresaRoot.css">
+    <link rel="stylesheet" href="../css/dashCientista.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <main class="screen-dash-user">
+<body onload="mostrarCards()">
+    <!-- <main class="screen-dash-user">
         <nav class="side-bar-user">
             <div class="nav-logo-user">
-                <img src="../assets/imgs/safra.png" alt="" class="imagem-perfil">
+                <img src="../assets/imgs/user.png" alt="" class="imagem-perfil">
             </div>
-            <div>
-                <span class="legenda_ola">Olá, Banco Safra</span>
+            <div class="div_ola">
+                <span class="legenda_ola">Olá, <span id="razao">Banco Safra</span></span>
             </div>
             <div class="nav-list">
                 <div class="nav-list-options">
-                    <a href="#" class="opcao selecionado">
-                        <img src="../assets/icon/pendente.svg" alt="">
+                    <a href="./contaEmpresaRootServidores.html" class="opcao">
+                        <img src="../assets/icon/server.svg" alt="">
                         <span class="nav-item">Servidores</span>
                     </a>
-                    <a href="./contaEmpresaRootFuncionarios.html" class="opcao">
-                        <img src="../assets/icon/materiais.svg" alt="">
+                    <a href="" class="opcao selecionado">
+                        <img src="../assets/icon/grupo.svg" alt="">
                         <span class="nav-item">Funcionários</span>
                     </a>
                     <a href="./simulador.html" class="opcao">
-                        <img src="../assets/icon/simulador.svg" alt="">
+                        <img src="../assets/icon/suporte.svg" alt="">
                         <span class="nav-item">Suporte</span>
                     </a>
                     </a>
                 </div>
                 <div class="logout">
-                    <a href="../index.html" class="selecionado" onclick="sair()">
-                        <img src="../assets/icon/logout.svg" alt="">
+                    <a href="../index.html" class="opcao" onclick="sair()">
+                        <img src="../assets/icon/sair.svg" alt="">
                         <span class="nav-item">Sair</span>
                     </a>
                 </div>
             </div>
-        </nav>
-        <main class="main-content-user">
-            <dialog id="modal" style="display: none; border: none"></dialog>
-        </main>
-    </main>
+        </nav> -->
+        <header>
+            <nav class="navbar">
+              <div class="navlogo">
+                <a href="../index.html"><img src="../assets/icon/logo.png" alt="" /></a>
+              </div>
+              <ul class="botoes_nav">
+                <li><a href="../index.html" class="btn_log">Home</a></li>
+              </ul>
+            </nav>
+          </header>
+    
+        <div class="container">
+            <!-- Sessão Lateral -->
+            <nav class="nav-lateral">
+                <div class="nav-logo-user"></div>
+                <div class="nav-texto">
+                    <h1>Olá, <span id="razao">Nome Usuário</span></h1>
+                </div>
+                <div class="nav-botoes">
+                    <a href="./contaEmpresaRootServidores.html" id="atual" class="btn_nav_ativado">Servidores</a>
+                </div>
+                <div class="nav-botoes">
+                    <a href="./contaEmpresaRootFuncionarios.html" id="atual" class="btn_nav">Funcionários</a>
+                </div>
+                <div class="nav-botoes">
+                    <a href="../index.html" class="btn_nav">Suporte</a>
+                </div>
+                <div class="nav-botoes">
+                    <a href="../index.html" class="btn_nav" id="sair">Sair</a>
+                </div>
+            </nav>
+    </div>
 </body>
 </html>
+
+<script src="../js/empresaRoot.js"></script>
