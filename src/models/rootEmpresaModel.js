@@ -13,7 +13,7 @@ function search(id, mensagem) {
 }
 
 function filtrar(id, selecionado) {
-  let instrucaoSql = `SELECT ${selecionado} AS 'Cargo' FROM Funcionario WHERE fkEmpresa = ${id}`;
+  let instrucaoSql = `SELECT ${selecionado} AS 'Cargo' FROM Funcionario WHERE fkEmpresa = ${id};`;
 
   return database.executar(instrucaoSql);
 }

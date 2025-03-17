@@ -51,8 +51,8 @@ function cadastrar() {
                     <span class="descricao-modal">Cargo:<span class="obrigatorio">*</span></span>
                     <select class="input-modal"id="ipt_cargo">
                         <option value="" selected disabled>Tipo</option>
-                        <option value="analista" >Analista de Infraestrutura</option>
-                        <option value="cientista" >Cientista de Dados</option>
+                        <option value="Analista de Infraestrutura" >Analista de Infraestrutura</option>
+                        <option value="Cientista de Dados" >Cientista de Dados</option>
                     </select>
                 </div>
             </div>

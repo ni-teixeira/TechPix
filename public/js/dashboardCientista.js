@@ -1,3 +1,5 @@
+const id = sessionStorage.ID_FUNCIONARIO;
+
 function carregarGraficos() {
     const graficoPizza = document.getElementById('pizza');
     const graficoBarra = document.getElementById('barra');
@@ -90,3 +92,7 @@ function carregarGraficos() {
     });
 }
 
+function carregarDados() {
+    carregarGraficos();
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+}
