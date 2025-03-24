@@ -89,9 +89,9 @@ INSERT INTO Funcionario (nome, email, senha, cargo, fkEmpresa) VALUES
 ('Gabriel Santos', 'gabriel.santos@hotmail.com', 'SenhaGabriel123@', 'CEO', 1),
 ('Guilherme Fonseca', 'guilherme.fonseca@yahoo.com', 'SenhaGuilherme123@', 'CEO', 1),
 ('Nicoly Teixeira', 'nicoly.teixeira@gmail.com', 'SenhaNicoly123@', 'CEO', 1),
-('Pedro Alcântara', 'pedro@gmail.com', 'SenhaBoa123#', 'Gestor', 2),
-('Rafael Sampaio', 'sampaio@hotmail.com', '#TesteSenh4', 'Analista de Infraestrutura', 2),
-('Maria Antônia', 'maria@yahoo.com', 'f@zsenhaL0g0', 'Ciêntista de Dados', 2),
+('Marilu Ramos', 'marilu@outlook.com', 'SenhaBoa123#', 'Gestor', 2),
+('Yuri Depay', 'yuri@gmail.com', '#TesteSenh4', 'Analista de Infraestrutura', 2),
+('Olivia Swift', 'olivia@outlook.com', 'f@zsenhaL0g0', 'Ciêntista de Dados', 2),
 ('Gabriella Pedrosa', 'gabriella@outlook.com', 'grubu100$', 'Gestor', 3);
 
 INSERT INTO Servidores VALUES
