@@ -64,11 +64,11 @@ Entregar uma solução de monitoramento automatizado de hardware para servidores
 - **Bibliotecas**: API Web Data Viz, Bibliotecas Python para análise de dados
 
 ## Equipe
-- Ariel Rocha
-- Caio Visconti
-- Gabriel de Oliveira Santos
-- Guilherme Fonseca 
-- Nicoly Teixeira 
+- Felipe Miguel
+- Gustavo Vieira 
+- Matheus Nocelli
+- Lara Soares
+- Vinicius Dias
 
 ## Status do Projeto
 Desenvolvimento ativo 
